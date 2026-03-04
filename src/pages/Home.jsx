@@ -149,7 +149,7 @@ export default function Home() {
 
         <div className="max-w-6xl mx-auto text-center mb-20">
           <h2 className="text-5xl font-black uppercase">
-            ¿Por qué rodar con nosotros?
+            ¿Por qué andar con nosotros?
           </h2>
         </div>
 
@@ -179,7 +179,7 @@ export default function Home() {
           <div>
             <h3 className="text-4xl font-black text-lime-400 mb-4">4.9★</h3>
             <p className="text-gray-400">
-              Calificación promedio de nuestros riders.
+              Calificación promedio de nuestros miembros.
             </p>
           </div>
 
@@ -203,7 +203,7 @@ export default function Home() {
 
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-3xl font-black text-lime-400">
-            Médanos del Sur
+            Médanos Blanco
           </h3>
           <span className="bg-lime-500 text-black px-4 py-1 rounded-full text-sm font-bold">
             Disponible
@@ -211,7 +211,7 @@ export default function Home() {
         </div>
 
         <p className="text-gray-400 mb-4">
-          📍 Pinamar
+          📍 Necochea
         </p>
 
         <p className="text-gray-400 mb-4">

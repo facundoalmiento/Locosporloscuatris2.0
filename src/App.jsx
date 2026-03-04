@@ -1,12 +1,17 @@
 import { Routes, Route, useLocation } from "react-router-dom"
 import { AnimatePresence, motion } from "framer-motion"
+import Travesia from "./pages/Travesia"
+
 import Navbar from "./components/Navbar"
+
 import Home from "./pages/Home"
 import Experiencias from "./pages/Experiencias"
+import Galeria from "./pages/Galeria"
 import Tienda from "./pages/Tienda"
 import Contacto from "./pages/Contacto"
 
 export default function App() {
+
   const location = useLocation()
 
   return (
@@ -14,7 +19,9 @@ export default function App() {
       <Navbar />
 
       <AnimatePresence mode="wait">
+
         <Routes location={location} key={location.pathname}>
+
           <Route
             path="/"
             element={
@@ -23,6 +30,7 @@ export default function App() {
               </PageWrapper>
             }
           />
+
           <Route
             path="/travesias"
             element={
@@ -32,6 +40,24 @@ export default function App() {
             }
           />
           <Route
+  path="/galeria/:id"
+  element={
+    <PageWrapper>
+      <Travesia />
+    </PageWrapper>
+  }
+/>
+
+          <Route
+            path="/galeria"
+            element={
+              <PageWrapper>
+                <Galeria />
+              </PageWrapper>
+            }
+          />
+
+          <Route
             path="/tienda"
             element={
               <PageWrapper>
@@ -39,6 +65,7 @@ export default function App() {
               </PageWrapper>
             }
           />
+
           <Route
             path="/contacto"
             element={
@@ -47,13 +74,16 @@ export default function App() {
               </PageWrapper>
             }
           />
+
         </Routes>
+
       </AnimatePresence>
     </>
   )
 }
 
 function PageWrapper({ children }) {
+
   return (
     <motion.div
       className="relative"
@@ -67,7 +97,8 @@ function PageWrapper({ children }) {
       }}
       transition={{ duration: 0.3 }}
     >
-      {/* Wipe overlay */}
+
+      {/* TRANSICIÓN VERDE */}
       <motion.div
         className="fixed top-0 left-0 w-full h-full bg-lime-500 z-[999]"
         initial={{ x: "-100%" }}
@@ -77,6 +108,7 @@ function PageWrapper({ children }) {
       />
 
       {children}
+
     </motion.div>
   )
 }
