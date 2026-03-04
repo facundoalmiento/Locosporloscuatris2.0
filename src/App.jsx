@@ -1,46 +1,82 @@
+import { Routes, Route, useLocation } from "react-router-dom"
+import { AnimatePresence, motion } from "framer-motion"
 import Navbar from "./components/Navbar"
+import Home from "./pages/Home"
+import Experiencias from "./pages/Experiencias"
+import Tienda from "./pages/Tienda"
+import Contacto from "./pages/Contacto"
 
 export default function App() {
+  const location = useLocation()
+
   return (
     <>
-      {/* NAVBAR */}
       <Navbar />
 
-      {/* HERO */}
-      <div className="relative h-screen w-full overflow-hidden">
-
-        {/* VIDEO BACKGROUND */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/video2.mp4" type="video/mp4" />
-        </video>
-
-        {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-black/60"></div>
-
-        {/* CONTENT */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
-
-          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-wide mb-6">
-            Locos por los Cuatris
-          </h1>
-
-          <p className="max-w-2xl text-lg md:text-xl text-gray-200 mb-8">
-            Travesías extremas en arena, barro y montaña.
-            Viví la experiencia real.
-          </p>
-
-          <button className="bg-lime-500 hover:bg-lime-400 text-black font-bold px-8 py-4 rounded-xl transition duration-300 shadow-xl">
-            Reservar Ahora
-          </button>
-
-        </div>
-      </div>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <PageWrapper>
+                <Home />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/travesias"
+            element={
+              <PageWrapper>
+                <Experiencias />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/tienda"
+            element={
+              <PageWrapper>
+                <Tienda />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/contacto"
+            element={
+              <PageWrapper>
+                <Contacto />
+              </PageWrapper>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
     </>
+  )
+}
+
+function PageWrapper({ children }) {
+  return (
+    <motion.div
+      className="relative"
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={{
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 }
+      }}
+      transition={{ duration: 0.3 }}
+    >
+      {/* Wipe overlay */}
+      <motion.div
+        className="fixed top-0 left-0 w-full h-full bg-lime-500 z-[999]"
+        initial={{ x: "-100%" }}
+        animate={{ x: "100%" }}
+        exit={{ x: "0%" }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+      />
+
+      {children}
+    </motion.div>
   )
 }
