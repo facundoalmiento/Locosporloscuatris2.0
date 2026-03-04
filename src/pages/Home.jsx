@@ -187,6 +187,95 @@ export default function Home() {
 
       </section>
 
+      {/* PRÓXIMAS TRAVESÍAS */}
+<section className="bg-black text-white py-32 px-8">
+
+  <div className="max-w-6xl mx-auto">
+
+    <h2 className="text-5xl font-black uppercase text-center mb-20">
+      Próximas Travesías
+    </h2>
+
+    <div className="grid md:grid-cols-2 gap-12">
+
+      {/* EVENTO 1 */}
+      <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-10 hover:border-lime-400 transition">
+
+        <div className="flex justify-between items-center mb-6">
+          <h3 className="text-3xl font-black text-lime-400">
+            Médanos del Sur
+          </h3>
+          <span className="bg-lime-500 text-black px-4 py-1 rounded-full text-sm font-bold">
+            Disponible
+          </span>
+        </div>
+
+        <p className="text-gray-400 mb-4">
+          📍 Pinamar
+        </p>
+
+        <p className="text-gray-400 mb-4">
+          🗓 24 Agosto 2026
+        </p>
+
+        <p className="text-gray-400 mb-6">
+          Cupos limitados a 20 riders.
+        </p>
+
+        <div className="flex justify-between items-center">
+          <span className="text-2xl font-bold">
+            $120 USD
+          </span>
+
+          <button className="bg-lime-500 hover:bg-lime-400 text-black font-bold px-6 py-3 rounded-xl transition">
+            Reservar
+          </button>
+        </div>
+
+      </div>
+
+      {/* EVENTO 2 */}
+      <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-10 hover:border-lime-400 transition">
+
+        <div className="flex justify-between items-center mb-6">
+          <h3 className="text-3xl font-black text-lime-400">
+            Ruta del Barro
+          </h3>
+          <span className="bg-yellow-500 text-black px-4 py-1 rounded-full text-sm font-bold">
+            Últimos Cupos
+          </span>
+        </div>
+
+        <p className="text-gray-400 mb-4">
+          📍 Entre Ríos
+        </p>
+
+        <p className="text-gray-400 mb-4">
+          🗓 15 Septiembre 2026
+        </p>
+
+        <p className="text-gray-400 mb-6">
+          Solo quedan 4 lugares disponibles.
+        </p>
+
+        <div className="flex justify-between items-center">
+          <span className="text-2xl font-bold">
+            $140 USD
+          </span>
+
+          <button className="bg-lime-500 hover:bg-lime-400 text-black font-bold px-6 py-3 rounded-xl transition">
+            Reservar
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
       {/* CTA FINAL */}
       <section className="bg-black text-white py-32 px-6 text-center">
 
