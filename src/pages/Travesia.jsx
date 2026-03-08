@@ -1,5 +1,4 @@
-import { useParams } from "react-router-dom"
-import { useState } from "react"
+import { useParams, Link } from "react-router-dom"
 import { travesias } from "../data/travesias"
 
 export default function Travesia() {
@@ -8,57 +7,50 @@ export default function Travesia() {
 
   const travesia = travesias.find((t) => t.id === id)
 
-  const [imagenActiva, setImagenActiva] = useState(null)
-
-  if (!travesia) return <div className="text-white">Travesía no encontrada</div>
+  if (!travesia) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        Travesía no encontrada
+      </div>
+    )
+  }
 
   return (
-    <div className="bg-black text-white min-h-screen py-32 px-8">
+    <div className="min-h-screen bg-black text-white pt-28 px-6">
 
       <div className="max-w-7xl mx-auto">
 
-        <h1 className="text-5xl font-black uppercase mb-16">
+        <Link
+          to="/galeria"
+          className="text-lime-400 mb-8 inline-block hover:underline"
+        >
+          ← Volver a galería
+        </Link>
+
+        <h1 className="text-5xl font-black mb-4">
           {travesia.titulo}
         </h1>
+
+        <p className="text-zinc-400 mb-12">
+          {travesia.fecha}
+        </p>
 
         <div className="grid md:grid-cols-3 gap-6">
 
           {travesia.fotos.map((foto, index) => (
 
-            <div
+            <img
               key={index}
-              onClick={() => setImagenActiva(foto)}
-              className="cursor-pointer overflow-hidden rounded-xl"
-            >
-
-              <img
-                src={foto}
-                className="w-full h-80 object-cover hover:scale-110 transition duration-500"
-              />
-
-            </div>
+              src={foto}
+              alt={`${travesia.titulo} ${index}`}
+              className="rounded-xl object-cover w-full h-72 hover:scale-105 transition"
+            />
 
           ))}
 
         </div>
 
       </div>
-
-      {imagenActiva && (
-
-        <div
-          onClick={() => setImagenActiva(null)}
-          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
-        >
-
-          <img
-            src={imagenActiva}
-            className="max-h-[90vh] max-w-[90vw]"
-          />
-
-        </div>
-
-      )}
 
     </div>
   )

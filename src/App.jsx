@@ -1,14 +1,15 @@
 import { Routes, Route, useLocation } from "react-router-dom"
 import { AnimatePresence, motion } from "framer-motion"
-import Travesia from "./pages/Travesia"
+import { lazy, Suspense } from "react"
 
 import Navbar from "./components/Navbar"
 
-import Home from "./pages/Home"
-import Experiencias from "./pages/Experiencias"
-import Galeria from "./pages/Galeria"
-import Tienda from "./pages/Tienda"
-import Contacto from "./pages/Contacto"
+const Home = lazy(() => import("./pages/Home"))
+const Experiencias = lazy(() => import("./pages/Experiencias"))
+const Galeria = lazy(() => import("./pages/Galeria"))
+const Travesia = lazy(() => import("./pages/Travesia"))
+const Tienda = lazy(() => import("./pages/Tienda"))
+const Contacto = lazy(() => import("./pages/Contacto"))
 
 export default function App() {
 
@@ -18,66 +19,77 @@ export default function App() {
     <>
       <Navbar />
 
-      <AnimatePresence mode="wait">
+      <Suspense
+        fallback={
+          <div className="flex items-center justify-center h-screen text-white">
+            Cargando aventura...
+          </div>
+        }
+      >
 
-        <Routes location={location} key={location.pathname}>
+        <AnimatePresence mode="wait">
 
-          <Route
-            path="/"
-            element={
-              <PageWrapper>
-                <Home />
-              </PageWrapper>
-            }
-          />
+          <Routes location={location} key={location.pathname}>
 
-          <Route
-            path="/travesias"
-            element={
-              <PageWrapper>
-                <Experiencias />
-              </PageWrapper>
-            }
-          />
-          <Route
-  path="/galeria/:id"
-  element={
-    <PageWrapper>
-      <Travesia />
-    </PageWrapper>
-  }
-/>
+            <Route
+              path="/"
+              element={
+                <PageWrapper>
+                  <Home />
+                </PageWrapper>
+              }
+            />
 
-          <Route
-            path="/galeria"
-            element={
-              <PageWrapper>
-                <Galeria />
-              </PageWrapper>
-            }
-          />
+            <Route
+              path="/travesias"
+              element={
+                <PageWrapper>
+                  <Experiencias />
+                </PageWrapper>
+              }
+            />
 
-          <Route
-            path="/tienda"
-            element={
-              <PageWrapper>
-                <Tienda />
-              </PageWrapper>
-            }
-          />
+            <Route
+              path="/galeria"
+              element={
+                <PageWrapper>
+                  <Galeria />
+                </PageWrapper>
+              }
+            />
 
-          <Route
-            path="/contacto"
-            element={
-              <PageWrapper>
-                <Contacto />
-              </PageWrapper>
-            }
-          />
+            <Route
+              path="/galeria/:id"
+              element={
+                <PageWrapper>
+                  <Travesia />
+                </PageWrapper>
+              }
+            />
 
-        </Routes>
+            <Route
+              path="/tienda"
+              element={
+                <PageWrapper>
+                  <Tienda />
+                </PageWrapper>
+              }
+            />
 
-      </AnimatePresence>
+            <Route
+              path="/contacto"
+              element={
+                <PageWrapper>
+                  <Contacto />
+                </PageWrapper>
+              }
+            />
+
+          </Routes>
+
+        </AnimatePresence>
+
+      </Suspense>
     </>
   )
 }
@@ -86,19 +98,13 @@ function PageWrapper({ children }) {
 
   return (
     <motion.div
-      className="relative"
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={{
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-        exit: { opacity: 0 }
-      }}
+      className="relative min-h-screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
 
-      {/* TRANSICIÓN VERDE */}
       <motion.div
         className="fixed top-0 left-0 w-full h-full bg-lime-500 z-[999]"
         initial={{ x: "-100%" }}
