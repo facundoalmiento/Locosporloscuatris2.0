@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { lazy, Suspense } from "react"
 
 import Navbar from "./components/Navbar"
+import MascotaPeeker from "./components/MascotaPeeker" // 👈 NUEVO
 
 const Home = lazy(() => import("./pages/Home"))
 const Experiencias = lazy(() => import("./pages/Experiencias"))
@@ -12,12 +13,14 @@ const Tienda = lazy(() => import("./pages/Tienda"))
 const Contacto = lazy(() => import("./pages/Contacto"))
 
 export default function App() {
-
   const location = useLocation()
 
   return (
     <>
       <Navbar />
+
+      {/* 🐀 Mascota global */}
+      <MascotaPeeker />
 
       <Suspense
         fallback={
@@ -26,9 +29,7 @@ export default function App() {
           </div>
         }
       >
-
         <AnimatePresence mode="wait">
-
           <Routes location={location} key={location.pathname}>
 
             <Route
@@ -86,16 +87,13 @@ export default function App() {
             />
 
           </Routes>
-
         </AnimatePresence>
-
       </Suspense>
     </>
   )
 }
 
 function PageWrapper({ children }) {
-
   return (
     <motion.div
       className="relative min-h-screen"
@@ -105,6 +103,7 @@ function PageWrapper({ children }) {
       transition={{ duration: 0.3 }}
     >
 
+      {/* 🟢 Transición tipo wipe */}
       <motion.div
         className="fixed top-0 left-0 w-full h-full bg-lime-500 z-[999]"
         initial={{ x: "-100%" }}

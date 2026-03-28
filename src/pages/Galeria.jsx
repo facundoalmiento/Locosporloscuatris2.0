@@ -20,9 +20,11 @@ export default function Galeria() {
           Galería <span className="text-lime-400">Off-Road</span>
         </h1>
 
+        {/* FILTROS */}
+
         <div className="flex justify-center gap-4 mb-16 flex-wrap">
 
-          {["Todas", "Arena", "Barro", "Nieve","Solidaria"].map((tipo) => (
+          {["todas", "arena", "barro", "nieve", "solidaria"].map((tipo) => (
 
             <button
               key={tipo}
@@ -33,45 +35,57 @@ export default function Galeria() {
                   : "border-zinc-600 hover:border-lime-400"
               }`}
             >
-              {tipo}
+              {tipo.charAt(0).toUpperCase() + tipo.slice(1)}
             </button>
 
           ))}
 
         </div>
 
+        {/* GRID DE ALBUMES */}
+
         <div className="grid md:grid-cols-3 gap-10">
 
-          {filtradas.map((t) => (
+          {filtradas.length > 0 ? (
 
-            <Link
-              key={t.id}
-              to={`/galeria/${t.id}`}
-              className="group relative overflow-hidden rounded-2xl h-80"
-            >
+            filtradas.map((t) => (
 
-              <div
-                className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition duration-700"
-                style={{ backgroundImage: `url(${t.portada})` }}
-              />
+              <Link
+                key={t.id}
+                to={`/galeria/${t.id}`}
+                className="group relative overflow-hidden rounded-2xl h-80"
+              >
 
-              <div className="absolute inset-0 bg-black/40" />
+                <div
+                  className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition duration-700"
+                  style={{ backgroundImage: `url(${t.portada})` }}
+                />
 
-              <div className="relative z-10 h-full flex flex-col justify-end p-6">
+                <div className="absolute inset-0 bg-black/40" />
 
-                <h3 className="text-2xl font-bold">
-                  {t.titulo}
-                </h3>
+                <div className="relative z-10 h-full flex flex-col justify-end p-6">
 
-                <p className="text-sm text-zinc-300">
-                  {t.fecha}
-                </p>
+                  <h3 className="text-2xl font-bold">
+                    {t.titulo}
+                  </h3>
 
-              </div>
+                  <p className="text-sm text-zinc-300">
+                    {t.fecha}
+                  </p>
 
-            </Link>
+                </div>
 
-          ))}
+              </Link>
+
+            ))
+
+          ) : (
+
+            <div className="col-span-full text-center text-zinc-400">
+              No hay travesías para este filtro
+            </div>
+
+          )}
 
         </div>
 

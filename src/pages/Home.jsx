@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Home() {
   return (
     <>
@@ -7,7 +9,7 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center w-full">
 
-          {/* TEXTO IZQUIERDA */}
+          {/* TEXTO */}
           <div>
 
             <p className="text-lime-400 font-bold tracking-widest uppercase mb-4">
@@ -28,13 +30,19 @@ export default function Home() {
 
             <div className="flex gap-4">
 
-              <button className="bg-lime-500 hover:bg-lime-400 text-black font-bold px-10 py-5 rounded-xl transition duration-300 shadow-xl">
+              <Link
+                to="/travesias"
+                className="bg-lime-500 hover:bg-lime-400 text-black font-bold px-10 py-5 rounded-xl transition duration-300 shadow-xl"
+              >
                 Reservar Ahora
-              </button>
+              </Link>
 
-              <button className="border border-gray-600 hover:border-lime-400 px-10 py-5 rounded-xl transition duration-300">
-                Ver Travesías
-              </button>
+              <Link
+                to="/galeria"
+                className="border border-gray-600 hover:border-lime-400 px-10 py-5 rounded-xl transition duration-300"
+              >
+                Ver Aventuras
+              </Link>
 
             </div>
 
@@ -57,7 +65,7 @@ export default function Home() {
       </div>
 
 
-      {/* SEPARADOR INCLINADO */}
+      {/* SEPARADOR */}
       <div className="relative h-32 bg-black overflow-hidden">
         <div className="absolute inset-0 bg-lime-500 skew-y-3 transform origin-top-left"></div>
       </div>
@@ -135,9 +143,23 @@ export default function Home() {
                   Ideal para quienes quieren sentir el poder real del cuatri.
                 </p>
 
-                <button className="border border-lime-400 text-lime-400 px-8 py-3 rounded-xl hover:bg-lime-400 hover:text-black transition">
-                  Ver Detalles
-                </button>
+                <div className="flex gap-4">
+
+                  <Link
+                    to="/galeria"
+                    className="border border-lime-400 text-lime-400 px-8 py-3 rounded-xl hover:bg-lime-400 hover:text-black transition"
+                  >
+                    Ver Aventuras
+                  </Link>
+
+                  <Link
+                    to="/travesias"
+                    className="bg-lime-500 text-black px-8 py-3 rounded-xl font-semibold hover:bg-lime-400 transition"
+                  >
+                    Reservar
+                  </Link>
+
+                </div>
 
               </div>
 
@@ -158,9 +180,23 @@ export default function Home() {
                   La experiencia más intensa del off-road.
                 </p>
 
-                <button className="border border-lime-400 text-lime-400 px-8 py-3 rounded-xl hover:bg-lime-400 hover:text-black transition">
-                  Ver Detalles
-                </button>
+                <div className="flex gap-4">
+
+                  <Link
+                    to="/galeria"
+                    className="border border-lime-400 text-lime-400 px-8 py-3 rounded-xl hover:bg-lime-400 hover:text-black transition"
+                  >
+                    Ver Aventuras
+                  </Link>
+
+                  <Link
+                    to="/travesias"
+                    className="bg-lime-500 text-black px-8 py-3 rounded-xl font-semibold hover:bg-lime-400 transition"
+                  >
+                    Reservar
+                  </Link>
+
+                </div>
 
               </div>
 
@@ -201,9 +237,23 @@ export default function Home() {
                   Una travesía diferente, única y brutal.
                 </p>
 
-                <button className="border border-lime-400 text-lime-400 px-8 py-3 rounded-xl hover:bg-lime-400 hover:text-black transition">
-                  Ver Detalles
-                </button>
+                <div className="flex gap-4">
+
+                  <Link
+                    to="/galeria"
+                    className="border border-lime-400 text-lime-400 px-8 py-3 rounded-xl hover:bg-lime-400 hover:text-black transition"
+                  >
+                    Ver Aventuras
+                  </Link>
+
+                  <Link
+                    to="/travesias"
+                    className="bg-lime-500 text-black px-8 py-3 rounded-xl font-semibold hover:bg-lime-400 transition"
+                  >
+                    Reservar
+                  </Link>
+
+                </div>
 
               </div>
 
@@ -230,9 +280,12 @@ export default function Home() {
             más extrema del off-road.
           </p>
 
-          <button className="bg-lime-500 hover:bg-lime-400 text-black font-bold px-10 py-5 rounded-xl transition duration-300 shadow-2xl text-lg">
+          <Link
+            to="/travesias"
+            className="bg-lime-500 hover:bg-lime-400 text-black font-bold px-10 py-5 rounded-xl transition duration-300 shadow-2xl text-lg inline-block"
+          >
             Reservar mi Travesía
-          </button>
+          </Link>
 
         </div>
 
