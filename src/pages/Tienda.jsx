@@ -12,7 +12,7 @@ const categorias = [
 
 const metricas = [
   { valor: "5", etiqueta: "productos curados" },
-  { valor: "4", etiqueta: "categorias clave" },
+  { valor: "4", etiqueta: "categorías clave" },
   { valor: "24/7", etiqueta: "modo off-road" }
 ]
 
@@ -42,10 +42,10 @@ export default function Tienda() {
         <section className="mb-12 grid gap-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:mb-16 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-12">
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Tienda</p>
-            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Equipamiento con ADN de travesia.</h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">Una seleccion chica, directa y con actitud. Aca ves equipo pensado para arena, barro, frio y jornadas largas de manejo real.</p>
+            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Equipamiento con ADN de travesía.</h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">Una selección chica, directa y con actitud. Acá ves equipo pensado para arena, barro, frío y jornadas largas de manejo real.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <a href="#catalogo" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Ver catalogo</a>
+              <a href="#catalogo" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Ver catálogo</a>
               <a href="/contacto" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-7">Consultar stock</a>
             </div>
           </div>
@@ -80,8 +80,8 @@ export default function Tienda() {
         <section id="catalogo" className="pb-20">
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Catalogo</p>
-              <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Arma tu setup off-road</h2>
+              <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Catálogo</p>
+              <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Armá tu setup off-road</h2>
             </div>
             <div className="flex flex-wrap gap-2 sm:gap-3">
               {categorias.map((categoria) => (
@@ -126,7 +126,7 @@ export default function Tienda() {
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">{productoActivo.categoria}</p>
                 <h2 className="mt-4 text-3xl font-black uppercase leading-none text-white sm:text-4xl">{productoActivo.nombre}</h2>
-                <p className="mt-6 text-base leading-relaxed text-zinc-300">{productoActivo.descripcion} Si queres, podes consultarlo por WhatsApp y seguir la compra o la reserva del producto desde ahi.</p>
+                <p className="mt-6 text-base leading-relaxed text-zinc-300">{productoActivo.descripcion} Si querés, podés consultarlo por WhatsApp y seguir la compra o la reserva del producto desde ahí.</p>
                 <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
                   <div className="text-xs font-semibold uppercase tracking-[0.25em] text-zinc-500">Precio</div>
                   <div className="mt-2 text-3xl font-black text-lime-400 sm:text-4xl">{productoActivo.precio}</div>

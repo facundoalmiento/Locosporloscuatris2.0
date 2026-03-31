@@ -5,9 +5,9 @@ export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false)
 
   const links = [
-    { to: "/travesias", label: "Travesias" },
+    { to: "/travesias", label: "Travesías" },
     { to: "/tienda", label: "Tienda" },
-    { to: "/galeria", label: "Galeria" },
+    { to: "/galeria", label: "Galería" },
     { to: "/contacto", label: "Contacto" }
   ]
 
@@ -46,7 +46,7 @@ export default function Navbar() {
           <button
             className="flex flex-col gap-1.5 rounded-md p-1 md:hidden"
             onClick={() => setMenuAbierto(!menuAbierto)}
-            aria-label="Abrir menu"
+            aria-label="Abrir menú"
           >
             <span
               className={`block h-0.5 w-6 bg-white transition-all duration-300 ${

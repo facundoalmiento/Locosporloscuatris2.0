@@ -12,7 +12,7 @@ const filtros = [
 ]
 
 const metricas = [
-  { valor: `${travesias.length}`, etiqueta: "albumes activos" },
+  { valor: `${travesias.length}`, etiqueta: "álbumes activos" },
   { valor: "4", etiqueta: "tipos de terreno" },
   { valor: "+100", etiqueta: "momentos para abrir" }
 ]
@@ -27,12 +27,12 @@ export default function Galeria() {
       <div className="mx-auto max-w-7xl">
         <section className="mb-12 grid gap-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:mb-16 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-12">
           <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Galeria</p>
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Galería</p>
             <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Cada salida merece verse con el mismo peso que se vive.</h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">Acceso directo a cada album.</p>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">Acceso directo a cada álbum.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
               <Link to={destacada ? `/galeria/${destacada.id}` : "/galeria"} className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Abrir destacada</Link>
-              <Link to="/travesias" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-7">Ver travesias</Link>
+              <Link to="/travesias" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-7">Ver travesías</Link>
             </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
@@ -52,11 +52,11 @@ export default function Galeria() {
               <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-transparent" />
             </div>
             <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
-              <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Album destacado</p>
+              <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Álbum destacado</p>
               <h2 className="mt-4 text-3xl font-black uppercase leading-none sm:text-4xl">{destacada.titulo}</h2>
               <p className="mt-3 text-sm font-semibold uppercase tracking-[0.25em] text-zinc-400">{destacada.fecha}</p>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">Un acceso rapido al album que mejor representa.</p>
-              <div className="mt-8"><Link to={`/galeria/${destacada.id}`} className="inline-flex rounded-2xl bg-white px-6 py-3 font-bold text-black transition hover:bg-lime-300">Ver album completo</Link></div>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">Un acceso rápido al álbum que mejor nos representa.</p>
+              <div className="mt-8"><Link to={`/galeria/${destacada.id}`} className="inline-flex rounded-2xl bg-white px-6 py-3 font-bold text-black transition hover:bg-lime-300">Ver álbum completo</Link></div>
             </div>
           </div>
         </section>
@@ -65,7 +65,7 @@ export default function Galeria() {
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Filtros</p>
-              <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Elegi el terreno y entra al album</h2>
+              <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Elegí el terreno y entrá al álbum</h2>
             </div>
             <div className="flex flex-wrap gap-2 sm:gap-3">
               {filtros.map((tipo) => (
@@ -88,13 +88,13 @@ export default function Galeria() {
                     <h3 className="mt-3 text-xl font-black uppercase text-white sm:text-2xl">{travesia.titulo}</h3>
                     <div className="mt-6 flex flex-col items-start gap-2 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
                       <span className="text-sm text-zinc-400">{travesia.fotos.length} fotos</span>
-                      <span className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-200">Abrir album</span>
+                      <span className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-200">Ver álbum</span>
                     </div>
                   </div>
                 </Link>
               ))
             ) : (
-              <div className="col-span-full rounded-[2rem] border border-white/10 bg-black/30 p-10 text-center text-zinc-400">No hay travesias para este filtro.</div>
+              <div className="col-span-full rounded-[2rem] border border-white/10 bg-black/30 p-10 text-center text-zinc-400">No hay travesías para este filtro.</div>
             )}
           </div>
         </section>

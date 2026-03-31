@@ -22,7 +22,7 @@ export default function Travesia() {
   }, [fotoActiva, travesia])
 
   if (!travesia) {
-    return <div className="flex min-h-screen items-center justify-center bg-black text-white">Travesia no encontrada</div>
+    return <div className="flex min-h-screen items-center justify-center bg-black text-white">Travesía no encontrada</div>
   }
 
   return (
@@ -35,11 +35,11 @@ export default function Travesia() {
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
             </div>
             <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
-              <Link to="/galeria" className="inline-flex text-sm font-semibold uppercase tracking-[0.22em] text-lime-400 transition hover:text-lime-300">Volver a galeria</Link>
-              <p className="mt-6 text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Album</p>
+              <Link to="/galeria" className="inline-flex text-sm font-semibold uppercase tracking-[0.22em] text-lime-400 transition hover:text-lime-300">Volver a galería</Link>
+              <p className="mt-6 text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Álbum</p>
               <h1 className="mt-4 text-3xl font-black uppercase leading-none sm:text-4xl md:text-5xl">{travesia.titulo}</h1>
               <p className="mt-4 text-sm font-semibold uppercase tracking-[0.25em] text-zinc-400">{travesia.fecha}</p>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">Un recorrido para abrir foto por foto, con una entrada visual mas fuerte y el mismo tono editorial que ya tienen las otras secciones del sitio.</p>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">Un recorrido para abrir foto por foto, con una entrada visual más fuerte y el mismo tono editorial que ya tienen las otras secciones del sitio.</p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-200">{travesia.tipo}</div>
                 <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-200">{travesia.fotos.length} fotos</div>

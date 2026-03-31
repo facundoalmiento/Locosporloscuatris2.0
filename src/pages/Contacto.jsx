@@ -5,9 +5,9 @@ const metricas = [
 ]
 
 const canales = [
-  { titulo: "WhatsApp", descripcion: "Coordina la salida, consulta cupos o pedi info rapida.", dato: "+54 9 221 XXX XXXX" },
-  { titulo: "Instagram", descripcion: "Seguinos para ver travesias, fotos y novedades del grupo.", dato: "@locosporloscuatris" },
-  { titulo: "Ubicacion", descripcion: "Base operativa y punto de encuentro segun cada salida.", dato: "Buenos Aires, Argentina" }
+  { titulo: "WhatsApp", descripcion: "Coordiná la salida, consultá cupos o pedí info rápida.", dato: "+54 9 221 XXX XXXX" },
+  { titulo: "Instagram", descripcion: "Seguinos para ver travesías, fotos y novedades del grupo.", dato: "@locosporloscuatris" },
+  { titulo: "Ubicación", descripcion: "Base operativa y punto de encuentro según cada salida.", dato: "Buenos Aires, Argentina" }
 ]
 
 export default function Contacto() {
@@ -17,8 +17,8 @@ export default function Contacto() {
         <section className="mb-12 grid gap-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:mb-16 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-12">
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Contacto</p>
-            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Si queres sumarte, no dudes en escribirnos.</h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">Consultas por travesias, equipo, proximas salidas o reservas. La idea fue llevar esta pagina al mismo tono del resto: mas clara, mas fuerte y mas util.</p>
+            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Si querés sumarte, no dudes en escribirnos.</h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">Consultas por travesías, equipo, próximas salidas o reservas.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
               <a href="#formulario" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Escribir mensaje</a>
               <a href="https://wa.me/" target="_blank" rel="noreferrer" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-7">Abrir WhatsApp</a>
@@ -42,8 +42,8 @@ export default function Contacto() {
             </div>
             <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Primer contacto</p>
-              <h2 className="mt-4 text-3xl font-black uppercase leading-none sm:text-4xl">Reserva, consulta o arma tu proxima salida.</h2>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">Desde aca podes dejar un mensaje y seguir por el canal que mas te sirva. La experiencia empieza antes del primer kilometro.</p>
+              <h2 className="mt-4 text-3xl font-black uppercase leading-none sm:text-4xl">Reservá, consultá o preparate para tu próxima salida.</h2>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">Desde acá podés dejarnos un mensaje y seguir por el canal que más te sirva.</p>
             </div>
           </div>
         </section>
@@ -52,7 +52,7 @@ export default function Contacto() {
           <article className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 sm:p-8">
             <div className="mb-6">
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Canales</p>
-              <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl">Elegi como queres hablar</h2>
+              <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl">Elegí cómo querés hablar</h2>
             </div>
             <div className="space-y-4">
               {canales.map((canal) => (
@@ -67,7 +67,7 @@ export default function Contacto() {
           <article id="formulario" className="rounded-[2rem] border border-white/10 bg-black/40 p-6 sm:p-8">
             <div className="mb-6">
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Formulario</p>
-              <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl">Contanos que necesitas</h2>
+              <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl">Contanos qué necesitás</h2>
             </div>
             <form className="space-y-5">
               <div>
@@ -80,7 +80,7 @@ export default function Contacto() {
               </div>
               <div>
                 <label className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-400">Mensaje</label>
-                <textarea rows="5" placeholder="Contanos que travesia te interesa, si queres reservar o si necesitas info de equipo." className="mt-2 w-full rounded-2xl border border-white/10 bg-zinc-950 px-4 py-3 text-white transition focus:border-lime-400 focus:outline-none" />
+                <textarea rows="5" placeholder="Contanos qué travesía te interesa, si querés reservar o si necesitás info de equipo." className="mt-2 w-full rounded-2xl border border-white/10 bg-zinc-950 px-4 py-3 text-white transition focus:border-lime-400 focus:outline-none" />
               </div>
               <button type="submit" className="w-full rounded-2xl bg-lime-400 py-3 font-bold text-black transition hover:bg-lime-300">Enviar mensaje</button>
             </form>

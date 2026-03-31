@@ -3,10 +3,10 @@ import { Link } from "react-router-dom"
 import { travesias } from "../data/travesias"
 
 const tipos = [
-  { id: "arena", titulo: "Arena", subtitulo: "Velocidad, dunas y maniobra fina", descripcion: "Medanos abiertos, cambios de ritmo y una conduccion que mezcla adrenalina con control total.", destacado: "Ideal para arrancar fuerte", color: "from-amber-300 via-orange-400 to-orange-600" },
-  { id: "barro", titulo: "Barro", subtitulo: "Traccion, tecnica y caos del bueno", descripcion: "Huella pesada, salpicaduras y terreno vivo. Aca no gana el mas rapido: gana el que mejor lee el piso.", destacado: "La mas intensa del circuito", color: "from-stone-300 via-lime-400 to-lime-600" },
-  { id: "nieve", titulo: "Nieve", subtitulo: "Frio, montana y paisaje bruto", descripcion: "Travesias mas exigentes, con clima extremo y una sensacion de aventura total en cada tramo.", destacado: "La experiencia mas salvaje", color: "from-sky-200 via-cyan-300 to-blue-500" },
-  { id: "solidaria", titulo: "Solidaria", subtitulo: "Camino, comunidad y proposito", descripcion: "Salidas con espiritu de grupo, recorrido largo y una energia distinta que mezcla aventura con encuentro.", destacado: "Para vivirla con el equipo", color: "from-lime-200 via-lime-400 to-emerald-500" }
+  { id: "arena", titulo: "Arena", subtitulo: "Velocidad, médanos y maniobra fina", descripcion: "Médanos abiertos, cambios de ritmo y una conducción que mezcla adrenalina con control total.", destacado: "Ideal para arrancar fuerte", color: "from-amber-300 via-orange-400 to-orange-600" },
+  { id: "barro", titulo: "Barro", subtitulo: "Tracción, técnica y barro del bueno", descripcion: "Huella pesada, barro y terreno vivo. Acá no gana el más rápido: gana el que mejor lee el piso.", destacado: "La más intensa del circuito", color: "from-stone-300 via-lime-400 to-lime-600" },
+  { id: "nieve", titulo: "Nieve", subtitulo: "Frío, montaña y paisaje bruto", descripcion: "Travesías más exigentes, con clima extremo y una sensación de aventura total en cada tramo.", destacado: "La experiencia más salvaje", color: "from-sky-200 via-cyan-300 to-blue-500" },
+  { id: "solidaria", titulo: "Solidaria", subtitulo: "Camino, comunidad y propósito", descripcion: "Salidas con espíritu solidario de grupo, recorrido largo y una energía distinta que mezcla aventura con ayudar.", destacado: "Para vivirla con el equipo", color: "from-lime-200 via-lime-400 to-emerald-500" }
 ]
 
 const metricas = [
@@ -28,12 +28,12 @@ export default function Experiencias() {
       <div className="mx-auto max-w-7xl">
         <section className="mb-12 grid gap-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:mb-16 sm:p-8 lg:grid-cols-[1.3fr_0.7fr] lg:p-12">
           <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Travesias</p>
-            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Elegi terreno. El resto lo hace la aventura.</h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">No vendemos un paseo. Armamos salidas con caracter, paisaje y una identidad distinta segun el terreno.</p>
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Travesías</p>
+            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Elegí terreno. El resto lo hacemos nosotros.</h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">No vendemos un paseo. Armamos salidas con carácter, paisaje e identidad distinta según el terreno.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link to="/galeria" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Ver galerias</Link>
-              <Link to="/contacto" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-7">Consultar proxima salida</Link>
+              <Link to="/galeria" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Ver galerías</Link>
+              <Link to="/contacto" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-7">Consultar próxima salida</Link>
             </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
@@ -61,8 +61,8 @@ export default function Experiencias() {
                 </div>
                 <div>
                   <div className="mb-4 flex flex-col gap-2 border-t border-white/10 pt-5 text-sm text-zinc-300 sm:flex-row sm:items-center sm:justify-between">
-                    <span>{tipo.cantidad} albumes disponibles</span>
-                    <span className="font-semibold text-white">{tipo.travesiaDestacada?.fecha ?? "Proximamente"}</span>
+                    <span>{tipo.cantidad} álbumes disponibles</span>
+                    <span className="font-semibold text-white">{tipo.travesiaDestacada?.fecha ?? "Próximamente"}</span>
                   </div>
                   <Link to="/galeria" className="inline-flex rounded-2xl bg-white px-5 py-3 font-bold text-black transition hover:bg-lime-300">Explorar {tipo.titulo}</Link>
                 </div>
@@ -75,7 +75,7 @@ export default function Experiencias() {
           <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Destacadas</p>
-              <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Algunas salidas que marcan el tono</h2>
+              <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Algunas salidas que representan la experiencia.</h2>
             </div>
             <Link to="/galeria" className="text-sm font-semibold uppercase tracking-[0.25em] text-zinc-300 transition hover:text-lime-300">Ver todo</Link>
           </div>
@@ -88,7 +88,7 @@ export default function Experiencias() {
                 <div className="p-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-lime-400">{travesia.fecha}</p>
                   <h3 className="mt-3 text-xl font-black uppercase text-white sm:text-2xl">{travesia.titulo}</h3>
-                  <p className="mt-4 text-sm text-zinc-400">Entra a ver la cobertura completa y abre cada foto en grande.</p>
+                  <p className="mt-4 text-sm text-zinc-400">Entrá a ver la cobertura completa y abrí cada foto en grande.</p>
                 </div>
               </Link>
             ))}
