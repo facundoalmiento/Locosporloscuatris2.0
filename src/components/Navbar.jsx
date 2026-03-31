@@ -2,85 +2,90 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 
 export default function Navbar() {
-
   const [menuAbierto, setMenuAbierto] = useState(false)
 
   const links = [
-    { to: "/travesias", label: "Travesías" },
+    { to: "/travesias", label: "Travesias" },
     { to: "/tienda", label: "Tienda" },
-    { to: "/galeria", label: "Galería" },
-    { to: "/contacto", label: "Contacto" },
+    { to: "/galeria", label: "Galeria" },
+    { to: "/contacto", label: "Contacto" }
   ]
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-md text-white">
-
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
-        {/* LOGO */}
-        <Link to="/" className="text-2xl font-bold" onClick={() => setMenuAbierto(false)}>
+    <nav className="fixed top-0 left-0 z-50 w-full bg-black/50 text-white backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
+        <Link
+          to="/"
+          className="text-xl font-bold sm:text-2xl"
+          onClick={() => setMenuAbierto(false)}
+        >
           LPLC<span className="text-lime-400">2.0</span>
         </Link>
 
-        {/* LINKS DESKTOP */}
-        <div className="hidden md:flex gap-10 font-semibold uppercase text-sm tracking-wide">
+        <div className="hidden gap-10 text-sm font-semibold uppercase tracking-wide md:flex">
           {links.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className="hover:text-lime-400 transition"
+              className="transition hover:text-lime-400"
             >
               {link.label}
             </Link>
           ))}
         </div>
 
-        {/* DERECHA: botón reservar + hamburguesa */}
-        <div className="flex items-center gap-4">
-
-          <button className="bg-lime-500 text-black px-6 py-2 rounded-lg font-bold hover:bg-lime-400 transition">
+        <div className="flex items-center gap-3">
+          <Link
+            to="/contacto"
+            className="hidden rounded-lg bg-lime-500 px-4 py-2 text-sm font-bold text-black transition hover:bg-lime-400 sm:inline-flex"
+            onClick={() => setMenuAbierto(false)}
+          >
             Reservar
-          </button>
+          </Link>
 
-          {/* HAMBURGUESA — solo en mobile */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-1"
+            className="flex flex-col gap-1.5 rounded-md p-1 md:hidden"
             onClick={() => setMenuAbierto(!menuAbierto)}
-            aria-label="Abrir menú"
+            aria-label="Abrir menu"
           >
             <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuAbierto ? "rotate-45 translate-y-2" : ""
+              className={`block h-0.5 w-6 bg-white transition-all duration-300 ${
+                menuAbierto ? "translate-y-2 rotate-45" : ""
               }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              className={`block h-0.5 w-6 bg-white transition-all duration-300 ${
                 menuAbierto ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuAbierto ? "-rotate-45 -translate-y-2" : ""
+              className={`block h-0.5 w-6 bg-white transition-all duration-300 ${
+                menuAbierto ? "-translate-y-2 -rotate-45" : ""
               }`}
             />
           </button>
-
         </div>
-
       </div>
 
-      {/* MENÚ MOBILE */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          menuAbierto ? "max-h-64" : "max-h-0"
+        className={`overflow-hidden transition-all duration-300 md:hidden ${
+          menuAbierto ? "max-h-80" : "max-h-0"
         }`}
       >
-        <div className="flex flex-col px-6 pb-6 gap-4 font-semibold uppercase text-sm tracking-wide border-t border-white/10 pt-4">
+        <div className="flex flex-col gap-4 border-t border-white/10 px-4 pt-4 pb-6 text-sm font-semibold uppercase tracking-wide">
+          <Link
+            to="/contacto"
+            className="rounded-lg bg-lime-500 px-4 py-3 text-center font-bold text-black transition hover:bg-lime-400"
+            onClick={() => setMenuAbierto(false)}
+          >
+            Reservar
+          </Link>
+
           {links.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className="hover:text-lime-400 transition"
+              className="transition hover:text-lime-400"
               onClick={() => setMenuAbierto(false)}
             >
               {link.label}
@@ -88,7 +93,6 @@ export default function Navbar() {
           ))}
         </div>
       </div>
-
     </nav>
   )
 }

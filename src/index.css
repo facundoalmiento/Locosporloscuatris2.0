@@ -23,3 +23,8 @@ html, body, #root {
   padding: 0;
   min-height: 100%;
 }
+
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}

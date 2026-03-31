@@ -15,13 +15,13 @@ export const travesias = [
   {
     id: "barro-extremo",
     tipo: "barro",
-    titulo: "Barro",
+    titulo: "Barro Extremo",
     fecha: "Marzo 2026",
-    portada: "/public/barroo.jpg",
+    portada: "/galeria/barrofuerte.jpg",
     fotos: [
-      "/galeria/barro/barro-01.jpg",
-      "/galeria/barro/2.jpg",
-      "/galeria/barro/3.jpg"
+      "/galeria/barrofuerte.jpg",
+      "/galeria/barrofuerte-02.jpg",
+      "/galeria/ruedabarro.jpg"
     ]
   },
   {
@@ -29,41 +29,40 @@ export const travesias = [
     tipo: "nieve",
     titulo: "Cordillera Off-Road",
     fecha: "Octubre 2025",
-    portada: "/galeria/san-cayetano-2026/lapampa-05.jpg",
+    portada: "/galeria/nieve/nieve-06.jpg",
     fotos: [
-      "/galeria/san-cayetano-2026/lapampa-01.jpg",
-      "/galeria/san-cayetano-2026/lapampa-02.jpg",
-      "/galeria/san-cayetano-2026/lapampa-03.jpg"
+      "/galeria/nieve/nieve-01.jpg",
+      "/galeria/nieve/nieve-03.jpg",
+      "/galeria/nieve/nieve-06.jpg"
     ]
   },
   {
     id: "solidaria-2026",
     tipo: "solidaria",
-    titulo: "Travesías Solidaria",
+    titulo: "Camino Costero Berisso",
     fecha: "Abril 2026",
-    portada: "/galeria/solidaria-2026/solidaria-2026-01.jpg",
+    portada: "/galeria/Camino Costero Berisso/portada.jpg",
     fotos: [
-      "/galeria/solidaria-2026/solidaria-2026-01.jpg",
-      "/galeria/solidaria-2026/solidaria-2026-02.jpg",
-      "/galeria/solidaria-2026/solidaria-2026-03.jpg"
+      "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-01.jpg",
+      "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-05.jpg",
+      "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-10.jpg"
     ]
   },
-
-{
-id: "travesia-villa-gesell",
-tipo: "arena",
-titulo: "Travesía Villa Gesell 2016",
-fecha: "Junio 2016",
-portada: "/galeria/travesia-villa-gesell/Travesiavillagesell2016-01.jpg",
-fotos: [
-"/galeria/travesia-villa-gesell/Travesiavillagesell2016-01.jpg",
-"/galeria/travesia-villa-gesell/Travesiavillagesell2016-02.jpg",
-"/galeria/travesia-villa-gesell/Travesiavillagesell2016-03.jpg",
-"/galeria/travesia-villa-gesell/Travesiavillagesell2016-04.jpg",
-"/galeria/travesia-villa-gesell/Travesiavillagesell2016-05.jpg",
-"/galeria/travesia-villa-gesell/Travesiavillagesell2016-06.jpg",
-"/galeria/travesia-villa-gesell/Travesiavillagesell2016-07.jpg",
-"/galeria/travesia-villa-gesell/Travesiavillagesell2016-08.jpg"
-]
-}
+  {
+    id: "travesia-villa-gesell",
+    tipo: "arena",
+    titulo: "Travesía Villa Gesell 2016",
+    fecha: "Junio 2016",
+    portada: "/galeria/travesia-villa-gesell/portada.jpg",
+    fotos: [
+      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-01.jpg",
+      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-02.jpg",
+      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-03.jpg",
+      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-04.jpg",
+      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-05.jpg",
+      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-06.jpg",
+      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-07.jpg",
+      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-08.jpg"
+    ]
+  }
 ]

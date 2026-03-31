@@ -1,9 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const MascotaPeeker = () => {
   const [isInside, setIsInside] = useState(false);
   const [hovered, setHovered] = useState(false);
   const svgRef = useRef(null);
+  const originalTransformsRef = useRef({
+    right: "",
+    left: "",
+  });
 
   // Aparece después de 1s
   useEffect(() => {
@@ -18,27 +22,38 @@ const MascotaPeeker = () => {
 
     const ojoDer = svg.querySelector("#pupiladere");
     const ojoIzq = svg.querySelector("#pupilaizq");
+    const originalTransforms = originalTransformsRef.current;
 
     if (!ojoDer || !ojoIzq) {
-      console.log("❌ No se encontraron pupilas");
       return;
     }
 
-    console.log("✅ Pupilas detectadas");
+    originalTransforms.right = ojoDer.getAttribute("transform") ?? "";
+    originalTransforms.left = ojoIzq.getAttribute("transform") ?? "";
 
     const handleMove = (e) => {
       if (!isInside) return;
 
-      const maxMove = 5;
-      const dx = (e.clientX / window.innerWidth - 0.5) * 2;
-      const dy = (e.clientY / window.innerHeight - 0.5) * 2;
+      const maxMove = 9;
+      const dx = (e.clientX / window.innerWidth - 0.5) * maxMove * 2;
+      const dy = (e.clientY / window.innerHeight - 0.5) * maxMove * 2;
 
-      ojoDer.style.transform = `translate(${dx * maxMove}px, ${dy * maxMove}px)`;
-      ojoIzq.style.transform = `translate(${dx * maxMove}px, ${dy * maxMove}px)`;
+      ojoDer.setAttribute(
+        "transform",
+        `${originalTransforms.right} translate(${dx} ${dy})`
+      );
+      ojoIzq.setAttribute(
+        "transform",
+        `${originalTransforms.left} translate(${dx} ${dy})`
+      );
     };
 
     window.addEventListener("mousemove", handleMove);
-    return () => window.removeEventListener("mousemove", handleMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      ojoDer.setAttribute("transform", originalTransforms.right);
+      ojoIzq.setAttribute("transform", originalTransforms.left);
+    };
   }, [isInside]);
 
   return (
@@ -47,16 +62,16 @@ const MascotaPeeker = () => {
       onMouseLeave={() => setHovered(false)}
       style={{
         position: "fixed",
-        bottom: "50px",
-        right: "0px",
+        bottom: "-60px",
+        right: "25px",
         transform: hovered
-          ? "translateX(0)"
+          ? "translateX(12%)"
           : isInside
-          ? "translateX(20%)"
-          : "translateX(120%)",
+          ? "translateX(48%)"
+          : "translateX(135%)",
         transition: "transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
         zIndex: 9999,
-        width: "260px",
+        width: "430px",
         filter: "drop-shadow(-5px 5px 15px rgba(0,0,0,0.3))",
       }}
     >
@@ -82,8 +97,7 @@ const MascotaPeeker = () => {
 
         #pupiladere,
         #pupilaizq {
-          transform-box: fill-box;
-          transform-origin: center;
+          transition: transform 0.08s linear;
         }
       `}</style>
     </div>
@@ -91,3 +105,4 @@ const MascotaPeeker = () => {
 };
 
 export default MascotaPeeker;
+
