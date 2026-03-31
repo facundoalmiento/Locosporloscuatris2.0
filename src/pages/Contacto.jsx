@@ -17,7 +17,7 @@ export default function Contacto() {
         <section className="mb-12 grid gap-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:mb-16 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-12">
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Contacto</p>
-            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Si queres sumarte, aca arrancamos la charla.</h1>
+            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Si queres sumarte, no dudes en escribirnos.</h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">Consultas por travesias, equipo, proximas salidas o reservas. La idea fue llevar esta pagina al mismo tono del resto: mas clara, mas fuerte y mas util.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
               <a href="#formulario" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Escribir mensaje</a>

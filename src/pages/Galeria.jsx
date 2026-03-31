@@ -29,7 +29,7 @@ export default function Galeria() {
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Galeria</p>
             <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Cada salida merece verse con el mismo peso que se vive.</h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">La galeria ahora entra en el mismo tono que el resto del sitio: mas editorial, mas clara y con acceso directo a cada album.</p>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">Acceso directo a cada album.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
               <Link to={destacada ? `/galeria/${destacada.id}` : "/galeria"} className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Abrir destacada</Link>
               <Link to="/travesias" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-7">Ver travesias</Link>
@@ -55,7 +55,7 @@ export default function Galeria() {
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Album destacado</p>
               <h2 className="mt-4 text-3xl font-black uppercase leading-none sm:text-4xl">{destacada.titulo}</h2>
               <p className="mt-3 text-sm font-semibold uppercase tracking-[0.25em] text-zinc-400">{destacada.fecha}</p>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">Un acceso rapido al album que mejor representa el tono de la galeria y deja ver cada salida con mas presencia visual.</p>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">Un acceso rapido al album que mejor representa.</p>
               <div className="mt-8"><Link to={`/galeria/${destacada.id}`} className="inline-flex rounded-2xl bg-white px-6 py-3 font-bold text-black transition hover:bg-lime-300">Ver album completo</Link></div>
             </div>
           </div>
