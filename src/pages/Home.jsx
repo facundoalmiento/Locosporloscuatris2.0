@@ -5,15 +5,29 @@ const MascotaPeeker = lazy(() => import("../components/MascotaPeeker"))
 
 export default function Home() {
   const [showMascota, setShowMascota] = useState(false)
+  const [showMascotaMobileSafe, setShowMascotaMobileSafe] = useState(false)
 
   useEffect(() => {
     const timer = window.setTimeout(() => setShowMascota(true), 450)
     return () => window.clearTimeout(timer)
   }, [])
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)")
+
+    function updateVisibility() {
+      setShowMascotaMobileSafe(mediaQuery.matches)
+    }
+
+    updateVisibility()
+    mediaQuery.addEventListener("change", updateVisibility)
+
+    return () => mediaQuery.removeEventListener("change", updateVisibility)
+  }, [])
+
   return (
     <>
-      {showMascota ? (
+      {showMascota && showMascotaMobileSafe ? (
         <Suspense fallback={null}>
           <MascotaPeeker />
         </Suspense>
