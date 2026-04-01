@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
+import { siteConfig } from "../config/site"
+
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false)
 
   const links = [
     { to: "/travesias", label: "Travesías" },
-    { to: "/tienda", label: "Tienda" },
+    ...(siteConfig.mostrarTienda ? [{ to: "/tienda", label: "Tienda" }] : []),
     { to: "/galeria", label: "Galería" },
     { to: "/contacto", label: "Contacto" }
   ]

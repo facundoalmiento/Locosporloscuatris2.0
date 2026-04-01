@@ -5,12 +5,12 @@ import { travesias } from "../data/travesias"
 const tipos = [
   { id: "arena", titulo: "Arena", subtitulo: "Velocidad, médanos y maniobra fina", descripcion: "Médanos abiertos, cambios de ritmo y una conducción que mezcla adrenalina con control total.", destacado: "Ideal para arrancar fuerte", color: "from-amber-300 via-orange-400 to-orange-600" },
   { id: "barro", titulo: "Barro", subtitulo: "Tracción, técnica y barro del bueno", descripcion: "Huella pesada, barro y terreno vivo. Acá no gana el más rápido: gana el que mejor lee el piso.", destacado: "La más intensa del circuito", color: "from-stone-300 via-lime-400 to-lime-600" },
-  { id: "nieve", titulo: "Nieve", subtitulo: "Frío, montaña y paisaje bruto", descripcion: "Travesías más exigentes, con clima extremo y una sensación de aventura total en cada tramo.", destacado: "La experiencia más salvaje", color: "from-sky-200 via-cyan-300 to-blue-500" },
+  { id: "nieve", titulo: "Nieve", subtitulo: "Frío, montaña y paisaje bruto", descripcion: "Estamos preparando esta salida para más adelante. Va a llegar cuando tengamos el recorrido y la logística listos para hacerla bien.", destacado: "Próximamente", color: "from-sky-200 via-cyan-300 to-blue-500", portada: "/galeria/nieve/nieve-06.jpg", proximaSalida: "Próximamente" },
   { id: "solidaria", titulo: "Solidaria", subtitulo: "Camino, comunidad y propósito", descripcion: "Salidas con espíritu solidario de grupo, recorrido largo y una energía distinta que mezcla aventura con ayudar.", destacado: "Para vivirla con el equipo", color: "from-lime-200 via-lime-400 to-emerald-500" }
 ]
 
 const metricas = [
-  { valor: "+5", etiqueta: "recorridos activos" },
+  { valor: "+4", etiqueta: "recorridos activos" },
   { valor: "4", etiqueta: "terrenos distintos" },
   { valor: "100%", etiqueta: "modo off-road" }
 ]
@@ -18,7 +18,13 @@ const metricas = [
 export default function Experiencias() {
   const tiposConPortada = tipos.map((tipo) => {
     const relacionadas = travesias.filter((travesia) => travesia.tipo === tipo.id)
-    return { ...tipo, cantidad: relacionadas.length, portada: relacionadas[0]?.portada ?? "/galeria/rata.png", travesiaDestacada: relacionadas[0] }
+
+    return {
+      ...tipo,
+      cantidad: relacionadas.length,
+      portada: relacionadas[0]?.portada ?? tipo.portada ?? "/galeria/rata.png",
+      travesiaDestacada: relacionadas[0]
+    }
   })
 
   const destacadas = travesias.slice(0, 3)
@@ -61,8 +67,8 @@ export default function Experiencias() {
                 </div>
                 <div>
                   <div className="mb-4 flex flex-col gap-2 border-t border-white/10 pt-5 text-sm text-zinc-300 sm:flex-row sm:items-center sm:justify-between">
-                    <span>{tipo.cantidad} álbumes disponibles</span>
-                    <span className="font-semibold text-white">{tipo.travesiaDestacada?.fecha ?? "Próximamente"}</span>
+                    <span>{tipo.cantidad > 0 ? `${tipo.cantidad} álbumes disponibles` : "Próxima salida en preparación"}</span>
+                    <span className="font-semibold text-white">{tipo.travesiaDestacada?.fecha ?? tipo.proximaSalida ?? "Próximamente"}</span>
                   </div>
                   <Link to="/galeria" className="inline-flex rounded-2xl bg-white px-5 py-3 font-bold text-black transition hover:bg-lime-300">Explorar {tipo.titulo}</Link>
                 </div>

@@ -25,18 +25,6 @@ export const travesias = [
     ]
   },
   {
-    id: "cordillera",
-    tipo: "nieve",
-    titulo: "Cordillera Off-Road",
-    fecha: "Octubre 2025",
-    portada: "/galeria/nieve/nieve-06.jpg",
-    fotos: [
-      "/galeria/nieve/nieve-01.jpg",
-      "/galeria/nieve/nieve-03.jpg",
-      "/galeria/nieve/nieve-06.jpg"
-    ]
-  },
-  {
     id: "solidaria-2026",
     tipo: "solidaria",
     titulo: "Camino Costero Berisso",

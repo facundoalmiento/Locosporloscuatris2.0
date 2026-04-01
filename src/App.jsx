@@ -3,13 +3,15 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Route, Routes, useLocation } from "react-router-dom"
 
 import Navbar from "./components/Navbar"
+import { siteConfig } from "./config/site"
 
 const Home = lazy(() => import("./pages/Home"))
 const Experiencias = lazy(() => import("./pages/Experiencias"))
 const Galeria = lazy(() => import("./pages/Galeria"))
+const Sponsors = lazy(() => import("./pages/Sponsors"))
 const Travesia = lazy(() => import("./pages/Travesia"))
-const Tienda = lazy(() => import("./pages/Tienda"))
 const Contacto = lazy(() => import("./pages/Contacto"))
+const Tienda = siteConfig.mostrarTienda ? lazy(() => import("./pages/Tienda")) : null
 const MotionDiv = motion.div
 
 export default function App() {
@@ -65,13 +67,24 @@ export default function App() {
             />
 
             <Route
-              path="/tienda"
+              path="/sponsors"
               element={
                 <PageWrapper>
-                  <Tienda />
+                  <Sponsors />
                 </PageWrapper>
               }
             />
+
+            {siteConfig.mostrarTienda ? (
+              <Route
+                path="/tienda"
+                element={
+                  <PageWrapper>
+                    <Tienda />
+                  </PageWrapper>
+                }
+              />
+            ) : null}
 
             <Route
               path="/contacto"
