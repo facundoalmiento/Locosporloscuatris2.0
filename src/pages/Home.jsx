@@ -78,13 +78,13 @@ export default function Home() {
         </Suspense>
       ) : null}
 
-      <div className="relative flex min-h-screen w-full items-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] pt-10 text-white">
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-7 px-4 py-8 sm:px-8 sm:py-10 md:grid-cols-[minmax(0,1fr)_minmax(0,0.94fr)] md:gap-14">
+      <div className="relative flex min-h-[100svh] w-full items-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] pt-10 text-white">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-7 px-4 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(27rem,0.9fr)] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(29rem,0.94fr)] xl:gap-14">
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-widest text-lime-400 sm:text-base">
               Off Road Experience
             </p>
-            <h1 className="mb-6 text-[3.2rem] font-black uppercase leading-[0.88] tracking-tight sm:text-5xl md:text-8xl">
+            <h1 className="mb-6 text-[clamp(3.2rem,10vw,6.9rem)] font-black uppercase leading-[0.88] tracking-tight">
               <span className="block text-white">Locos por</span>
               <span className="block text-lime-400 drop-shadow-[0_0_30px_rgba(132,123,22,0.4)]">
                 los Cuatris
@@ -100,7 +100,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative flex items-center justify-center md:justify-end md:pt-6">
+          <div className="relative flex items-center justify-center lg:justify-end lg:pt-4 xl:pt-6">
             <div className="absolute h-[18rem] w-[18rem] rounded-full bg-[radial-gradient(circle,rgba(163,230,53,0.14)_0%,rgba(163,230,53,0.05)_42%,transparent_74%)] blur-2xl sm:h-[24rem] sm:w-[24rem]" />
             <div className="relative w-full max-w-[31.5rem] overflow-hidden rounded-[2rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))] p-4 shadow-[0_30px_120px_rgba(0,0,0,0.35)] sm:rounded-[2.5rem] sm:p-7">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_65%_20%,rgba(163,230,53,0.12),transparent_38%)]" />
