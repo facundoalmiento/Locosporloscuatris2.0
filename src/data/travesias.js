@@ -31,9 +31,9 @@ export const travesias = [
     fecha: "Abril 2026",
     portada: "/galeria/Camino Costero Berisso/portada.jpg",
     fotos: [
-      "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-01.jpg",
-      "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-05.jpg",
-      "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-10.jpg"
+      "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-.jpg",
+      "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-.jpg",
+      "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-.jpg"
     ]
   },
   {

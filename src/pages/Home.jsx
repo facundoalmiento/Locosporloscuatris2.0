@@ -22,7 +22,9 @@ function SponsorHighlight({ sponsor }) {
   const content = (
     <>
       {sponsor.logo ? (
-        <img src={sponsor.logo} alt={sponsor.nombre} className="h-14 w-14 rounded-2xl object-contain" />
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.04))] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <img src={sponsor.logo} alt={sponsor.nombre} className="h-full w-full object-contain" />
+        </div>
       ) : (
         <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(132,204,22,0.35),rgba(255,255,255,0.08))] text-lg font-black text-white">
           {getSponsorInitials(sponsor.nombre)}

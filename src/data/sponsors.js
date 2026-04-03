@@ -1,31 +1,31 @@
 export const sponsors = [
   {
     id: "sponsor-01",
-    nombre: "Sponsor Principal",
+    nombre: "AMA Lubricants",
     categoria: "Main Partner",
     descripcion: "Marca principal que acompaña las travesías y la visibilidad del proyecto.",
-    logo: "",
-    url: "https://example.com",
+    logo: "/galeria/LOGOAMA.png",
+    url: "https://www.amaoils.com.ar/",
     destacado: true,
     importante: true
   },
   {
     id: "sponsor-02",
-    nombre: "Taller Aliado",
+    nombre: "Guarderia Intermedanos",
     categoria: "Servicio",
     descripcion: "Soporte mecánico, preparación y asistencia para salidas exigentes.",
-    logo: "",
+    logo: "/galeria/intermedanos.png",
     url: "https://example.com",
     destacado: true,
     importante: true
   },
   {
     id: "sponsor-03",
-    nombre: "Indumentaria",
+    nombre: "Desarrollador web",
     categoria: "Equipamiento",
     descripcion: "Aliado para ropa técnica, protección y presencia de marca.",
-    logo: "",
-    url: "https://example.com",
+    logo: "/galeria/logofa.png",
+    url: "https://facundoalmiento.vercel.app/",
     destacado: true,
     importante: true
   },
@@ -41,10 +41,10 @@ export const sponsors = [
   },
   {
     id: "sponsor-05",
-    nombre: "Accesorios Off-Road",
+    nombre: "Ostende repuestos",
     categoria: "Aftermarket",
     descripcion: "Accesorios, mejoras y soluciones para travesías más duras.",
-    logo: "",
+    logo: "public/galeria/ostenderepuestos.jpg",
     url: "",
     destacado: false,
     importante: false

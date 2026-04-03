@@ -20,7 +20,9 @@ function SponsorCard({ sponsor }) {
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-4">
           {sponsor.logo ? (
-            <img src={sponsor.logo} alt={sponsor.nombre} className="h-16 w-16 rounded-2xl object-contain" />
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.04))] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+              <img src={sponsor.logo} alt={sponsor.nombre} className="h-full w-full object-contain" />
+            </div>
           ) : (
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-black/30 text-xl font-black text-lime-300">
               {getSponsorInitials(sponsor.nombre)}
