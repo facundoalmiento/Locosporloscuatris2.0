@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
-import LazyImage from "../components/LazyImage"
 import { travesias } from "../data/travesias"
 
 const filtros = [
@@ -49,13 +48,7 @@ export default function Galeria() {
         <section className="mb-10 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
             <div className="relative min-h-[16rem] sm:min-h-[20rem]">
-              <LazyImage
-                src={destacada.portada}
-                alt={destacada.titulo}
-                className="h-full w-full object-cover"
-                wrapperClassName="h-full w-full"
-                spinnerLabel="Cargando portada"
-              />
+              <img src={destacada.portada} alt={destacada.titulo} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-transparent" />
             </div>
             <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
@@ -86,13 +79,7 @@ export default function Galeria() {
               filtradas.map((travesia) => (
                 <Link key={travesia.id} to={`/galeria/${travesia.id}`} className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/40 transition hover:border-lime-400/50">
                   <div className="relative h-72 overflow-hidden">
-                    <LazyImage
-                      src={travesia.portada}
-                      alt={travesia.titulo}
-                      className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-                      wrapperClassName="h-full w-full"
-                      spinnerLabel=""
-                    />
+                    <img src={travesia.portada} alt={travesia.titulo} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80" />
                     <div className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/45 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-lime-300 backdrop-blur-sm">{travesia.tipo}</div>
                   </div>
