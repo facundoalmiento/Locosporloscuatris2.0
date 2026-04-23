@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { Route, Routes, useLocation } from "react-router-dom"
 
+import LoadingWheel from "./components/LoadingWheel"
 import Navbar from "./components/Navbar"
 import { siteConfig } from "./config/site"
 
@@ -23,8 +24,8 @@ export default function App() {
 
       <Suspense
         fallback={
-          <div className="flex h-screen items-center justify-center text-white">
-            Cargando aventura...
+          <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.18),transparent_24%),linear-gradient(180deg,#040404_0%,#0a0a0a_50%,#111827_100%)] px-6 pt-24 text-white">
+            <LoadingWheel label="Cargando aventura..." />
           </div>
         }
       >
