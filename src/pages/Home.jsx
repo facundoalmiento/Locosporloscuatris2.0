@@ -6,6 +6,11 @@ import { sponsors } from "../data/sponsors"
 
 const MascotaPeeker = lazy(() => import("../components/MascotaPeeker"))
 
+function buildWhatsAppEventUrl(salida) {
+  const mensaje = `Hola! Quiero averiguar por la travesia ${salida.titulo} del ${salida.fecha} en ${salida.ubicacion}. Me pasan info y disponibilidad?`
+  return `https://wa.me/?text=${encodeURIComponent(mensaje)}`
+}
+
 function getSponsorInitials(nombre) {
   return nombre
     .split(" ")
@@ -81,7 +86,7 @@ export default function Home() {
       ) : null}
 
       <div className="relative flex min-h-[100svh] w-full items-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] pt-10 text-white">
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-7 px-4 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(27rem,0.9fr)] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(29rem,0.94fr)] xl:gap-14">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-6 px-4 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(31rem,0.95fr)] lg:gap-5 xl:grid-cols-[minmax(0,1.02fr)_minmax(34rem,0.98fr)] xl:gap-6">
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-widest text-lime-400 sm:text-base">
               Off Road Experience
@@ -102,9 +107,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative flex items-center justify-center lg:justify-end lg:pt-4 xl:pt-6">
+          <div className="relative flex items-center justify-center lg:-ml-8 lg:justify-end lg:pt-0 xl:-ml-10 xl:pt-2">
             <div className="absolute h-[18rem] w-[18rem] rounded-full bg-[radial-gradient(circle,rgba(163,230,53,0.14)_0%,rgba(163,230,53,0.05)_42%,transparent_74%)] blur-2xl sm:h-[24rem] sm:w-[24rem]" />
-            <div className="relative w-full max-w-[31.5rem] overflow-hidden rounded-[2rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))] p-4 shadow-[0_30px_120px_rgba(0,0,0,0.35)] sm:rounded-[2.5rem] sm:p-7">
+            <div className="relative w-full max-w-[33rem] overflow-hidden rounded-[2rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))] p-4 shadow-[0_30px_120px_rgba(0,0,0,0.35)] sm:max-w-[34rem] sm:rounded-[2.5rem] sm:p-7 xl:max-w-[35rem]">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_65%_20%,rgba(163,230,53,0.12),transparent_38%)]" />
 
               <div className="relative z-10">
@@ -120,7 +125,7 @@ export default function Home() {
 
                 <div className="mt-6 space-y-4">
                   {proximasSalidas.map((salida, index) => (
-                    <div key={salida.id} className="rounded-[1.4rem] border border-white/10 bg-black/25 p-4 transition hover:border-lime-400/35 sm:rounded-[1.6rem] sm:p-5">
+                    <a key={salida.id} href={buildWhatsAppEventUrl(salida)} target="_blank" rel="noreferrer" className="block rounded-[1.4rem] border border-white/10 bg-black/25 p-4 transition hover:border-lime-400/35 hover:bg-lime-400/[0.04] sm:rounded-[1.6rem] sm:p-5">
                       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                         <div className="flex min-w-0 items-start gap-3 sm:gap-4">
                           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/6 text-sm font-black text-lime-300">
@@ -130,6 +135,7 @@ export default function Home() {
                             <p className="text-[0.62rem] font-bold uppercase tracking-[0.28em] text-zinc-500 sm:text-[0.68rem] sm:tracking-[0.32em]">{salida.fecha}</p>
                             <h3 className="mt-2 text-lg font-black uppercase leading-tight text-white sm:text-xl">{salida.titulo}</h3>
                             <p className="mt-2 text-sm text-zinc-400">{salida.ubicacion}</p>
+                            <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-lime-300">Averiguar por WhatsApp</p>
                           </div>
                         </div>
                         <span className={`w-fit rounded-full px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.24em] ${
@@ -142,7 +148,7 @@ export default function Home() {
                           {salida.cupos}
                         </span>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
 

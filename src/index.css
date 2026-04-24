@@ -28,3 +28,50 @@ html {
   overflow-y: scroll;
   scrollbar-gutter: stable;
 }
+
+@keyframes loaderWheelFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.015);
+  }
+}
+
+@keyframes loaderWheelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loaderWheelGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+.loader-wheel-shell {
+  animation: loaderWheelFloat 2.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.loader-wheel-image {
+  animation: loaderWheelSpin 1.8s linear infinite;
+  transform-origin: center;
+}
+
+.loader-wheel-glow {
+  animation: loaderWheelGlow 2.2s ease-in-out infinite;
+}
+
+.loader-wheel-label {
+  text-shadow: 0 0 18px rgba(132, 204, 22, 0.18);
+}
