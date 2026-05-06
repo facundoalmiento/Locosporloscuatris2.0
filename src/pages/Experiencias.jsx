@@ -30,23 +30,23 @@ export default function Experiencias() {
   const destacadas = travesias.slice(0, 3)
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] px-4 pt-28 text-white sm:px-6 sm:pt-32">
-      <div className="mx-auto max-w-7xl">
-        <section className="mb-12 grid gap-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:mb-16 sm:p-8 lg:grid-cols-[1.3fr_0.7fr] lg:p-12">
+    <div className="page-shell">
+      <div className="page-container">
+        <section className="hero-panel">
           <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Travesías</p>
-            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Elegí terreno. El resto lo hacemos nosotros.</h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">No vendemos un paseo. Armamos salidas con carácter, paisaje e identidad distinta según el terreno.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link to="/galeria" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Ver galerías</Link>
-              <Link to="/contacto" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-7">Consultar próxima salida</Link>
+            <p className="hero-eyebrow">Travesías</p>
+            <h1 className="hero-title">Elegí terreno. El resto lo hacemos nosotros.</h1>
+            <p className="hero-copy">No vendemos un paseo. Armamos salidas con carácter, paisaje e identidad distinta según el terreno.</p>
+            <div className="action-row">
+              <Link to="/galeria" className="primary-action">Ver galerías</Link>
+              <Link to="/contacto" className="secondary-action">Consultar próxima salida</Link>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          <div className="metric-grid">
             {metricas.map((metrica) => (
-              <div key={metrica.etiqueta} className="rounded-3xl border border-white/10 bg-black/30 p-6">
-                <div className="text-4xl font-black text-lime-400">{metrica.valor}</div>
-                <div className="mt-2 text-sm uppercase tracking-[0.25em] text-zinc-400">{metrica.etiqueta}</div>
+              <div key={metrica.etiqueta} className="metric-card">
+                <div className="metric-value">{metrica.valor}</div>
+                <div className="metric-label">{metrica.etiqueta}</div>
               </div>
             ))}
           </div>
@@ -54,15 +54,15 @@ export default function Experiencias() {
 
         <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {tiposConPortada.map((tipo) => (
-            <article key={tipo.id} className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950">
+            <article key={tipo.id} className="group feature-card relative">
               <div className="absolute inset-0 bg-cover bg-center opacity-60 transition duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${tipo.portada})` }} />
               <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/45 to-black/90" />
               <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${tipo.color}`} />
-              <div className="relative z-10 flex min-h-[24rem] flex-col justify-between p-6 sm:min-h-[26rem] sm:p-7">
+              <div className="relative z-10 flex min-h-[21rem] flex-col justify-between p-5 sm:min-h-[25rem] sm:p-7">
                 <div>
-                  <div className="inline-flex rounded-full border border-white/15 bg-white/8 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-100">{tipo.destacado}</div>
+                  <div className="inline-flex max-w-full rounded-full border border-white/15 bg-white/8 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-zinc-100 sm:text-xs sm:tracking-[0.25em]">{tipo.destacado}</div>
                   <h2 className="mt-5 text-3xl font-black uppercase leading-none sm:text-4xl">{tipo.titulo}</h2>
-                  <p className="mt-3 text-sm font-semibold uppercase tracking-[0.28em] text-lime-300">{tipo.subtitulo}</p>
+                  <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-lime-300 sm:text-sm sm:tracking-[0.28em]">{tipo.subtitulo}</p>
                   <p className="mt-5 text-sm leading-relaxed text-zinc-200">{tipo.descripcion}</p>
                 </div>
                 <div>
@@ -85,7 +85,7 @@ export default function Experiencias() {
             </div>
             <Link to="/galeria" className="text-sm font-semibold uppercase tracking-[0.25em] text-zinc-300 transition hover:text-lime-300">Ver todo</Link>
           </div>
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="responsive-grid-3">
             {destacadas.map((travesia) => (
               <Link key={travesia.id} to={`/galeria/${travesia.id}`} className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/40">
                 <div className="h-64 overflow-hidden">

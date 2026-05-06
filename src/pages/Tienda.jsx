@@ -37,31 +37,31 @@ export default function Tienda() {
   }, [productoActivo])
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] px-4 pt-28 text-white sm:px-6 sm:pt-32">
-      <div className="mx-auto max-w-7xl">
-        <section className="mb-12 grid gap-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:mb-16 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-12">
+    <div className="page-shell">
+      <div className="page-container">
+        <section className="hero-panel">
           <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Tienda</p>
-            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Equipamiento con ADN de travesía.</h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">Una selección chica, directa y con actitud. Acá ves equipo pensado para arena, barro, frío y jornadas largas de manejo real.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <a href="#catalogo" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Ver catálogo</a>
-              <a href="/contacto" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-7">Consultar stock</a>
+            <p className="hero-eyebrow">Tienda</p>
+            <h1 className="hero-title">Equipamiento con ADN de travesía.</h1>
+            <p className="hero-copy">Una selección chica, directa y con actitud. Acá ves equipo pensado para arena, barro, frío y jornadas largas de manejo real.</p>
+            <div className="action-row">
+              <a href="#catalogo" className="primary-action">Ver catálogo</a>
+              <a href="/contacto" className="secondary-action">Consultar stock</a>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          <div className="metric-grid">
             {metricas.map((metrica) => (
-              <div key={metrica.etiqueta} className="rounded-3xl border border-white/10 bg-black/30 p-6">
-                <div className="text-4xl font-black text-lime-400">{metrica.valor}</div>
-                <div className="mt-2 text-sm uppercase tracking-[0.25em] text-zinc-400">{metrica.etiqueta}</div>
+              <div key={metrica.etiqueta} className="metric-card">
+                <div className="metric-value">{metrica.valor}</div>
+                <div className="metric-label">{metrica.etiqueta}</div>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="mb-10 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950">
+        <section className="feature-card mb-10">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="relative min-h-[16rem] sm:min-h-[22rem]">
+            <div className="feature-media">
               <img src={destacado.imagen} alt={destacado.nombre} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/25 to-transparent" />
             </div>
@@ -83,17 +83,17 @@ export default function Tienda() {
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Catálogo</p>
               <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Armá tu setup off-road</h2>
             </div>
-            <div className="flex flex-wrap gap-2 sm:gap-3">
+            <div className="filter-row">
               {categorias.map((categoria) => (
                 <button key={categoria.id} onClick={() => setCategoriaActiva(categoria.id)} className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition sm:px-5 sm:text-sm ${categoriaActiva === categoria.id ? "border-lime-400 bg-lime-400 text-black" : "border-white/15 text-zinc-200 hover:border-lime-400 hover:text-lime-300"}`}>{categoria.label}</button>
               ))}
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="responsive-grid-3">
             {productosFiltrados.map((producto) => (
               <article key={producto.id} className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/35 transition hover:border-lime-400/50">
-                <div className="relative h-72 overflow-hidden">
+                <div className="relative h-[clamp(15rem,58vw,18rem)] overflow-hidden">
                   <img src={producto.imagen} alt={producto.nombre} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/70" />
                   <div className="absolute top-4 left-4 rounded-full border border-white/15 bg-black/45 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-lime-300 backdrop-blur-sm">{producto.badge}</div>
@@ -114,10 +114,10 @@ export default function Tienda() {
       </div>
 
       {productoActivo ? (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/85 p-4" onClick={() => setProductoActivo(null)}>
-          <div className="relative grid max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-[2rem] border border-white/10 bg-zinc-950 shadow-[0_30px_120px_rgba(0,0,0,0.45)] lg:grid-cols-[1fr_0.95fr]" onClick={(event) => event.stopPropagation()}>
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/85 p-3 sm:p-4" onClick={() => setProductoActivo(null)}>
+          <div className="relative grid max-h-[92svh] w-full max-w-5xl overflow-y-auto rounded-[1.35rem] border border-white/10 bg-zinc-950 shadow-[0_30px_120px_rgba(0,0,0,0.45)] sm:rounded-[2rem] lg:grid-cols-[1fr_0.95fr]" onClick={(event) => event.stopPropagation()}>
             <button type="button" onClick={() => setProductoActivo(null)} className="absolute right-4 top-4 z-10 rounded-full bg-black/40 px-4 py-2 text-sm font-semibold text-white transition hover:bg-black/65 sm:right-5 sm:top-5">Cerrar</button>
-            <div className="relative min-h-[16rem] sm:min-h-[22rem]">
+            <div className="relative min-h-[14rem] sm:min-h-[22rem]">
               <img src={productoActivo.imagen} alt={productoActivo.nombre} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               <div className="absolute left-6 bottom-6 rounded-full border border-white/15 bg-black/45 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-lime-300 backdrop-blur-sm">{productoActivo.badge}</div>

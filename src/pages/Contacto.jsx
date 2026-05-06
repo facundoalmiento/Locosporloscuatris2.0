@@ -10,33 +10,36 @@ const canales = [
   { titulo: "Ubicación", descripcion: "Base operativa y punto de encuentro según cada salida.", dato: "Buenos Aires, Argentina" }
 ]
 
+const whatsappMensaje = "Hola! Quiero consultar por las travesias de Locos por los Cuatris."
+const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMensaje)}`
+
 export default function Contacto() {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] px-4 pt-28 text-white sm:px-6 sm:pt-32">
-      <div className="mx-auto max-w-7xl">
-        <section className="mb-12 grid gap-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:mb-16 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-12">
+    <div className="page-shell">
+      <div className="page-container">
+        <section className="hero-panel">
           <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Contacto</p>
-            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Si querés sumarte, no dudes en escribirnos.</h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">Consultas por travesías, equipo, próximas salidas o reservas.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <a href="#formulario" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Escribir mensaje</a>
-              <a href="https://wa.me/" target="_blank" rel="noreferrer" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-7">Abrir WhatsApp</a>
+            <p className="hero-eyebrow">Contacto</p>
+            <h1 className="hero-title">Si querés sumarte, no dudes en escribirnos.</h1>
+            <p className="hero-copy">Consultas por travesías, equipo, próximas salidas o reservas.</p>
+            <div className="action-row">
+              <a href="#formulario" className="primary-action">Escribir mensaje</a>
+              <a href={whatsappUrl} target="_blank" rel="noreferrer" className="secondary-action">Abrir WhatsApp</a>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          <div className="metric-grid">
             {metricas.map((metrica) => (
-              <div key={metrica.etiqueta} className="rounded-3xl border border-white/10 bg-black/30 p-6">
-                <div className="text-4xl font-black text-lime-400">{metrica.valor}</div>
-                <div className="mt-2 text-sm uppercase tracking-[0.25em] text-zinc-400">{metrica.etiqueta}</div>
+              <div key={metrica.etiqueta} className="metric-card">
+                <div className="metric-value">{metrica.valor}</div>
+                <div className="metric-label">{metrica.etiqueta}</div>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="mb-10 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950">
+        <section className="feature-card mb-10">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="relative min-h-[16rem] sm:min-h-[22rem]">
+            <div className="feature-media">
               <img src="/galeria/pinamar-2025/utv.jpg" alt="Contacto Locos por los Cuatris" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/25 to-transparent" />
             </div>
@@ -49,14 +52,14 @@ export default function Contacto() {
         </section>
 
         <section className="grid gap-6 pb-20 lg:grid-cols-[0.95fr_1.05fr]">
-          <article className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 sm:p-8">
+          <article className="rounded-[1.35rem] border border-white/10 bg-white/[0.04] p-5 sm:rounded-[2rem] sm:p-8">
             <div className="mb-6">
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Canales</p>
               <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl">Elegí cómo querés hablar</h2>
             </div>
             <div className="space-y-4">
               {canales.map((canal) => (
-                <div key={canal.titulo} className="rounded-[1.5rem] border border-white/10 bg-black/35 p-5">
+                <div key={canal.titulo} className="rounded-[1.25rem] border border-white/10 bg-black/35 p-5 sm:rounded-[1.5rem]">
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-lime-400">{canal.titulo}</p>
                   <h3 className="mt-3 break-words text-lg font-black uppercase text-white sm:text-xl">{canal.dato}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-zinc-400">{canal.descripcion}</p>
@@ -64,7 +67,7 @@ export default function Contacto() {
               ))}
             </div>
           </article>
-          <article id="formulario" className="rounded-[2rem] border border-white/10 bg-black/40 p-6 sm:p-8">
+          <article id="formulario" className="rounded-[1.35rem] border border-white/10 bg-black/40 p-5 sm:rounded-[2rem] sm:p-8">
             <div className="mb-6">
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Formulario</p>
               <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl">Contanos qué necesitás</h2>

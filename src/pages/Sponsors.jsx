@@ -13,12 +13,12 @@ function getSponsorInitials(nombre) {
 
 function SponsorCard({ sponsor }) {
   const tieneLink = sponsor.importante && sponsor.url
-  const cardClassName = "group rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 transition hover:-translate-y-1 hover:border-lime-400/50 hover:bg-white/[0.06]"
+  const cardClassName = "group rounded-[1.35rem] border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-lime-400/50 hover:bg-white/[0.06] sm:rounded-[2rem] sm:p-6"
 
   const content = (
     <>
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex items-center gap-4">
+      <div className="flex flex-col gap-4 min-[430px]:flex-row min-[430px]:items-start min-[430px]:justify-between">
+        <div className="flex min-w-0 items-center gap-4">
           {sponsor.logo ? (
             <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.04))] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
               <img src={sponsor.logo} alt={sponsor.nombre} className="h-full w-full object-contain" />
@@ -28,13 +28,13 @@ function SponsorCard({ sponsor }) {
               {getSponsorInitials(sponsor.nombre)}
             </div>
           )}
-          <div>
+          <div className="min-w-0">
             <p className="text-xs font-bold uppercase tracking-[0.32em] text-lime-300">{sponsor.categoria}</p>
-            <h3 className="mt-2 text-xl font-black uppercase text-white">{sponsor.nombre}</h3>
+            <h3 className="mt-2 break-words text-lg font-black uppercase text-white sm:text-xl">{sponsor.nombre}</h3>
           </div>
         </div>
         {sponsor.destacado ? (
-          <span className="rounded-full border border-lime-400/40 bg-lime-400/10 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.3em] text-lime-300">
+          <span className="w-fit rounded-full border border-lime-400/40 bg-lime-400/10 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-lime-300 sm:tracking-[0.3em]">
             Destacado
           </span>
         ) : null}
@@ -62,30 +62,30 @@ export default function Sponsors() {
   const resto = sponsors.filter((sponsor) => !sponsor.destacado)
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] px-4 pt-28 text-white sm:px-6 sm:pt-32">
-      <div className="mx-auto max-w-7xl">
-        <section className="mb-12 grid gap-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:mb-16 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-12">
+    <div className="page-shell">
+      <div className="page-container">
+        <section className="hero-panel">
           <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Sponsors</p>
-            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Marcas que impulsan cada travesía.</h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">Acá podés mostrar a todos tus sponsors sin cargar la home. Los importantes pueden llevar link y el resto quedar como presencia institucional.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link to="/contacto" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Quiero sumar mi marca</Link>
-              <Link to="/" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-7">Volver al inicio</Link>
+            <p className="hero-eyebrow">Sponsors</p>
+            <h1 className="hero-title">Marcas que impulsan cada travesía.</h1>
+            <p className="hero-copy">Acá podés mostrar a todos tus sponsors sin cargar la home. Los importantes pueden llevar link y el resto quedar como presencia institucional.</p>
+            <div className="action-row">
+              <Link to="/contacto" className="primary-action">Quiero sumar mi marca</Link>
+              <Link to="/" className="secondary-action">Volver al inicio</Link>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-            <div className="rounded-3xl border border-white/10 bg-black/30 p-6">
-              <div className="text-4xl font-black text-lime-400">{sponsors.length}</div>
-              <div className="mt-2 text-sm uppercase tracking-[0.25em] text-zinc-400">marcas totales</div>
+          <div className="metric-grid">
+            <div className="metric-card">
+              <div className="metric-value">{sponsors.length}</div>
+              <div className="metric-label">marcas totales</div>
             </div>
-            <div className="rounded-3xl border border-white/10 bg-black/30 p-6">
-              <div className="text-4xl font-black text-lime-400">{destacados.length}</div>
-              <div className="mt-2 text-sm uppercase tracking-[0.25em] text-zinc-400">destacados</div>
+            <div className="metric-card">
+              <div className="metric-value">{destacados.length}</div>
+              <div className="metric-label">destacados</div>
             </div>
-            <div className="rounded-3xl border border-white/10 bg-black/30 p-6">
-              <div className="text-4xl font-black text-lime-400">{sponsors.filter((sponsor) => sponsor.importante).length}</div>
-              <div className="mt-2 text-sm uppercase tracking-[0.25em] text-zinc-400">con link</div>
+            <div className="metric-card">
+              <div className="metric-value">{sponsors.filter((sponsor) => sponsor.importante).length}</div>
+              <div className="metric-label">con link</div>
             </div>
           </div>
         </section>
@@ -97,7 +97,7 @@ export default function Sponsors() {
               <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Los sponsors con más peso dentro del proyecto</h2>
             </div>
           </div>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="responsive-grid-3">
             {destacados.map((sponsor) => (
               <SponsorCard key={sponsor.id} sponsor={sponsor} />
             ))}
@@ -111,7 +111,7 @@ export default function Sponsors() {
               <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Resto de sponsors y aliados</h2>
             </div>
           </div>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="responsive-grid-3">
             {resto.map((sponsor) => (
               <SponsorCard key={sponsor.id} sponsor={sponsor} />
             ))}

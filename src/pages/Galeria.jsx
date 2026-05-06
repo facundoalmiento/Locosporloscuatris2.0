@@ -23,31 +23,31 @@ export default function Galeria() {
   const destacada = filtradas[0] ?? travesias[0]
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] px-4 pt-28 text-white sm:px-6 sm:pt-32">
-      <div className="mx-auto max-w-7xl">
-        <section className="mb-12 grid gap-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:mb-16 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-12">
+    <div className="page-shell">
+      <div className="page-container">
+        <section className="hero-panel">
           <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.45em] text-lime-400">Galería</p>
-            <h1 className="max-w-4xl text-4xl font-black uppercase leading-none tracking-tight sm:text-5xl md:text-7xl">Cada salida merece verse con el mismo peso que se vive.</h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">Acceso directo a cada álbum.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link to={destacada ? `/galeria/${destacada.id}` : "/galeria"} className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300 sm:px-7">Abrir destacada</Link>
-              <Link to="/travesias" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-7">Ver travesías</Link>
+            <p className="hero-eyebrow">Galería</p>
+            <h1 className="hero-title">Cada salida merece verse con el mismo peso que se vive.</h1>
+            <p className="hero-copy">Acceso directo a cada álbum.</p>
+            <div className="action-row">
+              <Link to={destacada ? `/galeria/${destacada.id}` : "/galeria"} className="primary-action">Abrir destacada</Link>
+              <Link to="/travesias" className="secondary-action">Ver travesías</Link>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          <div className="metric-grid">
             {metricas.map((metrica) => (
-              <div key={metrica.etiqueta} className="rounded-3xl border border-white/10 bg-black/30 p-6">
-                <div className="text-4xl font-black text-lime-400">{metrica.valor}</div>
-                <div className="mt-2 text-sm uppercase tracking-[0.25em] text-zinc-400">{metrica.etiqueta}</div>
+              <div key={metrica.etiqueta} className="metric-card">
+                <div className="metric-value">{metrica.valor}</div>
+                <div className="metric-label">{metrica.etiqueta}</div>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="mb-10 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950">
+        <section className="feature-card mb-10">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="relative min-h-[16rem] sm:min-h-[20rem]">
+            <div className="feature-media">
               <img src={destacada.portada} alt={destacada.titulo} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-transparent" />
             </div>
@@ -67,18 +67,18 @@ export default function Galeria() {
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Filtros</p>
               <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Elegí el terreno y entrá al álbum</h2>
             </div>
-            <div className="flex flex-wrap gap-2 sm:gap-3">
+            <div className="filter-row">
               {filtros.map((tipo) => (
                 <button key={tipo.id} type="button" onClick={() => setFiltro(tipo.id)} className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition sm:px-5 sm:text-sm ${filtro === tipo.id ? "border-lime-400 bg-lime-400 text-black" : "border-white/15 text-zinc-200 hover:border-lime-400 hover:text-lime-300"}`}>{tipo.label}</button>
               ))}
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="responsive-grid-3">
             {filtradas.length > 0 ? (
               filtradas.map((travesia) => (
                 <Link key={travesia.id} to={`/galeria/${travesia.id}`} className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/40 transition hover:border-lime-400/50">
-                  <div className="relative h-72 overflow-hidden">
+                  <div className="relative h-[clamp(15rem,58vw,18rem)] overflow-hidden">
                     <img src={travesia.portada} alt={travesia.titulo} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80" />
                     <div className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/45 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-lime-300 backdrop-blur-sm">{travesia.tipo}</div>

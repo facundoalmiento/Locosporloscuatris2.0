@@ -62,8 +62,8 @@ const MascotaPeeker = () => {
       onMouseLeave={() => setHovered(false)}
       style={{
         position: "fixed",
-        bottom: "-60px",
-        right: "25px",
+        bottom: "-74px",
+        right: "clamp(8px, 1.5vw, 22px)",
         transform: hovered
           ? "translateX(12%)"
           : isInside
@@ -71,8 +71,8 @@ const MascotaPeeker = () => {
           : "translateX(135%)",
         transition: "transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
         zIndex: 9999,
-        width: "430px",
-        filter: "drop-shadow(-5px 5px 15px rgba(0,0,0,0.3))",
+        width: "clamp(360px, 44vw, 520px)",
+        filter: "drop-shadow(-8px 8px 18px rgba(0,0,0,0.34))",
       }}
     >
       <svg
@@ -105,4 +105,3 @@ const MascotaPeeker = () => {
 };
 
 export default MascotaPeeker;
-

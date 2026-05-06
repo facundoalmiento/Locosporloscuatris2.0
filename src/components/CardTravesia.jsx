@@ -5,7 +5,7 @@ export default function CardTravesia({ travesia }) {
   return (
     <Link
       to={`/galeria/${travesia.id}`}
-      className="group relative overflow-hidden rounded-2xl h-96 cursor-pointer transform transition duration-500 hover:-translate-y-3"
+      className="group relative h-[clamp(16rem,62vw,24rem)] cursor-pointer overflow-hidden rounded-2xl transition duration-500 hover:-translate-y-2 md:hover:-translate-y-3"
     >
 
       <div
@@ -15,9 +15,9 @@ export default function CardTravesia({ travesia }) {
 
       <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition" />
 
-      <div className="relative z-10 h-full flex items-end p-8">
+      <div className="relative z-10 flex h-full items-end p-5 sm:p-8">
 
-        <h3 className="text-3xl font-black uppercase tracking-wider">
+        <h3 className="break-words text-2xl font-black uppercase tracking-wide sm:text-3xl sm:tracking-wider">
           {travesia.nombre}
         </h3>
 

@@ -22,22 +22,22 @@ function getSponsorInitials(nombre) {
 
 function SponsorHighlight({ sponsor }) {
   const tieneLink = sponsor.importante && sponsor.url
-  const className = "group flex items-center gap-4 rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-5 py-4 transition hover:border-lime-400/50 hover:bg-white/[0.05]"
+  const className = "group flex min-w-0 items-center gap-3 rounded-[1.35rem] border border-white/10 bg-white/[0.03] px-4 py-4 transition hover:border-lime-400/50 hover:bg-white/[0.05] sm:gap-4 sm:rounded-[1.75rem] sm:px-5"
 
   const content = (
     <>
       {sponsor.logo ? (
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.04))] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.04))] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] sm:h-14 sm:w-14">
           <img src={sponsor.logo} alt={sponsor.nombre} className="h-full w-full object-contain" />
         </div>
       ) : (
-        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(132,204,22,0.35),rgba(255,255,255,0.08))] text-lg font-black text-white">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(132,204,22,0.35),rgba(255,255,255,0.08))] text-lg font-black text-white sm:h-14 sm:w-14">
           {getSponsorInitials(sponsor.nombre)}
         </div>
       )}
       <div className="min-w-0">
-        <p className="text-[0.65rem] font-bold uppercase tracking-[0.35em] text-lime-300">{sponsor.categoria}</p>
-        <h3 className="mt-2 truncate text-lg font-black uppercase text-white">{sponsor.nombre}</h3>
+        <p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-lime-300 sm:tracking-[0.35em]">{sponsor.categoria}</p>
+        <h3 className="mt-2 truncate text-base font-black uppercase text-white sm:text-lg">{sponsor.nombre}</h3>
       </div>
     </>
   )
@@ -85,19 +85,19 @@ export default function Home() {
         </Suspense>
       ) : null}
 
-      <div className="relative flex min-h-[100svh] w-full items-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] pt-10 text-white">
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-6 px-4 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(31rem,0.95fr)] lg:gap-5 xl:grid-cols-[minmax(0,1.02fr)_minmax(34rem,0.98fr)] xl:gap-6">
-          <div>
-            <p className="mb-4 text-sm font-bold uppercase tracking-widest text-lime-400 sm:text-base">
+      <div className="relative flex min-h-[100svh] w-full items-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] pt-20 text-white sm:pt-24 lg:pt-10">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-8 px-4 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(26rem,0.98fr)] lg:gap-6 xl:grid-cols-[minmax(0,1.02fr)_minmax(32rem,0.98fr)]">
+          <div className="min-w-0">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-lime-400 sm:text-base sm:tracking-widest">
               Off Road Experience
             </p>
-            <h1 className="mb-6 text-[clamp(3.2rem,10vw,6.9rem)] font-black uppercase leading-[0.88] tracking-tight">
+            <h1 className="mb-6 text-[clamp(2.65rem,11.5vw,6.4rem)] font-black uppercase leading-[0.9] tracking-tight sm:leading-[0.88]">
               <span className="block text-white">Locos por</span>
               <span className="block text-lime-400 drop-shadow-[0_0_30px_rgba(132,123,22,0.4)]">
                 los Cuatris
               </span>
             </h1>
-            <p className="mb-8 max-w-lg text-base text-gray-400 sm:text-lg">
+            <p className="mb-8 max-w-lg text-base leading-relaxed text-gray-400 sm:text-lg">
               Arena. Barro. Montaña. Travesías extremas diseñadas para quienes
               no quieren límites.
             </p>
@@ -107,9 +107,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative flex items-center justify-center lg:-ml-8 lg:justify-end lg:pt-0 xl:-ml-10 xl:pt-2">
-            <div className="absolute h-[18rem] w-[18rem] rounded-full bg-[radial-gradient(circle,rgba(163,230,53,0.14)_0%,rgba(163,230,53,0.05)_42%,transparent_74%)] blur-2xl sm:h-[24rem] sm:w-[24rem]" />
-            <div className="relative w-full max-w-[33rem] overflow-hidden rounded-[2rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))] p-4 shadow-[0_30px_120px_rgba(0,0,0,0.35)] sm:max-w-[34rem] sm:rounded-[2.5rem] sm:p-7 xl:max-w-[35rem]">
+          <div className="relative flex min-w-0 items-center justify-center lg:justify-end lg:pt-0 xl:pt-2">
+            <div className="absolute h-[16rem] w-[16rem] rounded-full bg-[radial-gradient(circle,rgba(163,230,53,0.14)_0%,rgba(163,230,53,0.05)_42%,transparent_74%)] blur-2xl sm:h-[24rem] sm:w-[24rem]" />
+            <div className="relative w-full max-w-[33rem] overflow-hidden rounded-[1.35rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.012))] p-4 shadow-[0_24px_90px_rgba(0,0,0,0.32)] ring-1 ring-white/[0.06] sm:max-w-[34rem] sm:rounded-[2rem] sm:p-7 xl:max-w-[35rem]">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_65%_20%,rgba(163,230,53,0.12),transparent_38%)]" />
 
               <div className="relative z-10">
@@ -118,27 +118,27 @@ export default function Home() {
                     <p className="text-xs font-bold uppercase tracking-[0.35em] text-lime-400">Cronograma</p>
                     <h2 className="mt-3 text-[1.85rem] font-black uppercase leading-none text-white sm:text-3xl">Próximas travesías</h2>
                   </div>
-                  <span className="w-fit rounded-full border border-lime-400/30 bg-lime-400/10 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.28em] text-lime-300">
+                  <span className="w-fit rounded-full border border-lime-400/30 bg-lime-400/10 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-lime-300 sm:tracking-[0.28em]">
                     Temporada 2026
                   </span>
                 </div>
 
-                <div className="mt-6 space-y-4">
+                <div className="mt-5 space-y-3 sm:mt-6 sm:space-y-4">
                   {proximasSalidas.map((salida, index) => (
-                    <a key={salida.id} href={buildWhatsAppEventUrl(salida)} target="_blank" rel="noreferrer" className="block rounded-[1.4rem] border border-white/10 bg-black/25 p-4 transition hover:border-lime-400/35 hover:bg-lime-400/[0.04] sm:rounded-[1.6rem] sm:p-5">
+                    <a key={salida.id} href={buildWhatsAppEventUrl(salida)} target="_blank" rel="noreferrer" className="block rounded-[1.15rem] bg-black/22 p-4 ring-1 ring-white/[0.055] transition hover:bg-lime-400/[0.04] hover:ring-lime-400/30 sm:rounded-[1.45rem] sm:p-5">
                       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                         <div className="flex min-w-0 items-start gap-3 sm:gap-4">
-                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/6 text-sm font-black text-lime-300">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/6 text-sm font-black text-lime-300 sm:h-11 sm:w-11">
                             0{index + 1}
                           </div>
                           <div className="min-w-0">
-                            <p className="text-[0.62rem] font-bold uppercase tracking-[0.28em] text-zinc-500 sm:text-[0.68rem] sm:tracking-[0.32em]">{salida.fecha}</p>
+                            <p className="break-words text-[0.62rem] font-bold uppercase tracking-[0.18em] text-zinc-500 sm:text-[0.68rem] sm:tracking-[0.32em]">{salida.fecha}</p>
                             <h3 className="mt-2 text-lg font-black uppercase leading-tight text-white sm:text-xl">{salida.titulo}</h3>
                             <p className="mt-2 text-sm text-zinc-400">{salida.ubicacion}</p>
-                            <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-lime-300">Averiguar por WhatsApp</p>
+                            <p className="mt-3 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-lime-300 sm:text-xs sm:tracking-[0.2em]">Averiguar por WhatsApp</p>
                           </div>
                         </div>
-                        <span className={`w-fit rounded-full px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.24em] ${
+                        <span className={`w-fit rounded-full px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.16em] sm:tracking-[0.24em] ${
                           salida.cupos === "Disponibles"
                             ? "border border-lime-400/30 bg-lime-400/10 text-lime-300"
                             : salida.cupos === "Últimos lugares" || salida.cupos === "Ãšltimos lugares" || salida.cupos === "ÃƒÅ¡ltimos lugares"
@@ -152,7 +152,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div className="mt-6 flex flex-col gap-4 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pr-20">
+                <div className="mt-5 flex flex-col gap-4 border-t border-white/[0.07] pt-5 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pr-20">
                   <Link to="/contacto" className="shrink-0 rounded-2xl bg-lime-400 px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.18em] text-black transition hover:bg-lime-300 sm:w-auto">
                     Consultar lugar
                   </Link>
@@ -164,8 +164,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative h-20 overflow-hidden bg-[linear-gradient(180deg,#111827_0%,#09090b_100%)] sm:h-32">
-        <div className="absolute inset-0 origin-top-left skew-y-3 transform bg-lime-500" />
+      <div className="relative h-10 overflow-hidden bg-[linear-gradient(180deg,#111827_0%,#09090b_100%)] sm:h-20">
+        <div className="absolute inset-0 origin-top-left skew-y-2 transform bg-lime-500/85" />
       </div>
 
       <section className="border-y border-white/10 bg-[linear-gradient(180deg,#09090b_0%,#111827_100%)] px-5 py-8 text-white sm:px-8 sm:py-10">
@@ -175,7 +175,7 @@ export default function Home() {
               <p className="text-xs font-bold uppercase tracking-[0.35em] text-lime-400">Sponsors</p>
               <h2 className="mt-2 text-2xl font-black uppercase sm:text-3xl">Marcas destacadas del proyecto</h2>
             </div>
-            <Link to="/sponsors" className="inline-flex rounded-2xl border border-white/20 px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:border-lime-400 hover:text-lime-300">
+              <Link to="/sponsors" className="inline-flex rounded-2xl border border-white/20 px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:border-lime-400 hover:text-lime-300 sm:text-sm sm:tracking-[0.2em]">
               Ver todos los sponsors
             </Link>
           </div>
@@ -201,7 +201,7 @@ export default function Home() {
               vivirlo.
             </p>
           </div>
-          <div className="h-72 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950 shadow-[0_24px_80px_rgba(0,0,0,0.35)] sm:h-96">
+          <div className="media-frame">
             <img src="/galeria/pinamar-2025/enduro.jpg" className="h-full w-full object-cover" alt="Travesía Off Road" />
           </div>
         </div>
@@ -212,7 +212,7 @@ export default function Home() {
           <h2 className="mb-12 text-center text-3xl font-black uppercase sm:mb-20 sm:text-5xl">Nuestras Travesías</h2>
           <div className="space-y-16 sm:space-y-32">
             <div className="grid items-center gap-8 sm:gap-16 md:grid-cols-2">
-              <div className="h-72 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950 shadow-[0_24px_80px_rgba(0,0,0,0.35)] sm:h-96">
+              <div className="media-frame">
                 <img src="/galeria/pinamar-2025/picante.jpg" className="h-full w-full object-cover" alt="Travesía en arena" />
               </div>
               <div>
@@ -234,13 +234,13 @@ export default function Home() {
                   <Link to="/travesias" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-semibold text-black transition hover:bg-lime-300 sm:px-8">Reservar</Link>
                 </div>
               </div>
-              <div className="order-1 h-72 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950 shadow-[0_24px_80px_rgba(0,0,0,0.35)] md:order-2 sm:h-96">
+              <div className="media-frame order-1 md:order-2">
                 <img src="/galeria/barrofuerte.jpg" className="h-full w-full object-cover" alt="Travesía barro" />
               </div>
             </div>
 
             <div className="grid items-center gap-8 sm:gap-16 md:grid-cols-2">
-              <div className="h-72 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950 shadow-[0_24px_80px_rgba(0,0,0,0.35)] sm:h-96">
+              <div className="media-frame">
                 <img src="/galeria/nieve/nieve-06.jpg" className="h-full w-full object-cover" alt="Travesía nieve" />
               </div>
               <div>

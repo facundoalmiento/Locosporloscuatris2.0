@@ -14,7 +14,7 @@ const Travesia = lazy(() => import("./pages/Travesia"))
 const Contacto = lazy(() => import("./pages/Contacto"))
 const Tienda = siteConfig.mostrarTienda ? lazy(() => import("./pages/Tienda")) : null
 const MotionDiv = motion.div
-const TRANSITION_DURATION_MS = 950
+const TRANSITION_DURATION_MS = 560
 
 export default function App() {
   const location = useLocation()
@@ -24,15 +24,21 @@ export default function App() {
   useEffect(() => {
     if (location.pathname === previousPathnameRef.current) return undefined
 
-    setIsTransitioning(true)
     previousPathnameRef.current = location.pathname
+
+    const startFrame = window.requestAnimationFrame(() => {
+      setIsTransitioning(true)
+    })
 
     const timer = window.setTimeout(() => {
       setIsTransitioning(false)
       window.scrollTo({ top: 0, behavior: "auto" })
     }, TRANSITION_DURATION_MS)
 
-    return () => window.clearTimeout(timer)
+    return () => {
+      window.cancelAnimationFrame(startFrame)
+      window.clearTimeout(timer)
+    }
   }, [location.pathname])
 
   return (

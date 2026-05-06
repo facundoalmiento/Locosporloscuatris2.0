@@ -14,17 +14,17 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full bg-black/50 text-white backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
+    <nav className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/65 text-white backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
         <Link
           to="/"
-          className="text-xl font-bold sm:text-2xl"
+          className="shrink-0 text-xl font-bold sm:text-2xl"
           onClick={() => setMenuAbierto(false)}
         >
           LPLC<span className="text-lime-400">2.0</span>
         </Link>
 
-        <div className="hidden gap-10 text-sm font-semibold uppercase tracking-wide md:flex">
+        <div className="hidden items-center gap-6 text-sm font-semibold uppercase tracking-wide md:flex lg:gap-10">
           {links.map((link) => (
             <Link
               key={link.to}
@@ -46,7 +46,7 @@ export default function Navbar() {
           </Link>
 
           <button
-            className="flex flex-col gap-1.5 rounded-md p-1 md:hidden"
+            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md border border-white/10 bg-white/[0.03] md:hidden"
             onClick={() => setMenuAbierto(!menuAbierto)}
             aria-label="Abrir menú"
           >
@@ -74,7 +74,7 @@ export default function Navbar() {
           menuAbierto ? "max-h-80" : "max-h-0"
         }`}
       >
-        <div className="flex flex-col gap-4 border-t border-white/10 px-4 pt-4 pb-6 text-sm font-semibold uppercase tracking-wide">
+        <div className="flex max-h-[calc(100svh-4rem)] flex-col gap-4 overflow-y-auto border-t border-white/10 px-4 pb-6 pt-4 text-sm font-semibold uppercase tracking-wide">
           <Link
             to="/contacto"
             className="rounded-lg bg-lime-500 px-4 py-3 text-center font-bold text-black transition hover:bg-lime-400"
