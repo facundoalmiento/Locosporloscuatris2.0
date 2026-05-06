@@ -38,7 +38,7 @@ export default function Contacto() {
         </section>
 
         <section className="feature-card mb-10">
-          <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] xl:grid-cols-[1.25fr_0.75fr]">
             <div className="feature-media">
               <img src="/galeria/pinamar-2025/utv.jpg" alt="Contacto Locos por los Cuatris" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/25 to-transparent" />
@@ -51,7 +51,7 @@ export default function Contacto() {
           </div>
         </section>
 
-        <section className="grid gap-6 pb-20 lg:grid-cols-[0.95fr_1.05fr]">
+        <section className="grid gap-6 pb-20 lg:grid-cols-[0.9fr_1.1fr] xl:gap-10 xl:grid-cols-[0.82fr_1.18fr]">
           <article className="rounded-[1.35rem] border border-white/10 bg-white/[0.04] p-5 sm:rounded-[2rem] sm:p-8">
             <div className="mb-6">
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Canales</p>

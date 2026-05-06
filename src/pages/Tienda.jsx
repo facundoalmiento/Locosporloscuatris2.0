@@ -60,7 +60,7 @@ export default function Tienda() {
         </section>
 
         <section className="feature-card mb-10">
-          <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="grid lg:grid-cols-[1.18fr_0.82fr] xl:grid-cols-[1.28fr_0.72fr]">
             <div className="feature-media">
               <img src={destacado.imagen} alt={destacado.nombre} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/25 to-transparent" />

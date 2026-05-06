@@ -86,7 +86,7 @@ export default function Home() {
       ) : null}
 
       <div className="relative flex min-h-[100svh] w-full items-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] pt-20 text-white sm:pt-24 lg:pt-10">
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-8 px-4 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(26rem,0.98fr)] lg:gap-6 xl:grid-cols-[minmax(0,1.02fr)_minmax(32rem,0.98fr)]">
+        <div className="mx-auto grid w-full max-w-[96rem] items-center gap-8 px-4 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(28rem,0.92fr)] lg:gap-8 lg:px-10 xl:grid-cols-[minmax(0,1.16fr)_minmax(34rem,0.84fr)] xl:px-14 2xl:px-20">
           <div className="min-w-0">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-lime-400 sm:text-base sm:tracking-widest">
               Off Road Experience
@@ -97,7 +97,7 @@ export default function Home() {
                 los Cuatris
               </span>
             </h1>
-            <p className="mb-8 max-w-lg text-base leading-relaxed text-gray-400 sm:text-lg">
+            <p className="mb-8 max-w-2xl text-base leading-relaxed text-gray-400 sm:text-lg">
               Arena. Barro. Montaña. Travesías extremas diseñadas para quienes
               no quieren límites.
             </p>
@@ -169,7 +169,7 @@ export default function Home() {
       </div>
 
       <section className="border-y border-white/10 bg-[linear-gradient(180deg,#09090b_0%,#111827_100%)] px-5 py-8 text-white sm:px-8 sm:py-10">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[96rem]">
           <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.35em] text-lime-400">Sponsors</p>
@@ -189,7 +189,7 @@ export default function Home() {
       </section>
 
       <section className="bg-[linear-gradient(180deg,#09090b_0%,#111827_100%)] px-5 py-20 text-white sm:px-8 sm:py-32">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 sm:gap-16 md:grid-cols-2">
+        <div className="mx-auto grid max-w-[88rem] items-center gap-10 sm:gap-16 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-3xl font-black uppercase sm:text-4xl md:text-6xl">
               No es turismo. <br />
@@ -208,7 +208,7 @@ export default function Home() {
       </section>
 
       <section className="bg-[linear-gradient(180deg,#050505_0%,#0b0b0b_45%,#111827_100%)] px-5 py-20 text-white sm:px-8 sm:py-32">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[96rem]">
           <h2 className="mb-12 text-center text-3xl font-black uppercase sm:mb-20 sm:text-5xl">Nuestras Travesías</h2>
           <div className="space-y-16 sm:space-y-32">
             <div className="grid items-center gap-8 sm:gap-16 md:grid-cols-2">
