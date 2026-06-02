@@ -39,15 +39,27 @@
 
 @layer components {
   .page-shell {
-    @apply min-h-screen bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] px-4 pt-24 text-white sm:px-6 sm:pt-28 lg:px-10 lg:pt-32 xl:px-14 2xl:px-20;
+    @apply min-h-screen bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] px-4 pt-24 text-white sm:px-6 sm:pt-28 lg:px-10 lg:pt-28 xl:px-32 2xl:px-32;
   }
 
   .page-container {
     @apply mx-auto w-full max-w-[96rem];
   }
 
+  .hero-stage {
+    @apply flex min-h-[calc(100svh-6rem)] flex-col justify-center sm:min-h-[calc(100svh-7rem)];
+  }
+
+  .landing-section {
+    @apply flex min-h-[100svh] items-center py-16 sm:py-20;
+  }
+
+  .landing-section-with-nav {
+    @apply flex min-h-[calc(100svh-7rem)] items-center py-10 sm:py-14;
+  }
+
   .hero-panel {
-    @apply mb-10 grid gap-6 rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_22px_80px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:mb-14 sm:gap-8 sm:rounded-[1.75rem] sm:p-8 lg:grid-cols-[minmax(0,1.28fr)_minmax(18rem,0.72fr)] lg:p-10 xl:gap-12 xl:p-12 2xl:grid-cols-[minmax(0,1.38fr)_minmax(24rem,0.62fr)] 2xl:gap-16 2xl:p-14;
+    @apply mb-10 grid gap-6 rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_22px_80px_rgba(0,0,0,0.3)] backdrop-blur-sm sm:mb-14 sm:gap-8 sm:rounded-[1.75rem] sm:p-8 lg:min-h-[min(72svh,44rem)] lg:grid-cols-[minmax(0,1.28fr)_minmax(18rem,0.72fr)] lg:items-center lg:p-8 xl:gap-12 xl:p-12 2xl:grid-cols-[minmax(0,1.38fr)_minmax(24rem,0.62fr)] 2xl:gap-16 2xl:p-14;
   }
 
   .hero-eyebrow {
@@ -55,7 +67,7 @@
   }
 
   .hero-title {
-    @apply max-w-5xl text-[clamp(2.05rem,9.2vw,3.55rem)] font-black uppercase leading-[0.96] tracking-tight md:text-[clamp(3.25rem,5.4vw,5.2rem)] 2xl:max-w-6xl;
+    @apply max-w-5xl text-[clamp(2.05rem,9.2vw,3.55rem)] font-black uppercase leading-[0.96] tracking-tight md:text-[clamp(3rem,4.6vw,4.75rem)] 2xl:max-w-6xl;
   }
 
   .hero-copy {

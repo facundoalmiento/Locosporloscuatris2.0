@@ -25,7 +25,8 @@ export default function Galeria() {
   return (
     <div className="page-shell">
       <div className="page-container">
-        <section className="hero-panel">
+        <div className="hero-stage">
+          <section className="hero-panel">
           <div>
             <p className="hero-eyebrow">Galería</p>
             <h1 className="hero-title">Cada salida merece verse con el mismo peso que se vive.</h1>
@@ -43,10 +44,12 @@ export default function Galeria() {
               </div>
             ))}
           </div>
-        </section>
+          </section>
+        </div>
 
-        <section className="feature-card mb-10">
-          <div className="grid lg:grid-cols-[1.18fr_0.82fr] xl:grid-cols-[1.28fr_0.72fr]">
+        <div className="landing-section-with-nav">
+          <section className="feature-card w-full">
+            <div className="grid lg:grid-cols-[1.18fr_0.82fr] xl:grid-cols-[1.28fr_0.72fr]">
             <div className="feature-media">
               <img src={destacada.portada} alt={destacada.titulo} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-transparent" />
@@ -58,8 +61,9 @@ export default function Galeria() {
               <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">Un acceso rápido al álbum que mejor nos representa.</p>
               <div className="mt-8"><Link to={`/galeria/${destacada.id}`} className="inline-flex rounded-2xl bg-white px-6 py-3 font-bold text-black transition hover:bg-lime-300">Ver álbum completo</Link></div>
             </div>
-          </div>
-        </section>
+            </div>
+          </section>
+        </div>
 
         <section className="pb-20">
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">

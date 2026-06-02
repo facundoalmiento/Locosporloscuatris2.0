@@ -39,7 +39,8 @@ export default function Tienda() {
   return (
     <div className="page-shell">
       <div className="page-container">
-        <section className="hero-panel">
+        <div className="hero-stage">
+          <section className="hero-panel">
           <div>
             <p className="hero-eyebrow">Tienda</p>
             <h1 className="hero-title">Equipamiento con ADN de travesía.</h1>
@@ -57,10 +58,12 @@ export default function Tienda() {
               </div>
             ))}
           </div>
-        </section>
+          </section>
+        </div>
 
-        <section className="feature-card mb-10">
-          <div className="grid lg:grid-cols-[1.18fr_0.82fr] xl:grid-cols-[1.28fr_0.72fr]">
+        <div className="landing-section-with-nav">
+          <section className="feature-card w-full">
+            <div className="grid lg:grid-cols-[1.18fr_0.82fr] xl:grid-cols-[1.28fr_0.72fr]">
             <div className="feature-media">
               <img src={destacado.imagen} alt={destacado.nombre} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/25 to-transparent" />
@@ -74,8 +77,9 @@ export default function Tienda() {
                 <span className="rounded-full border border-lime-400/40 bg-lime-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-lime-300">{destacado.badge}</span>
               </div>
             </div>
-          </div>
-        </section>
+            </div>
+          </section>
+        </div>
 
         <section id="catalogo" className="pb-20">
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">

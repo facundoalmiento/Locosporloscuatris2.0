@@ -32,7 +32,8 @@ export default function Experiencias() {
   return (
     <div className="page-shell">
       <div className="page-container">
-        <section className="hero-panel">
+        <div className="hero-stage">
+          <section className="hero-panel">
           <div>
             <p className="hero-eyebrow">Travesías</p>
             <h1 className="hero-title">Elegí terreno. El resto lo hacemos nosotros.</h1>
@@ -50,9 +51,10 @@ export default function Experiencias() {
               </div>
             ))}
           </div>
-        </section>
+          </section>
+        </div>
 
-        <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <section className="grid min-h-[calc(100svh-7rem)] items-center gap-6 py-10 sm:py-14 md:grid-cols-2 xl:grid-cols-4">
           {tiposConPortada.map((tipo) => (
             <article key={tipo.id} className="group feature-card relative">
               <div className="absolute inset-0 bg-cover bg-center opacity-60 transition duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${tipo.portada})` }} />

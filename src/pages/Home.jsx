@@ -86,12 +86,12 @@ export default function Home() {
       ) : null}
 
       <div className="relative flex min-h-[100svh] w-full items-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] pt-20 text-white sm:pt-24 lg:pt-10">
-        <div className="mx-auto grid w-full max-w-[96rem] items-center gap-8 px-4 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(28rem,0.92fr)] lg:gap-8 lg:px-10 xl:grid-cols-[minmax(0,1.16fr)_minmax(34rem,0.84fr)] xl:px-14 2xl:px-20">
+        <div className="mx-auto grid w-full max-w-[96rem] items-center gap-8 px-4 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(30rem,1fr)] lg:gap-7 lg:px-10 xl:grid-cols-[minmax(0,1.04fr)_minmax(36rem,0.96fr)] xl:px-14 2xl:px-20">
           <div className="min-w-0">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-lime-400 sm:text-base sm:tracking-widest">
               Off Road Experience
             </p>
-            <h1 className="mb-6 text-[clamp(2.65rem,11.5vw,6.4rem)] font-black uppercase leading-[0.9] tracking-tight sm:leading-[0.88]">
+            <h1 className="mb-6 text-[clamp(2.65rem,10vw,5.65rem)] font-black uppercase leading-[0.9] tracking-tight sm:leading-[0.88]">
               <span className="block text-white">Locos por</span>
               <span className="block text-lime-400 drop-shadow-[0_0_30px_rgba(132,123,22,0.4)]">
                 los Cuatris
@@ -107,9 +107,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative flex min-w-0 items-center justify-center lg:justify-end lg:pt-0 xl:pt-2">
+          <div className="relative flex min-w-0 items-center justify-center lg:justify-start lg:-ml-6 xl:-ml-12">
             <div className="absolute h-[16rem] w-[16rem] rounded-full bg-[radial-gradient(circle,rgba(163,230,53,0.14)_0%,rgba(163,230,53,0.05)_42%,transparent_74%)] blur-2xl sm:h-[24rem] sm:w-[24rem]" />
-            <div className="relative w-full max-w-[33rem] overflow-hidden rounded-[1.35rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.012))] p-4 shadow-[0_24px_90px_rgba(0,0,0,0.32)] ring-1 ring-white/[0.06] sm:max-w-[34rem] sm:rounded-[2rem] sm:p-7 xl:max-w-[35rem]">
+            <div className="relative w-full max-w-[35rem] overflow-hidden rounded-[1.35rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.012))] p-4 shadow-[0_24px_90px_rgba(0,0,0,0.32)] ring-1 ring-white/[0.06] sm:max-w-[37rem] sm:rounded-[2rem] sm:p-7 xl:max-w-[39rem] xl:p-8">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_65%_20%,rgba(163,230,53,0.12),transparent_38%)]" />
 
               <div className="relative z-10">
@@ -152,7 +152,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div className="mt-5 flex flex-col gap-4 border-t border-white/[0.07] pt-5 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pr-20">
+                <div className="mt-5 flex flex-col gap-4 border-t border-white/[0.07] pt-5 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pr-10 xl:pr-16">
                   <Link to="/contacto" className="shrink-0 rounded-2xl bg-lime-400 px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.18em] text-black transition hover:bg-lime-300 sm:w-auto">
                     Consultar lugar
                   </Link>
@@ -188,7 +188,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[linear-gradient(180deg,#09090b_0%,#111827_100%)] px-5 py-20 text-white sm:px-8 sm:py-32">
+      <section className="landing-section bg-[linear-gradient(180deg,#09090b_0%,#111827_100%)] px-5 text-white sm:px-8">
         <div className="mx-auto grid max-w-[88rem] items-center gap-10 sm:gap-16 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-3xl font-black uppercase sm:text-4xl md:text-6xl">
@@ -207,11 +207,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[linear-gradient(180deg,#050505_0%,#0b0b0b_45%,#111827_100%)] px-5 py-20 text-white sm:px-8 sm:py-32">
+      <section className="bg-[linear-gradient(180deg,#050505_0%,#0b0b0b_45%,#111827_100%)] px-5 py-16 text-white sm:px-8 sm:py-20">
         <div className="mx-auto max-w-[96rem]">
           <h2 className="mb-12 text-center text-3xl font-black uppercase sm:mb-20 sm:text-5xl">Nuestras Travesías</h2>
           <div className="space-y-16 sm:space-y-32">
-            <div className="grid items-center gap-8 sm:gap-16 md:grid-cols-2">
+            <div className="grid min-h-[100svh] items-center gap-8 py-16 sm:gap-16 sm:py-20 md:grid-cols-2">
               <div className="media-frame">
                 <img src="/galeria/pinamar-2025/picante.jpg" className="h-full w-full object-cover" alt="Travesía en arena" />
               </div>
@@ -225,7 +225,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid items-center gap-8 sm:gap-16 md:grid-cols-2">
+            <div className="grid min-h-[100svh] items-center gap-8 py-16 sm:gap-16 sm:py-20 md:grid-cols-2">
               <div className="order-2 md:order-1">
                 <h3 className="mb-6 text-3xl font-black uppercase text-lime-400 sm:text-4xl">Barro</h3>
                 <p className="mb-6 text-base text-gray-400 sm:text-lg">Obstáculos naturales, terrenos impredecibles y pura técnica. La experiencia más intensa del off-road.</p>
@@ -239,7 +239,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid items-center gap-8 sm:gap-16 md:grid-cols-2">
+            <div className="grid min-h-[100svh] items-center gap-8 py-16 sm:gap-16 sm:py-20 md:grid-cols-2">
               <div className="media-frame">
                 <img src="/galeria/nieve/nieve-06.jpg" className="h-full w-full object-cover" alt="Travesía nieve" />
               </div>
@@ -257,7 +257,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[linear-gradient(180deg,#050505_0%,#0b0b0b_45%,#111827_100%)] px-5 py-20 text-center text-white sm:px-6 sm:py-32">
+      <section className="landing-section bg-[linear-gradient(180deg,#050505_0%,#0b0b0b_45%,#111827_100%)] px-5 text-center text-white sm:px-6">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-3xl font-black uppercase sm:text-4xl md:text-5xl">¿Estás listo para sumarte?</h2>
           <p className="mb-12 text-base text-gray-400 sm:text-lg">Cupos limitados por travesía. Reservá tu lugar y viví la experiencia vos mismo.</p>

@@ -64,7 +64,8 @@ export default function Sponsors() {
   return (
     <div className="page-shell">
       <div className="page-container">
-        <section className="hero-panel">
+        <div className="hero-stage">
+          <section className="hero-panel">
           <div>
             <p className="hero-eyebrow">Sponsors</p>
             <h1 className="hero-title">Marcas que impulsan cada travesía.</h1>
@@ -88,21 +89,24 @@ export default function Sponsors() {
               <div className="metric-label">con link</div>
             </div>
           </div>
-        </section>
+          </section>
+        </div>
 
-        <section className="pb-10">
-          <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div className="landing-section-with-nav">
+          <section className="w-full">
+            <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Destacados</p>
               <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Los sponsors con más peso dentro del proyecto</h2>
             </div>
           </div>
-          <div className="responsive-grid-3">
-            {destacados.map((sponsor) => (
-              <SponsorCard key={sponsor.id} sponsor={sponsor} />
-            ))}
-          </div>
-        </section>
+            <div className="responsive-grid-3">
+              {destacados.map((sponsor) => (
+                <SponsorCard key={sponsor.id} sponsor={sponsor} />
+              ))}
+            </div>
+          </section>
+        </div>
 
         <section className="pb-20 pt-8">
           <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
