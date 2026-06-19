@@ -43,7 +43,7 @@
   }
 
   .page-container {
-    @apply mx-auto w-full max-w-[96rem];
+    @apply mx-auto w-full max-w-[110rem];
   }
 
   .hero-stage {

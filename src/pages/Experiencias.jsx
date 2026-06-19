@@ -5,7 +5,7 @@ import { travesias } from "../data/travesias"
 const tipos = [
   { id: "arena", titulo: "Arena", subtitulo: "Velocidad, médanos y maniobra fina", descripcion: "Médanos abiertos, cambios de ritmo y una conducción que mezcla adrenalina con control total.", destacado: "Ideal para arrancar fuerte", color: "from-amber-300 via-orange-400 to-orange-600" },
   { id: "barro", titulo: "Barro", subtitulo: "Tracción, técnica y barro del bueno", descripcion: "Huella pesada, barro y terreno vivo. Acá no gana el más rápido: gana el que mejor lee el piso.", destacado: "La más intensa del circuito", color: "from-stone-300 via-lime-400 to-lime-600" },
-  { id: "nieve", titulo: "Nieve", subtitulo: "Frío, montaña y paisaje bruto", descripcion: "Estamos preparando esta salida para más adelante. Va a llegar cuando tengamos el recorrido y la logística listos para hacerla bien.", destacado: "Próximamente", color: "from-sky-200 via-cyan-300 to-blue-500", portada: "/galeria/nieve/nieve-06.jpg", proximaSalida: "Próximamente" },
+  { id: "nieve", titulo: "Nieve", subtitulo: "Frío, montaña y paisaje bruto", descripcion: "Estamos preparando esta salida para más adelante.", destacado: "Próximamente", color: "from-sky-200 via-cyan-300 to-blue-500", portada: "/galeria/nieve/nieve-06.jpg", proximaSalida: "Próximamente" },
   { id: "solidaria", titulo: "Solidaria", subtitulo: "Camino, comunidad y propósito", descripcion: "Salidas con espíritu solidario de grupo, recorrido largo y una energía distinta que mezcla aventura con ayudar.", destacado: "Para vivirla con el equipo", color: "from-lime-200 via-lime-400 to-emerald-500" }
 ]
 
@@ -54,14 +54,12 @@ export default function Experiencias() {
           </section>
         </div>
 
-        <section className="grid min-h-[calc(100svh-7rem)] items-center gap-6 py-10 sm:py-14 md:grid-cols-2 xl:grid-cols-4">
-          {tiposConPortada.map((tipo) => (
+<section className="grid min-h-[120vh] items-center gap-8 py-16 md:grid-cols-2 xl:grid-cols-4">          {tiposConPortada.map((tipo) => (
             <article key={tipo.id} className="group feature-card relative">
               <div className="absolute inset-0 bg-cover bg-center opacity-60 transition duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${tipo.portada})` }} />
               <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/45 to-black/90" />
               <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${tipo.color}`} />
-              <div className="relative z-10 flex min-h-[21rem] flex-col justify-between p-5 sm:min-h-[25rem] sm:p-7">
-                <div>
+              <div className="relative z-10 flex min-h-[28rem] flex-col justify-between p-5 sm:min-h-[clamp(38rem,70vh,52rem)] sm:p-8"><div>
                   <div className="inline-flex max-w-full rounded-full border border-white/15 bg-white/8 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-zinc-100 sm:text-xs sm:tracking-[0.25em]">{tipo.destacado}</div>
                   <h2 className="mt-5 text-3xl font-black uppercase leading-none sm:text-4xl">{tipo.titulo}</h2>
                   <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-lime-300 sm:text-sm sm:tracking-[0.28em]">{tipo.subtitulo}</p>

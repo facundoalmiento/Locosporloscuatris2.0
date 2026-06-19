@@ -53,6 +53,41 @@ function SponsorHighlight({ sponsor }) {
   return <div className={className}>{content}</div>
 }
 
+const tiposTravesias = [
+  {
+    nombre: "Arena",
+    etiqueta: "Médanos y costa",
+    descripcion: "Travesías sobre dunas, playa y caminos abiertos. Ideales para vivir velocidad, técnica y manejo en terreno suelto.",
+    imagen: "/galeria/pinamar-2025/picante.jpg",
+    accion: "Ver arena",
+    to: "/galeria"
+  },
+  {
+    nombre: "Barro",
+    etiqueta: "Técnica y obstáculos",
+    descripcion: "Recorridos pesados, huellas profundas y terrenos cambiantes para quienes buscan una experiencia más exigente.",
+    imagen: "/galeria/barrofuerte.jpg",
+    accion: "Ver barro",
+    to: "/galeria"
+  },
+  {
+    nombre: "Solidarias",
+    etiqueta: "Grupo y comunidad",
+    descripcion: "Salidas con propósito, colaboración y espíritu de equipo, conectando aventura con ayuda real en el camino.",
+    imagen: "/galeria/Camino Costero Berisso/portada.jpg",
+    accion: "Ver solidarias",
+    to: "/galeria"
+  },
+  {
+    nombre: "Nieve",
+    etiqueta: "Próximamente",
+    descripcion: "Una experiencia en preparación para sumar montaña, frío y paisajes distintos.",
+    imagen: "/galeria/nieve/nieve-06.jpg",
+    accion: "Quiero enterarme",
+    to: "/contacto"
+  }
+]
+
 export default function Home() {
   const [showMascota, setShowMascota] = useState(false)
   const [showMascotaMobileSafe, setShowMascotaMobileSafe] = useState(false)
@@ -102,7 +137,7 @@ export default function Home() {
               no quieren límites.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link to="/travesias" className="rounded-2xl bg-lime-400 px-6 py-4 text-center font-bold text-black transition hover:bg-lime-300 sm:px-10 sm:py-5">Reservar Ahora</Link>
+              <Link to="/travesias" className="rounded-2xl bg-lime-400 px-6 py-4 text-center font-bold text-black transition hover:bg-lime-300 sm:px-10 sm:py-5">Consultar salida</Link>
               <Link to="/galeria" className="rounded-2xl border border-white/20 px-6 py-4 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-10 sm:py-5">Ver Travesías</Link>
             </div>
           </div>
@@ -188,7 +223,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="landing-section bg-[linear-gradient(180deg,#09090b_0%,#111827_100%)] px-5 text-white sm:px-8">
+      <section className="bg-[linear-gradient(180deg,#09090b_0%,#111827_100%)] px-5 py-16 text-white sm:px-8 sm:py-20">
         <div className="mx-auto grid max-w-[88rem] items-center gap-10 sm:gap-16 md:grid-cols-2">
           <div>
             <h2 className="mb-6 text-3xl font-black uppercase sm:text-4xl md:text-6xl">
@@ -207,61 +242,65 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[linear-gradient(180deg,#050505_0%,#0b0b0b_45%,#111827_100%)] px-5 py-16 text-white sm:px-8 sm:py-20">
+      <section className="bg-[linear-gradient(180deg,#050505_0%,#09090b_42%,#111827_100%)] px-5 py-16 text-white sm:px-8 sm:py-20">
         <div className="mx-auto max-w-[96rem]">
-          <h2 className="mb-12 text-center text-3xl font-black uppercase sm:mb-20 sm:text-5xl">Nuestras Travesías</h2>
-          <div className="space-y-16 sm:space-y-32">
-            <div className="grid min-h-[100svh] items-center gap-8 py-16 sm:gap-16 sm:py-20 md:grid-cols-2">
-              <div className="media-frame">
-                <img src="/galeria/pinamar-2025/picante.jpg" className="h-full w-full object-cover" alt="Travesía en arena" />
-              </div>
-              <div>
-                <h3 className="mb-6 text-3xl font-black uppercase text-lime-400 sm:text-4xl">Arena</h3>
-                <p className="mb-6 text-base text-gray-400 sm:text-lg">Médanos gigantes, velocidad y control absoluto. Ideal para quienes quieren sentir el poder real del cuatri.</p>
-                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-                  <Link to="/galeria" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-8">Ver Travesías</Link>
-                  <Link to="/travesias" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-semibold text-black transition hover:bg-lime-300 sm:px-8">Reservar</Link>
-                </div>
-              </div>
+          <div className="mb-8 grid gap-5 border-b border-white/10 pb-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,0.55fr)] lg:items-end">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.35em] text-lime-400">Experiencias</p>
+              <h2 className="mt-3 max-w-3xl text-[clamp(2rem,6vw,4.5rem)] font-black uppercase leading-[0.92] tracking-tight">
+                Nuestras travesías
+              </h2>
             </div>
+            <p className="max-w-xl text-base leading-relaxed text-zinc-400 lg:justify-self-end lg:text-right">
+              Elegí el tipo de salida según el terreno, la intensidad y el plan del grupo. Los álbumes quedan en la galería; acá te mostramos qué hacemos.
+            </p>
+          </div>
 
-            <div className="grid min-h-[100svh] items-center gap-8 py-16 sm:gap-16 sm:py-20 md:grid-cols-2">
-              <div className="order-2 md:order-1">
-                <h3 className="mb-6 text-3xl font-black uppercase text-lime-400 sm:text-4xl">Barro</h3>
-                <p className="mb-6 text-base text-gray-400 sm:text-lg">Obstáculos naturales, terrenos impredecibles y pura técnica. La experiencia más intensa del off-road.</p>
-                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-                  <Link to="/galeria" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-8">Ver Travesías</Link>
-                  <Link to="/travesias" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-semibold text-black transition hover:bg-lime-300 sm:px-8">Reservar</Link>
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {tiposTravesias.map((tipo) => (
+              <Link key={tipo.nombre} to={tipo.to} className="group flex min-h-[27rem] flex-col overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.035] transition hover:border-lime-400/45 sm:rounded-[1.75rem]">
+                <div className="relative h-52 overflow-hidden bg-zinc-950">
+                  <img src={tipo.imagen} alt={`Travesía de ${tipo.nombre}`} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02)_0%,rgba(0,0,0,0.72)_100%)]" />
+                  <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/55 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-lime-300 backdrop-blur-sm">
+                    {tipo.etiqueta}
+                  </span>
                 </div>
-              </div>
-              <div className="media-frame order-1 md:order-2">
-                <img src="/galeria/barrofuerte.jpg" className="h-full w-full object-cover" alt="Travesía barro" />
-              </div>
-            </div>
+                <div className="flex flex-1 flex-col justify-between p-5">
+                  <div>
+                    <h3 className="text-3xl font-black uppercase leading-none text-white">{tipo.nombre}</h3>
+                    <p className="mt-4 text-sm leading-relaxed text-zinc-400">{tipo.descripcion}</p>
+                  </div>
+                  <span className="mt-6 text-xs font-bold uppercase tracking-[0.22em] text-white/80 transition group-hover:text-lime-300">
+                    {tipo.accion}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
 
-            <div className="grid min-h-[100svh] items-center gap-8 py-16 sm:gap-16 sm:py-20 md:grid-cols-2">
-              <div className="media-frame">
-                <img src="/galeria/nieve/nieve-06.jpg" className="h-full w-full object-cover" alt="Travesía nieve" />
-              </div>
+          <div className="mt-6 rounded-[1.35rem] border border-lime-400/20 bg-lime-400/[0.07] p-5 sm:rounded-[1.75rem] sm:p-6">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h3 className="mb-6 text-3xl font-black uppercase text-lime-400 sm:text-4xl">Nieve</h3>
-                <p className="mb-2 text-sm font-bold uppercase tracking-[0.3em] text-white/70">Próximamente</p>
-                <p className="mb-6 text-base text-gray-400 sm:text-lg">La travesía de nieve va más adelante. Todavía no hicimos una salida de este tipo, así que por ahora queda anunciada como próxima experiencia.</p>
-                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-                  <Link to="/contacto" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-semibold text-black transition hover:bg-lime-300 sm:px-8">Quiero enterarme</Link>
-                  <Link to="/travesias" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-8">Ver experiencias</Link>
-                </div>
+                <p className="text-xs font-bold uppercase tracking-[0.26em] text-lime-300">Próxima salida</p>
+                <h3 className="mt-2 text-2xl font-black uppercase leading-tight text-white">Te orientamos según tu experiencia</h3>
+                <p className="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">
+                  Contanos si buscás arena, barro, una salida solidaria o querés enterarte cuando abramos nieve.
+                </p>
               </div>
+              <Link to="/contacto" className="shrink-0 rounded-2xl bg-lime-400 px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.16em] text-black transition hover:bg-lime-300">
+                Pedir info
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="landing-section bg-[linear-gradient(180deg,#050505_0%,#0b0b0b_45%,#111827_100%)] px-5 text-center text-white sm:px-6">
+      <section className="bg-[linear-gradient(180deg,#050505_0%,#0b0b0b_45%,#111827_100%)] px-5 py-16 text-center text-white sm:px-6 sm:py-20">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-3xl font-black uppercase sm:text-4xl md:text-5xl">¿Estás listo para sumarte?</h2>
           <p className="mb-12 text-base text-gray-400 sm:text-lg">Cupos limitados por travesía. Reservá tu lugar y viví la experiencia vos mismo.</p>
-          <Link to="/travesias" className="inline-block rounded-2xl bg-lime-400 px-6 py-4 text-base font-bold text-black shadow-[0_24px_80px_rgba(132,204,22,0.12)] transition hover:bg-lime-300 sm:px-10 sm:py-5 sm:text-lg">Reservar mi Travesía</Link>
+          <Link to="/travesias" className="inline-block rounded-2xl bg-lime-400 px-6 py-4 text-base font-bold text-black shadow-[0_24px_80px_rgba(132,204,22,0.12)] transition hover:bg-lime-300 sm:px-10 sm:py-5 sm:text-lg">Quiero sumarme</Link>
         </div>
       </section>
     </>

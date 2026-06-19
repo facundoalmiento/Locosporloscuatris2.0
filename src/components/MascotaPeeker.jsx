@@ -71,7 +71,7 @@ const MascotaPeeker = () => {
           : "translateX(135%)",
         transition: "transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
         zIndex: 9999,
-        width: "clamp(360px, 44vw, 520px)",
+        width: "clamp(255px, 26vw, 445px)",
         filter: "drop-shadow(-8px 8px 18px rgba(0,0,0,0.34))",
       }}
     >
