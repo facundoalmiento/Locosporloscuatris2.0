@@ -71,7 +71,7 @@ export default function Sponsors() {
             <h1 className="hero-title">Marcas que impulsan cada travesía.</h1>
             <p className="hero-copy">Acá podés mostrar a todos tus sponsors sin cargar la home. Las marcas con enlace abren su sitio o perfil, y las demás quedan como presencia institucional.</p>
             <div className="action-row">
-              <Link to="/contacto" className="primary-action">Quiero sumar mi marca</Link>
+              <Link to="/contacto#whatsapp" className="primary-action">Quiero sumar mi marca</Link>
               <Link to="/" className="secondary-action">Volver al inicio</Link>
             </div>
           </div>

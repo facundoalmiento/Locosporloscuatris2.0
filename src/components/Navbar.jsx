@@ -38,7 +38,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <Link
-            to="/contacto"
+            to="/contacto#whatsapp"
             className="hidden rounded-lg bg-lime-500 px-4 py-2 text-sm font-bold text-black transition hover:bg-lime-400 sm:inline-flex"
             onClick={() => setMenuAbierto(false)}
           >
@@ -76,7 +76,7 @@ export default function Navbar() {
       >
         <div className="flex max-h-[calc(100svh-4rem)] flex-col gap-4 overflow-y-auto border-t border-white/10 px-4 pb-6 pt-4 text-sm font-semibold uppercase tracking-wide">
           <Link
-            to="/contacto"
+            to="/contacto#whatsapp"
             className="rounded-lg bg-lime-500 px-4 py-3 text-center font-bold text-black transition hover:bg-lime-400"
             onClick={() => setMenuAbierto(false)}
           >

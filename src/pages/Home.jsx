@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
+import { siteConfig } from "../config/site"
 import { eventos } from "../data/eventos"
 import { sponsors } from "../data/sponsors"
 
@@ -8,7 +9,7 @@ const MascotaPeeker = lazy(() => import("../components/MascotaPeeker"))
 
 function buildWhatsAppEventUrl(salida) {
   const mensaje = `Hola! Quiero averiguar por la travesia ${salida.titulo} del ${salida.fecha} en ${salida.ubicacion}. Me pasan info y disponibilidad?`
-  return `https://wa.me/?text=${encodeURIComponent(mensaje)}`
+  return `https://wa.me/${siteConfig.whatsappNumero}?text=${encodeURIComponent(mensaje)}`
 }
 
 function getSponsorInitials(nombre) {
@@ -84,7 +85,7 @@ const tiposTravesias = [
     descripcion: "Una experiencia en preparación para sumar montaña, frío y paisajes distintos.",
     imagen: "/galeria/nieve/nieve-06.jpg",
     accion: "Quiero enterarme",
-    to: "/contacto"
+    to: "/contacto#whatsapp"
   }
 ]
 
@@ -137,7 +138,7 @@ export default function Home() {
               no quieren límites.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link to="/travesias" className="rounded-2xl bg-lime-400 px-6 py-4 text-center font-bold text-black transition hover:bg-lime-300 sm:px-10 sm:py-5">Consultar salida</Link>
+              <Link to="/contacto#whatsapp" className="rounded-2xl bg-lime-400 px-6 py-4 text-center font-bold text-black transition hover:bg-lime-300 sm:px-10 sm:py-5">Consultar salida</Link>
               <Link to="/galeria" className="rounded-2xl border border-white/20 px-6 py-4 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300 sm:px-10 sm:py-5">Ver Travesías</Link>
             </div>
           </div>
@@ -188,7 +189,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-5 flex flex-col gap-4 border-t border-white/[0.07] pt-5 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pr-10 xl:pr-16">
-                  <Link to="/contacto" className="shrink-0 rounded-2xl bg-lime-400 px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.18em] text-black transition hover:bg-lime-300 sm:w-auto">
+                  <Link to="/contacto#whatsapp" className="shrink-0 rounded-2xl bg-lime-400 px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.18em] text-black transition hover:bg-lime-300 sm:w-auto">
                     Consultar lugar
                   </Link>
                   <p className="max-w-[15rem] text-sm text-zinc-400 sm:text-right">Fechas sujetas a clima, terreno y logística de cada salida.</p>
@@ -300,7 +301,7 @@ export default function Home() {
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-3xl font-black uppercase sm:text-4xl md:text-5xl">¿Estás listo para sumarte?</h2>
           <p className="mb-12 text-base text-gray-400 sm:text-lg">Cupos limitados por travesía. Reservá tu lugar y viví la experiencia vos mismo.</p>
-          <Link to="/travesias" className="inline-block rounded-2xl bg-lime-400 px-6 py-4 text-base font-bold text-black shadow-[0_24px_80px_rgba(132,204,22,0.12)] transition hover:bg-lime-300 sm:px-10 sm:py-5 sm:text-lg">Quiero sumarme</Link>
+          <Link to="/contacto#whatsapp" className="inline-block rounded-2xl bg-lime-400 px-6 py-4 text-base font-bold text-black shadow-[0_24px_80px_rgba(132,204,22,0.12)] transition hover:bg-lime-300 sm:px-10 sm:py-5 sm:text-lg">Quiero sumarme</Link>
         </div>
       </section>
     </>

@@ -1,6 +1,8 @@
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 
+import { siteConfig } from "../config/site"
+
 const metricas = [
   { valor: "24/7", etiqueta: "modo aventura" },
   { valor: "3", etiqueta: "canales directos" },
@@ -17,7 +19,7 @@ const whatsappMensaje =
   "Hola! Quiero consultar por las travesías de Locos por los Cuatris.";
 
 const whatsappUrl =
-  `https://wa.me/5492215993585?text=${encodeURIComponent(whatsappMensaje)}`;
+  `https://wa.me/${siteConfig.whatsappNumero}?text=${encodeURIComponent(whatsappMensaje)}`;
 
 export default function Contacto() {
   const location = useLocation()
@@ -62,12 +64,12 @@ export default function Contacto() {
           </section>
         </div>
 
-        <div className="landing-section-with-nav">
-          <section className="feature-card w-full">
-            <div className="grid lg:grid-cols-[1.15fr_0.85fr] xl:grid-cols-[1.25fr_0.75fr]">
-              <div className="feature-media">
-                <img src="/galeria/pinamar-2025/utv.jpg" alt="Contacto Locos por los Cuatris" className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/25 to-transparent" />
+        <div className="py-8 sm:py-10 lg:py-12">
+          <section className="feature-card mx-auto w-full max-w-6xl">
+            <div className="grid lg:grid-cols-[0.8fr_1.2fr]">
+              <div className="relative h-[15rem] overflow-hidden bg-zinc-950 sm:h-[18rem] lg:h-[20rem]">
+                <img src="/galeria/preparate.jpg" alt="Contacto Locos por los Cuatris" className="h-full w-full object-cover object-[center_40%]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-black/20" />
               </div>
               <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
                 <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Primer contacto</p>

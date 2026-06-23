@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
+import { siteConfig } from "../config/site"
 import { productos } from "../data/productos"
 
 const categorias = [
@@ -18,7 +20,7 @@ const metricas = [
 
 function buildWhatsAppUrl(producto) {
   const mensaje = `Hola! Me interesa ${producto.nombre} (${producto.precio}). Quiero consultar disponibilidad y compra.`
-  return `https://wa.me/?text=${encodeURIComponent(mensaje)}`
+  return `https://wa.me/${siteConfig.whatsappNumero}?text=${encodeURIComponent(mensaje)}`
 }
 
 export default function Tienda() {
@@ -47,7 +49,7 @@ export default function Tienda() {
             <p className="hero-copy">Una selección chica, directa y con actitud. Acá ves equipo pensado para arena, barro, frío y jornadas largas de manejo real.</p>
             <div className="action-row">
               <a href="#catalogo" className="primary-action">Ver catálogo</a>
-              <a href="/contacto" className="secondary-action">Consultar stock</a>
+              <Link to="/contacto#whatsapp" className="secondary-action">Consultar stock</Link>
             </div>
           </div>
           <div className="metric-grid">

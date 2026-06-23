@@ -40,7 +40,7 @@ export default function Experiencias() {
             <p className="hero-copy">No vendemos un paseo. Armamos salidas con carácter, paisaje e identidad distinta según el terreno.</p>
             <div className="action-row">
               <Link to="/galeria" className="primary-action">Ver galerías</Link>
-              <Link to="/contacto" className="secondary-action">Consultar próxima salida</Link>
+              <Link to="/contacto#whatsapp" className="secondary-action">Consultar próxima salida</Link>
             </div>
           </div>
           <div className="metric-grid">
