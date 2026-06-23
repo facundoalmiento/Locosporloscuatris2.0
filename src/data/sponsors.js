@@ -15,7 +15,7 @@ export const sponsors = [
     categoria: "Servicio",
     descripcion: "Soporte mecánico, preparación y asistencia para salidas exigentes.",
     logo: "/galeria/intermedanos.png",
-    url: "https://example.com",
+    url: "https://www.instagram.com/guarderiaintermedanos/?hl=es",
     destacado: true,
     importante: true
   },
@@ -43,14 +43,24 @@ export const sponsors = [
     id: "sponsor-05",
     nombre: "Ostende repuestos",
     categoria: "Aftermarket",
-    descripcion: "Accesorios, mejoras y soluciones para travesías más duras.",
-    logo: "public/galeria/ostenderepuestos.jpg",
-    url: "",
+    descripcion: "Accesorios, mejoras y repuestos para travesías más duras.",
+    logo: "/galeria/ostenderepuestos.jpg",
+    url: "https://www.instagram.com/ostende.repuestos/",
     destacado: false,
     importante: false
   },
   {
     id: "sponsor-06",
+    nombre: "Resistencia Cero",
+    categoria: "Comunidad",
+    descripcion: "Proyectos, grupos y marcas que potencian cada salida y evento.",
+    logo: "/galeria/resistenciacero.png",
+    url: "",
+    destacado: false,
+    importante: false
+  },
+   {
+    id: "sponsor-07",
     nombre: "Comunidad Aliada",
     categoria: "Comunidad",
     descripcion: "Proyectos, grupos y marcas que potencian cada salida y evento.",

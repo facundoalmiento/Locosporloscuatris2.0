@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Route, Routes, useLocation } from "react-router-dom"
 
 import LoadingWheel from "./components/LoadingWheel"
+import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
 import { siteConfig } from "./config/site"
 
@@ -32,7 +33,9 @@ export default function App() {
 
     const timer = window.setTimeout(() => {
       setIsTransitioning(false)
-      window.scrollTo({ top: 0, behavior: "auto" })
+      if (!location.hash) {
+        window.scrollTo({ top: 0, behavior: "auto" })
+      }
     }, TRANSITION_DURATION_MS)
 
     return () => {
@@ -141,6 +144,7 @@ function PageWrapper({ children }) {
       transition={{ duration: 0.16, ease: "easeOut" }}
     >
       {children}
+      <Footer />
     </MotionDiv>
   )
 }

@@ -47,10 +47,10 @@ export default function Galeria() {
           </section>
         </div>
 
-        <div className="landing-section-with-nav">
+        <div className="py-8 sm:py-10 lg:py-12">
           <section className="feature-card w-full">
             <div className="grid lg:grid-cols-[1.18fr_0.82fr] xl:grid-cols-[1.28fr_0.72fr]">
-            <div className="feature-media">
+            <div className="relative h-[18rem] overflow-hidden sm:h-[22rem] lg:h-[24rem]">
               <img src={destacada.portada} alt={destacada.titulo} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-transparent" />
             </div>

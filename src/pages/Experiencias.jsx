@@ -3,10 +3,10 @@ import { Link } from "react-router-dom"
 import { travesias } from "../data/travesias"
 
 const tipos = [
-  { id: "arena", titulo: "Arena", subtitulo: "Velocidad, médanos y maniobra fina", descripcion: "Médanos abiertos, cambios de ritmo y una conducción que mezcla adrenalina con control total.", destacado: "Ideal para arrancar fuerte", color: "from-amber-300 via-orange-400 to-orange-600" },
-  { id: "barro", titulo: "Barro", subtitulo: "Tracción, técnica y barro del bueno", descripcion: "Huella pesada, barro y terreno vivo. Acá no gana el más rápido: gana el que mejor lee el piso.", destacado: "La más intensa del circuito", color: "from-stone-300 via-lime-400 to-lime-600" },
+  { id: "arena", titulo: "Arena", subtitulo: "Velocidad, médanos y maniobra fina", descripcion: "Médanos abiertos, cambios de ritmo y una conducción que mezcla adrenalina con control total.", destacado: "Ideal para arrancar fuerte", color: "from-amber-300 via-orange-400 to-orange-600", portada: "/galeria/arenaultima.jpg" },
+  { id: "barro", titulo: "Barro", subtitulo: "Tracción, técnica y barro del bueno", descripcion: "Huella pesada, barro y terreno vivo. Acá no gana el más rápido: gana el que mejor lee el piso.", destacado: "La más intensa del circuito", color: "from-stone-300 via-lime-400 to-lime-600", portada: "/galeria/barroportada.jpg" },
   { id: "nieve", titulo: "Nieve", subtitulo: "Frío, montaña y paisaje bruto", descripcion: "Estamos preparando esta salida para más adelante.", destacado: "Próximamente", color: "from-sky-200 via-cyan-300 to-blue-500", portada: "/galeria/nieve/nieve-06.jpg", proximaSalida: "Próximamente" },
-  { id: "solidaria", titulo: "Solidaria", subtitulo: "Camino, comunidad y propósito", descripcion: "Salidas con espíritu solidario de grupo, recorrido largo y una energía distinta que mezcla aventura con ayudar.", destacado: "Para vivirla con el equipo", color: "from-lime-200 via-lime-400 to-emerald-500" }
+  { id: "solidaria", titulo: "Solidaria", subtitulo: "Camino, comunidad y propósito", descripcion: "Salidas con espíritu solidario de grupo, recorrido largo y una energía distinta que mezcla aventura con ayudar.", destacado: "Para vivirla con el equipo", color: "from-lime-200 via-lime-400 to-emerald-500", portada: "/galeria/solidariaportada.jpg" }
 ]
 
 const metricas = [
@@ -22,7 +22,7 @@ export default function Experiencias() {
     return {
       ...tipo,
       cantidad: relacionadas.length,
-      portada: relacionadas[0]?.portada ?? tipo.portada ?? "/galeria/rata.png",
+      portada: tipo.portada ?? relacionadas[0]?.portada ?? "/galeria/rata.png",
       travesiaDestacada: relacionadas[0]
     }
   })

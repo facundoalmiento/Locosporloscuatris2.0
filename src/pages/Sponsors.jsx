@@ -12,7 +12,7 @@ function getSponsorInitials(nombre) {
 }
 
 function SponsorCard({ sponsor }) {
-  const tieneLink = sponsor.importante && sponsor.url
+  const tieneLink = Boolean(sponsor.url)
   const cardClassName = "group rounded-[1.35rem] border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-lime-400/50 hover:bg-white/[0.06] sm:rounded-[2rem] sm:p-6"
 
   const content = (
@@ -69,7 +69,7 @@ export default function Sponsors() {
           <div>
             <p className="hero-eyebrow">Sponsors</p>
             <h1 className="hero-title">Marcas que impulsan cada travesía.</h1>
-            <p className="hero-copy">Acá podés mostrar a todos tus sponsors sin cargar la home. Los importantes pueden llevar link y el resto quedar como presencia institucional.</p>
+            <p className="hero-copy">Acá podés mostrar a todos tus sponsors sin cargar la home. Las marcas con enlace abren su sitio o perfil, y las demás quedan como presencia institucional.</p>
             <div className="action-row">
               <Link to="/contacto" className="primary-action">Quiero sumar mi marca</Link>
               <Link to="/" className="secondary-action">Volver al inicio</Link>
@@ -85,8 +85,8 @@ export default function Sponsors() {
               <div className="metric-label">destacados</div>
             </div>
             <div className="metric-card">
-              <div className="metric-value">{sponsors.filter((sponsor) => sponsor.importante).length}</div>
-              <div className="metric-label">con link</div>
+              <div className="metric-value">{sponsors.filter((sponsor) => sponsor.url).length}</div>
+              <div className="metric-label">con enlace</div>
             </div>
           </div>
           </section>
@@ -97,7 +97,7 @@ export default function Sponsors() {
             <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Destacados</p>
-              <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Los sponsors con más peso dentro del proyecto</h2>
+              <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl md:text-4xl">Los sponsors destacados</h2>
             </div>
           </div>
             <div className="responsive-grid-3">

@@ -21,7 +21,7 @@ function getSponsorInitials(nombre) {
 }
 
 function SponsorHighlight({ sponsor }) {
-  const tieneLink = sponsor.importante && sponsor.url
+  const tieneLink = Boolean(sponsor.url)
   const className = "group flex min-w-0 items-center gap-3 rounded-[1.35rem] border border-white/10 bg-white/[0.03] px-4 py-4 transition hover:border-lime-400/50 hover:bg-white/[0.05] sm:gap-4 sm:rounded-[1.75rem] sm:px-5"
 
   const content = (
@@ -58,7 +58,7 @@ const tiposTravesias = [
     nombre: "Arena",
     etiqueta: "Médanos y costa",
     descripcion: "Travesías sobre dunas, playa y caminos abiertos. Ideales para vivir velocidad, técnica y manejo en terreno suelto.",
-    imagen: "/galeria/pinamar-2025/picante.jpg",
+    imagen: "/galeria/arenaultima.jpg",
     accion: "Ver arena",
     to: "/galeria"
   },
@@ -66,7 +66,7 @@ const tiposTravesias = [
     nombre: "Barro",
     etiqueta: "Técnica y obstáculos",
     descripcion: "Recorridos pesados, huellas profundas y terrenos cambiantes para quienes buscan una experiencia más exigente.",
-    imagen: "/galeria/barrofuerte.jpg",
+    imagen: "/galeria/barroportada.jpg",
     accion: "Ver barro",
     to: "/galeria"
   },
@@ -74,7 +74,7 @@ const tiposTravesias = [
     nombre: "Solidarias",
     etiqueta: "Grupo y comunidad",
     descripcion: "Salidas con propósito, colaboración y espíritu de equipo, conectando aventura con ayuda real en el camino.",
-    imagen: "/galeria/Camino Costero Berisso/portada.jpg",
+    imagen: "/galeria/solidariaportada.jpg",
     accion: "Ver solidarias",
     to: "/galeria"
   },
@@ -237,7 +237,7 @@ export default function Home() {
             </p>
           </div>
           <div className="media-frame">
-            <img src="/galeria/pinamar-2025/enduro.jpg" className="h-full w-full object-cover" alt="Travesía Off Road" />
+            <img src="/galeria/portadareal.jpg" className="h-full w-full object-cover" alt="Travesía Off Road" />
           </div>
         </div>
       </section>
@@ -288,7 +288,7 @@ export default function Home() {
                   Contanos si buscás arena, barro, una salida solidaria o querés enterarte cuando abramos nieve.
                 </p>
               </div>
-              <Link to="/contacto" className="shrink-0 rounded-2xl bg-lime-400 px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.16em] text-black transition hover:bg-lime-300">
+              <Link to="/contacto#whatsapp" className="shrink-0 rounded-2xl bg-lime-400 px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.16em] text-black transition hover:bg-lime-300">
                 Pedir info
               </Link>
             </div>
