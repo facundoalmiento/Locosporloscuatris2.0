@@ -21,6 +21,30 @@ function getSponsorInitials(nombre) {
     .join("")
 }
 
+function getProximasSalidasVisibles(salidas) {
+  const salidaAbierta = salidas.find((salida) => salida.inscripcion === "abierta")
+  const ultimaCerrada = salidas.filter((salida) => salida.inscripcion === "cerrada").at(-1)
+
+  if (ultimaCerrada && salidaAbierta) return [ultimaCerrada, salidaAbierta]
+  if (salidaAbierta) return [salidaAbierta]
+
+  return salidas.slice(0, 1)
+}
+
+function getCuposClassName(salida) {
+  if (salida.inscripcion === "cerrada") return "border border-white/15 bg-white/5 text-zinc-300"
+  if (salida.cupos === "Disponibles") return "border border-lime-400/30 bg-lime-400/10 text-lime-300"
+  if (salida.cupos === "Ultimos lugares") return "border border-amber-300/30 bg-amber-300/10 text-amber-200"
+
+  return "border border-white/15 bg-white/5 text-zinc-300"
+}
+
+function getCuposLabel(salida) {
+  if (salida.inscripcion === "cerrada") return "Inscripcion cerrada"
+
+  return salida.cupos
+}
+
 function SponsorHighlight({ sponsor }) {
   const tieneLink = Boolean(sponsor.url)
   const className = "group flex min-w-0 items-center gap-3 rounded-[1.35rem] border border-white/10 bg-white/[0.03] px-4 py-4 transition hover:border-lime-400/50 hover:bg-white/[0.05] sm:gap-4 sm:rounded-[1.75rem] sm:px-5"
@@ -93,7 +117,7 @@ export default function Home() {
   const [showMascota, setShowMascota] = useState(false)
   const [showMascotaMobileSafe, setShowMascotaMobileSafe] = useState(false)
   const sponsorsDestacados = sponsors.filter((sponsor) => sponsor.destacado).slice(0, 6)
-  const proximasSalidas = eventos.slice(0, 2)
+  const proximasSalidas = getProximasSalidasVisibles(eventos)
 
   useEffect(() => {
     const timer = window.setTimeout(() => setShowMascota(true), 450)
@@ -160,8 +184,15 @@ export default function Home() {
                 </div>
 
                 <div className="mt-5 space-y-3 sm:mt-6 sm:space-y-4">
-                  {proximasSalidas.map((salida, index) => (
-                    <a key={salida.id} href={buildWhatsAppEventUrl(salida)} target="_blank" rel="noreferrer" className="block rounded-[1.15rem] bg-black/22 p-4 ring-1 ring-white/[0.055] transition hover:bg-lime-400/[0.04] hover:ring-lime-400/30 sm:rounded-[1.45rem] sm:p-5">
+                  {proximasSalidas.map((salida, index) => {
+                    const inscripcionCerrada = salida.inscripcion === "cerrada"
+                    const CardTag = inscripcionCerrada ? "div" : "a"
+                    const cardProps = inscripcionCerrada
+                      ? {}
+                      : { href: buildWhatsAppEventUrl(salida), target: "_blank", rel: "noreferrer" }
+
+                    return (
+                      <CardTag key={salida.id} {...cardProps} className={`block rounded-[1.15rem] bg-black/22 p-4 ring-1 ring-white/[0.055] transition sm:rounded-[1.45rem] sm:p-5 ${inscripcionCerrada ? "opacity-75" : "hover:bg-lime-400/[0.04] hover:ring-lime-400/30"}`}>
                       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                         <div className="flex min-w-0 items-start gap-3 sm:gap-4">
                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/6 text-sm font-black text-lime-300 sm:h-11 sm:w-11">
@@ -171,21 +202,18 @@ export default function Home() {
                             <p className="break-words text-[0.62rem] font-bold uppercase tracking-[0.18em] text-zinc-500 sm:text-[0.68rem] sm:tracking-[0.32em]">{salida.fecha}</p>
                             <h3 className="mt-2 text-lg font-black uppercase leading-tight text-white sm:text-xl">{salida.titulo}</h3>
                             <p className="mt-2 text-sm text-zinc-400">{salida.ubicacion}</p>
-                            <p className="mt-3 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-lime-300 sm:text-xs sm:tracking-[0.2em]">Averiguar por WhatsApp</p>
+                            <p className={`mt-3 text-[0.68rem] font-semibold uppercase tracking-[0.16em] sm:text-xs sm:tracking-[0.2em] ${inscripcionCerrada ? "text-zinc-500" : "text-lime-300"}`}>
+                              {inscripcionCerrada ? "Inscripcion finalizada" : "Averiguar por WhatsApp"}
+                            </p>
                           </div>
                         </div>
-                        <span className={`w-fit rounded-full px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.16em] sm:tracking-[0.24em] ${
-                          salida.cupos === "Disponibles"
-                            ? "border border-lime-400/30 bg-lime-400/10 text-lime-300"
-                            : salida.cupos === "Últimos lugares" || salida.cupos === "Ãšltimos lugares" || salida.cupos === "ÃƒÅ¡ltimos lugares"
-                              ? "border border-amber-300/30 bg-amber-300/10 text-amber-200"
-                              : "border border-white/15 bg-white/5 text-zinc-300"
-                        }`}>
-                          {salida.cupos}
+                        <span className={`w-fit rounded-full px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.16em] sm:tracking-[0.24em] ${getCuposClassName(salida)}`}>
+                          {getCuposLabel(salida)}
                         </span>
                       </div>
-                    </a>
-                  ))}
+                      </CardTag>
+                    )
+                  })}
                 </div>
 
                 <div className="mt-5 flex flex-col gap-4 border-t border-white/[0.07] pt-5 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pr-10 xl:pr-16">
