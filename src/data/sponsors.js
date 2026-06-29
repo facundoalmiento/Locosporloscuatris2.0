@@ -46,8 +46,8 @@ export const sponsors = [
     descripcion: "Accesorios, mejoras y repuestos para travesías más duras.",
     logo: "/galeria/ostenderepuestos.jpg",
     url: "https://www.instagram.com/ostende.repuestos/",
-    destacado: false,
-    importante: false
+    destacado: true,
+    importante: true
   },
   {
     id: "sponsor-06",

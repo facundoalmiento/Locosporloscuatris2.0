@@ -1,36 +1,50 @@
 export const historia = {
-  etiqueta: "Nuestra Historia",
-  titulo: "El camino que nos trajo hasta acá.",
-  introduccion: "Este espacio está listo para contar cómo nació Locos por los Cuatris, quiénes dieron el primer paso y qué los impulsó a formar el grupo.",
+  etiqueta: "La Plata · Desde 2013",
+  titulo: "Primero fue ayudar. Después, seguir abriendo camino.",
+  introduccion: "Locos por los Cuatris no nació alrededor de una mesa. Nació en el barro, cuando moverse también significaba poder llegar a quienes necesitaban una mano.",
+  fechaOrigen: "02.04.2013",
+  lugarOrigen: "La Plata",
+  manifiesto: "El cuatriciclo fue el medio. La solidaridad, el punto de partida.",
   origen: {
-    etiqueta: "El comienzo",
-    titulo: "Todo empezó con una idea y las ganas de compartir el camino.",
+    etiqueta: "Kilómetro cero",
+    titulo: "La ciudad estaba bajo el agua. Había que moverse.",
     parrafos: [
-      "Acá podés contar en qué año se creó el grupo, quiénes participaron y cómo surgió la primera salida.",
-      "También podés sumar anécdotas, lugares importantes y el momento en que el proyecto empezó a crecer."
+      "El 2 de abril de 2013, una inundación histórica golpeó a La Plata. En medio de esa emergencia, Hernán Almiento y un grupo de personas solidarias pusieron sus vehículos al servicio de algo urgente: llegar.",
+      "Circularon por caminos rurales, con las autorizaciones correspondientes, para acercar alimentos, útiles y juguetes a escuelas, hospitales y familias que necesitaban ayuda.",
+      "Ese impulso marcó para siempre la identidad del grupo. Con el tiempo llegaron las travesías, nuevos paisajes y mucha más gente, pero el espíritu siguió siendo el mismo: avanzar juntos y dejar algo bueno en cada camino."
     ]
   },
   logoOriginal: {
     src: "",
     alt: "Primer logo de Locos por los Cuatris",
-    titulo: "El logo con el que arrancamos",
-    descripcion: "Cuando tengas la imagen, guardala en la carpeta public/galeria y colocá su ruta en src."
+    archivo: "Archivo 001",
+    titulo: "El primer emblema",
+    descripcion: "El logo con el que empezó todo: una marca nacida antes de los grandes recorridos, cuando el grupo recién comenzaba a escribir su historia."
   },
   hitos: [
     {
-      periodo: "Primeros pasos",
-      titulo: "La idea toma forma",
-      descripcion: "Contá cómo se conocieron, qué los unió y cómo organizaron las primeras travesías."
+      periodo: "2013",
+      etiqueta: "El origen",
+      titulo: "Una ciudad bajo el agua",
+      descripcion: "La inundación de La Plata convirtió los cuatriciclos en una forma de llegar. El grupo se organizó para llevar ayuda por caminos difíciles.",
+      imagen: "/galeria/solidariaportada.jpg",
+      alt: "Acción solidaria de Locos por los Cuatris"
     },
     {
-      periodo: "El grupo crece",
-      titulo: "Más caminos y más personas",
-      descripcion: "Sumá las salidas, acciones solidarias o encuentros que marcaron una etapa importante."
+      periodo: "El camino",
+      etiqueta: "La comunidad",
+      titulo: "De ayudar a compartir la ruta",
+      descripcion: "La experiencia unió personas, máquinas y una manera de hacer las cosas. Las salidas crecieron sin perder el compañerismo ni la vocación solidaria.",
+      imagen: "/galeria/portadareal.jpg",
+      alt: "Grupo de cuatriciclos durante una travesía"
     },
     {
-      periodo: "Actualidad",
-      titulo: "La historia continúa",
-      descripcion: "Describí qué representa hoy el grupo y hacia dónde quieren llevar esta aventura."
+      periodo: "Hoy",
+      etiqueta: "La historia sigue",
+      titulo: "Arena, barro y un mismo espíritu",
+      descripcion: "Cada travesía suma paisajes, anécdotas y nuevos integrantes a una historia que todavía se sigue escribiendo.",
+      imagen: "/galeria/arenaultima.jpg",
+      alt: "Travesía actual de Locos por los Cuatris"
     }
   ]
 }
