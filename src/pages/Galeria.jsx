@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { motion as Motion } from "framer-motion"
 import { Link } from "react-router-dom"
 
 import { travesias } from "../data/travesias"
@@ -82,7 +82,7 @@ function ArchivoHistorico() {
   const botonClasses = "group inline-flex w-full items-center justify-center gap-4 rounded-2xl bg-lime-400 px-7 py-4 text-sm font-black uppercase tracking-[0.08em] text-black shadow-[0_0_34px_rgba(132,204,22,0.28)] transition hover:bg-lime-300 hover:shadow-[0_0_46px_rgba(132,204,22,0.38)] sm:w-auto sm:text-base"
 
   return (
-    <motion.section
+    <Motion.section
       className="pb-20"
       variants={fadeUp}
       initial="hidden"
@@ -129,7 +129,7 @@ function ArchivoHistorico() {
 
           <div className="grid min-h-[24rem] grid-cols-2 gap-3 sm:min-h-[28rem] sm:grid-cols-[1.12fr_0.88fr_0.88fr] sm:grid-rows-2 lg:min-h-[22rem] xl:min-h-[25rem]">
             {fotosArchivo.map((foto, index) => (
-              <motion.div
+              <Motion.div
                 key={foto.src}
                 className={`${foto.grande ? "col-span-2 min-h-[16rem] sm:col-span-1 sm:row-span-2 sm:min-h-0" : "min-h-[9rem]"} group overflow-hidden rounded-[1.35rem] border border-lime-400/15 bg-zinc-950 shadow-[0_0_24px_rgba(132,204,22,0.08)] sm:rounded-[1.6rem]`}
                 initial={{ opacity: 0, y: 16 }}
@@ -138,12 +138,12 @@ function ArchivoHistorico() {
                 transition={{ duration: 0.5, delay: index * 0.06, ease: "easeOut" }}
               >
                 <img src={foto.src} alt={foto.alt} className="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.03]" />
-              </motion.div>
+              </Motion.div>
             ))}
           </div>
         </div>
       </div>
-    </motion.section>
+    </Motion.section>
   )
 }
 

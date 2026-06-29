@@ -5,6 +5,7 @@ import { Route, Routes, useLocation } from "react-router-dom"
 import LoadingWheel from "./components/LoadingWheel"
 import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
+import Seo from "./components/Seo"
 import { siteConfig } from "./config/site"
 
 const Home = lazy(() => import("./pages/Home"))
@@ -13,6 +14,7 @@ const Galeria = lazy(() => import("./pages/Galeria"))
 const Sponsors = lazy(() => import("./pages/Sponsors"))
 const Travesia = lazy(() => import("./pages/Travesia"))
 const Contacto = lazy(() => import("./pages/Contacto"))
+const NotFound = lazy(() => import("./pages/NotFound"))
 const Tienda = siteConfig.mostrarTienda ? lazy(() => import("./pages/Tienda")) : null
 const MotionDiv = motion.div
 const TRANSITION_DURATION_MS = 560
@@ -42,10 +44,11 @@ export default function App() {
       window.cancelAnimationFrame(startFrame)
       window.clearTimeout(timer)
     }
-  }, [location.pathname])
+  }, [location.pathname, location.hash])
 
   return (
     <>
+      <Seo />
       <Navbar />
 
       {isTransitioning ? (
@@ -124,6 +127,15 @@ export default function App() {
               element={
                 <PageWrapper>
                   <Contacto />
+                </PageWrapper>
+              }
+            />
+
+            <Route
+              path="*"
+              element={
+                <PageWrapper>
+                  <NotFound />
                 </PageWrapper>
               }
             />
