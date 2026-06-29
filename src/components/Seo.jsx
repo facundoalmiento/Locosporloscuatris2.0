@@ -17,6 +17,11 @@ const paginas = {
     titulo: "Galería de travesías off-road | Locos por los Cuatris",
     descripcion: "Fotos de travesías en cuatriciclo por médanos, playas, barro y caminos de Argentina. Reviví cada aventura con el grupo.",
   },
+  "/historia": {
+    titulo: "Nuestra Historia | Locos por los Cuatris",
+    descripcion: "Conocé cómo nació Locos por los Cuatris, sus primeros pasos y el camino recorrido por el grupo.",
+    indexable: siteConfig.mostrarHistoria,
+  },
   "/sponsors": {
     titulo: "Sponsors y aliados | Locos por los Cuatris",
     descripcion: "Conocé las marcas y organizaciones que acompañan las travesías y acciones solidarias de Locos por los Cuatris.",
@@ -48,7 +53,7 @@ function actualizarMeta(selector, atributo, valor) {
 
 function obtenerSeo(pathname) {
   const pagina = paginas[pathname]
-  if (pagina) return { ...pagina, indexable: true }
+  if (pagina) return { ...pagina, indexable: pagina.indexable ?? true }
 
   if (pathname.startsWith("/galeria/")) {
     const id = decodeURIComponent(pathname.slice("/galeria/".length))

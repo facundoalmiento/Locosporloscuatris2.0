@@ -4,6 +4,7 @@ export const siteConfig = {
   sitioUrl: "https://locosporloscuatristravesias.com",
   imagenSocial: "/galeria/portadareal.jpg",
   instagramUrl: "https://www.instagram.com/locosporloscuatris",
+  mostrarHistoria: false,
   mostrarTienda: false,
-  whatsappNumero: "5492215993585",
+  whatsappNumero: "5492214182964",
 }

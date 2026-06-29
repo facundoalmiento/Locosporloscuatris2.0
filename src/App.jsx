@@ -11,6 +11,7 @@ import { siteConfig } from "./config/site"
 const Home = lazy(() => import("./pages/Home"))
 const Experiencias = lazy(() => import("./pages/Experiencias"))
 const Galeria = lazy(() => import("./pages/Galeria"))
+const Historia = lazy(() => import("./pages/Historia"))
 const Sponsors = lazy(() => import("./pages/Sponsors"))
 const Travesia = lazy(() => import("./pages/Travesia"))
 const Contacto = lazy(() => import("./pages/Contacto"))
@@ -98,6 +99,15 @@ export default function App() {
               element={
                 <PageWrapper>
                   <Travesia />
+                </PageWrapper>
+              }
+            />
+
+            <Route
+              path="/historia"
+              element={
+                <PageWrapper>
+                  <Historia />
                 </PageWrapper>
               }
             />

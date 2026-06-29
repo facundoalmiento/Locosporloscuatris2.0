@@ -8,6 +8,7 @@ export default function Footer() {
     { to: "/travesias", label: "Travesías" },
     ...(siteConfig.mostrarTienda ? [{ to: "/tienda", label: "Tienda" }] : []),
     { to: "/galeria", label: "Galería" },
+    ...(siteConfig.mostrarHistoria ? [{ to: "/historia", label: "Nuestra Historia" }] : []),
     { to: "/contacto", label: "Contacto" }
   ]
 
