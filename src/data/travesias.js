@@ -4,7 +4,7 @@ export const travesias = [
     tipo: "arena",
     titulo: "Médanos 2026",
     fecha: "Enero 2026",
-    portada: "/galeria/medanos-2026/medanos-pinamar-01.jpg",
+    portada: "/galeria/arenaultima.jpg",
     fotos: [
       "/galeria/medanos-2026/medanos-pinamar-01.jpg",
       "/galeria/medanos-2026/medanos-pinamar-02.jpg",
@@ -17,7 +17,7 @@ export const travesias = [
     tipo: "barro",
     titulo: "Barro Extremo",
     fecha: "Marzo 2026",
-    portada: "/galeria/barrofuerte.jpg",
+    portada: "/galeria/barroportada.jpg",
     fotos: [
       "/galeria/barrofuerte.jpg",
       "/galeria/barrofuerte-02.jpg",
@@ -29,28 +29,11 @@ export const travesias = [
     tipo: "solidaria",
     titulo: "Camino Costero Berisso",
     fecha: "Abril 2026",
-    portada: "/galeria/Camino Costero Berisso/portada.jpg",
+    portada: "/galeria/solidariaportada.jpg",
     fotos: [
       "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-.jpg",
       "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-.jpg",
       "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-.jpg"
-    ]
-  },
-  {
-    id: "travesia-villa-gesell",
-    tipo: "arena",
-    titulo: "Travesía Villa Gesell 2016",
-    fecha: "Junio 2016",
-    portada: "/galeria/travesia-villa-gesell/portada.jpg",
-    fotos: [
-      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-01.jpg",
-      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-02.jpg",
-      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-03.jpg",
-      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-04.jpg",
-      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-05.jpg",
-      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-06.jpg",
-      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-07.jpg",
-      "/galeria/travesia-villa-gesell/Travesiavillagesell2016-08.jpg"
     ]
   }
 ]
