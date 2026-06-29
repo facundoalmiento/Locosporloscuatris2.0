@@ -61,12 +61,12 @@ const metricasArchivo = [
       </svg>
     ),
     valor: "Desde 2010",
-    etiqueta: "15+ anos de historia"
+    etiqueta: "15+ años de historia"
   }
 ]
 
 const fotosArchivo = [
-  { src: "/galeria/medanos-2026/medanos-pinamar-01.jpg", alt: "Travesia en medanos al atardecer", grande: true },
+  { src: "/galeria/medanos-2026/medanos-pinamar-01.jpg", alt: "Travesía en médanos al atardecer", grande: true },
   { src: "/galeria/barrofuerte.jpg", alt: "Cuatries en barro extremo" },
   { src: "/galeria/pinamar-2025/playacuatri.jpg", alt: "Cuatries en playa" },
   { src: "/galeria/Camino Costero Berisso/portada.jpg", alt: "Grupo en camino costero" },
@@ -97,7 +97,7 @@ function ArchivoHistorico() {
             <p className="text-sm font-black uppercase tracking-[0.38em] text-lime-400">Archivo historico</p>
             <h2 className="mt-5 text-[clamp(2.1rem,7vw,4rem)] font-black uppercase leading-[0.95] text-white">Revivi la aventura</h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-200 sm:text-lg">
-              Explora mas de 15 anos de travesias.
+              Explorá más de 15 años de travesías.
               <br className="hidden sm:block" />
               Buscate, descarga tus fotos y revivi cada momento.
             </p>

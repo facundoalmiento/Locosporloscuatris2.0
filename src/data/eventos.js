@@ -1,7 +1,7 @@
 export const eventos = [
   {
     id: "pinamar-2026",
-    titulo: "Medanos Pinamar",
+    titulo: "Médanos Pinamar",
     fecha: "7-8-9 Agosto 2026",
     ubicacion: "Pinamar",
     cupos: "Disponibles",
