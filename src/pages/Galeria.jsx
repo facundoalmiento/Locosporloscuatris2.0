@@ -65,13 +65,17 @@ const metricasArchivo = [
   }
 ]
 
+const albumesPorTipo = Object.fromEntries(
+  travesias.map((travesia) => [travesia.tipo, travesia])
+)
+
 const fotosArchivo = [
-  { src: "/galeria/medanos-2026/medanos-pinamar-01.jpg", alt: "Travesía en médanos al atardecer", grande: true },
-  { src: "/galeria/barrofuerte.jpg", alt: "Cuatries en barro extremo" },
-  { src: "/galeria/pinamar-2025/playacuatri.jpg", alt: "Cuatries en playa" },
-  { src: "/galeria/Camino Costero Berisso/portada.jpg", alt: "Grupo en camino costero" },
-  { src: "/galeria/medanos-2026/medanos-pinamar-03.jpg", alt: "Fila de cuatries en travesia" }
-]
+  { src: albumesPorTipo.arena?.portada, alt: "Travesía de arena de Locos por los Cuatris", grande: true },
+  { src: albumesPorTipo.barro?.portada, alt: "Travesía de barro de Locos por los Cuatris" },
+  { src: albumesPorTipo.solidaria?.portada, alt: "Travesía solidaria de Locos por los Cuatris" },
+  { src: albumesPorTipo.arena?.fotos[1], alt: "Cuatriciclos recorriendo los médanos" },
+  { src: albumesPorTipo.barro?.fotos[1], alt: "Cuatriciclos en un recorrido de barro" }
+].filter((foto) => foto.src)
 
 const fadeUp = {
   hidden: { opacity: 0, y: 26 },
