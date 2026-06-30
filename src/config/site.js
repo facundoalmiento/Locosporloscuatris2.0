@@ -6,5 +6,5 @@ export const siteConfig = {
   instagramUrl: "https://www.instagram.com/hernan.almiento/",
   mostrarHistoria: false,
   mostrarTienda: false,
-  whatsappNumero: "5492214182964",
+  whatsappNumero: "5492216817816",
 }
