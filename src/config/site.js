@@ -3,7 +3,7 @@ export const siteConfig = {
   descripcion: "Travesías en cuatriciclo, ATV y UTV por médanos, barro y caminos de Argentina.",
   sitioUrl: "https://locosporloscuatristravesias.com",
   imagenSocial: "/galeria/portadareal.jpg",
-  instagramUrl: "https://www.instagram.com/locosporloscuatris",
+  instagramUrl: "https://www.instagram.com/hernan.almiento/",
   mostrarHistoria: false,
   mostrarTienda: false,
   whatsappNumero: "5492214182964",
