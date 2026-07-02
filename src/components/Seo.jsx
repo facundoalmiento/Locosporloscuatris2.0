@@ -6,32 +6,32 @@ import { travesias } from "../data/travesias"
 
 const paginas = {
   "/": {
-    titulo: "Travesías en cuatriciclo | Locos por los Cuatris",
+    titulo: "Locos por los Cuatris | Travesías en cuatriciclo",
     descripcion: "Travesías en cuatriciclo, ATV y UTV por médanos, barro y caminos de Argentina. Conocé las próximas salidas de Locos por los Cuatris.",
   },
   "/travesias": {
-    titulo: "Travesías off-road en Argentina | Locos por los Cuatris",
+    titulo: "Locos por los Cuatris | Travesías off-road en Argentina",
     descripcion: "Descubrí nuestras travesías de arena, barro, nieve y salidas solidarias en cuatriciclo, ATV y UTV por Argentina.",
   },
   "/galeria": {
-    titulo: "Galería de travesías off-road | Locos por los Cuatris",
+    titulo: "Locos por los Cuatris | Galería de travesías off-road",
     descripcion: "Fotos de travesías en cuatriciclo por médanos, playas, barro y caminos de Argentina. Reviví cada aventura con el grupo.",
   },
   "/historia": {
-    titulo: "Nuestra Historia | Locos por los Cuatris",
+    titulo: "Locos por los Cuatris | Nuestra Historia",
     descripcion: "Conocé cómo nació Locos por los Cuatris, sus primeros pasos y el camino recorrido por el grupo.",
     indexable: siteConfig.mostrarHistoria,
   },
   "/sponsors": {
-    titulo: "Sponsors y aliados | Locos por los Cuatris",
+    titulo: "Locos por los Cuatris | Sponsors y aliados",
     descripcion: "Conocé las marcas y organizaciones que acompañan las travesías y acciones solidarias de Locos por los Cuatris.",
   },
   "/contacto": {
-    titulo: "Contacto y próximas salidas | Locos por los Cuatris",
+    titulo: "Locos por los Cuatris | Contacto y próximas salidas",
     descripcion: "Consultá fechas, cupos y requisitos para sumarte a las próximas travesías en cuatriciclo de Locos por los Cuatris.",
   },
   "/tienda": {
-    titulo: "Equipamiento off-road | Locos por los Cuatris",
+    titulo: "Locos por los Cuatris | Equipamiento off-road",
     descripcion: "Equipamiento y accesorios para cuatriciclos, ATV y UTV pensados para travesías off-road exigentes.",
   },
 }
@@ -61,7 +61,7 @@ function obtenerSeo(pathname) {
 
     if (travesia) {
       return {
-        titulo: `${travesia.titulo} | Galería de Locos por los Cuatris`,
+        titulo: `Locos por los Cuatris | ${travesia.titulo}`,
         descripcion: `Fotos de ${travesia.titulo}, ${travesia.fecha}. Recorré el álbum de esta travesía off-road de Locos por los Cuatris.`,
         imagen: travesia.portada,
         indexable: true,
@@ -70,7 +70,7 @@ function obtenerSeo(pathname) {
   }
 
   return {
-    titulo: "Página no encontrada | Locos por los Cuatris",
+    titulo: "Locos por los Cuatris | Página no encontrada",
     descripcion: siteConfig.descripcion,
     indexable: false,
   }

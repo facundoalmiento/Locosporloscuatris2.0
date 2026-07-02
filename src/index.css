@@ -35,6 +35,24 @@
   button, a, input, textarea {
     -webkit-tap-highlight-color: transparent;
   }
+
+  @media (hover: hover) and (pointer: fine) {
+    body,
+    a,
+    button,
+    [role="button"],
+    summary,
+    label,
+    select {
+      cursor: url("/cursor-paw.png") 1 1, auto;
+    }
+
+    input,
+    textarea,
+    [contenteditable="true"] {
+      cursor: text;
+    }
+  }
 }
 
 @layer components {
