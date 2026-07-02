@@ -6,6 +6,7 @@ import { eventos } from "../data/eventos"
 import { sponsors } from "../data/sponsors"
 
 const MascotaPeeker = lazy(() => import("../components/MascotaPeeker"))
+const MascotaMobile = lazy(() => import("../components/MascotaMobile"))
 
 function buildWhatsAppEventUrl(salida) {
   const mensaje = `Hola! Quiero averiguar por la travesia ${salida.titulo} del ${salida.fecha} en ${salida.ubicacion}. Me pasan info y disponibilidad?`
@@ -115,7 +116,7 @@ const tiposTravesias = [
 
 export default function Home() {
   const [showMascota, setShowMascota] = useState(false)
-  const [showMascotaMobileSafe, setShowMascotaMobileSafe] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(false)
   const sponsorsDestacados = sponsors.filter((sponsor) => sponsor.destacado).slice(0, 6)
   const proximasSalidas = getProximasSalidasVisibles(eventos)
 
@@ -128,7 +129,7 @@ export default function Home() {
     const mediaQuery = window.matchMedia("(min-width: 768px)")
 
     function updateVisibility() {
-      setShowMascotaMobileSafe(mediaQuery.matches)
+      setIsDesktop(mediaQuery.matches)
     }
 
     updateVisibility()
@@ -139,9 +140,9 @@ export default function Home() {
 
   return (
     <>
-      {showMascota && showMascotaMobileSafe ? (
+      {showMascota ? (
         <Suspense fallback={null}>
-          <MascotaPeeker />
+          {isDesktop ? <MascotaPeeker /> : <MascotaMobile />}
         </Suspense>
       ) : null}
 
