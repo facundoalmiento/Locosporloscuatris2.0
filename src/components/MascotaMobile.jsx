@@ -4,10 +4,20 @@ import rataMobile from "../assets/ratamobile.png"
 
 export default function MascotaMobile() {
   const [visible, setVisible] = useState(false)
+  const esIOS = /iPad|iPhone|iPod/.test(window.navigator.userAgent)
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => setVisible(true))
-    return () => window.cancelAnimationFrame(frame)
+    const ocultar = () => setVisible(false)
+    const timer = window.setTimeout(ocultar, 6000)
+
+    window.addEventListener("pointerdown", ocultar, { once: true, passive: true })
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.clearTimeout(timer)
+      window.removeEventListener("pointerdown", ocultar)
+    }
   }, [])
 
   return (
@@ -15,8 +25,8 @@ export default function MascotaMobile() {
       aria-hidden="true"
       className="pointer-events-none fixed left-1/2 z-40 w-[min(84vw,22rem)] md:hidden"
       style={{
-        bottom: "0px",
-        transform: visible ? "translate(-50%, 0)" : "translate(-50%, 58%)",
+        bottom: esIOS ? "0px" : "1px",
+        transform: visible ? "translate(-50%, 0)" : "translate(-50%, 110%)",
         transition: "transform 1100ms cubic-bezier(0.22, 1, 0.36, 1)",
         filter: "drop-shadow(0 -10px 24px rgba(0, 0, 0, 0.38))",
       }}
