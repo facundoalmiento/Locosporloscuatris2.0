@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 
+import MascotaRiendoContacto from "../components/MascotaRiendoContacto"
 import { siteConfig } from "../config/site"
 
 const metricas = [
@@ -41,6 +42,8 @@ export default function Contacto() {
 
   return (
     <div className="page-shell">
+      <MascotaRiendoContacto />
+
       <div className="page-container">
         <div className="hero-stage">
           <section className="hero-panel">
@@ -99,7 +102,7 @@ export default function Contacto() {
             </div>
           </article>
 
-          <article id="whatsapp" className="scroll-mt-[4.6rem] flex flex-col justify-between rounded-[1.35rem] border border-lime-400/20 bg-lime-400/[0.07] p-5 sm:rounded-[2rem] sm:p-8">
+          <article id="whatsapp" className="scroll-mt-[0rem] flex flex-col justify-between rounded-[1.35rem] border border-lime-400/20 bg-lime-400/[0.07] p-5 sm:rounded-[2rem] sm:p-8">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Respuesta directa</p>
               <h2 className="mt-3 text-2xl font-black uppercase sm:text-3xl">La forma más rápida es escribirnos por WhatsApp.</h2>
