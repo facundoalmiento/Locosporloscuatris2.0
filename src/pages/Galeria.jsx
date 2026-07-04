@@ -5,7 +5,8 @@ import { Link } from "react-router-dom"
 import { travesias } from "../data/travesias"
 
 const albumesPorCategoria = 2
-const archivoGoogleFotosUrl = ""
+const archivoGoogleFotosUrl =
+  "https://drive.google.com/drive/folders/1BdIEVCYI9NjPNdAjsLId4XoNMHwlNKXW?usp=sharing"
 
 const filtros = [
   { id: "todas", label: "Todas" },
@@ -119,12 +120,12 @@ function ArchivoHistorico() {
             <div className="mt-9">
               {archivoGoogleFotosUrl ? (
                 <a href={archivoGoogleFotosUrl} target="_blank" rel="noreferrer" className={botonClasses}>
-                  Abrir Google Fotos
+                  Abrir archivo en Drive
                   <span className="transition group-hover:translate-x-1">-&gt;</span>
                 </a>
               ) : (
-                <button type="button" className={`${botonClasses} cursor-not-allowed opacity-75`} title="Falta cargar el link de Google Fotos">
-                  Abrir Google Fotos
+                <button type="button" className={`${botonClasses} cursor-not-allowed opacity-75`} title="Falta cargar el link del archivo histórico">
+                  Abrir archivo en Drive
                   <span>-&gt;</span>
                 </button>
               )}
