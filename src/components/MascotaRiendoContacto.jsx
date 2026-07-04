@@ -42,15 +42,12 @@ export default function MascotaRiendoContacto() {
         className="pointer-events-none fixed left-1/2 w-[min(72vw,19rem)] lg:hidden"
         style={{
           bottom: "-81px",
-          // AJUSTE MOBILE: efecto pausado para ubicar la mascota manualmente.
-          // opacity: mostrarMascota ? 1 : 0,
-          // transform: mostrarMascota
-          //   ? "translate(-32%, 0)"
-          //   : "translate(-32%, 110%)",
-          // transition:
-          //   "opacity 320ms ease, transform 1100ms cubic-bezier(0.22, 1, 0.36, 1)",
-          opacity: 1,
-          transform: "translate(-32%, 0)",
+          opacity: mostrarMascota ? 1 : 0,
+          transform: mostrarMascota
+            ? "translate(-32%, 0)"
+            : "translate(-32%, 110%)",
+          transition:
+            "opacity 320ms ease, transform 1100ms cubic-bezier(0.22, 1, 0.36, 1)",
           filter: "drop-shadow(0 -10px 24px rgba(0,0,0,0.38))",
           zIndex: 9999,
         }}
@@ -65,16 +62,13 @@ export default function MascotaRiendoContacto() {
               right: "65%",
               bottom: "65%",
               width: "60%",
-              // AJUSTE MOBILE: efecto pausado para ubicar el bocadillo manualmente.
-              // opacity: mostrarDialogo ? 1 : 0,
-              // transform: mostrarDialogo
-              //   ? "translate(0, 0) scale(1)"
-              //   : "translate(12%, 15%) scale(0.82)",
-              opacity: 1,
-              transform: "translate(0, 0) scale(1)",
+              opacity: mostrarDialogo ? 1 : 0,
+              transform: mostrarDialogo
+                ? "translate(0, 0) scale(1)"
+                : "translate(12%, 15%) scale(0.82)",
               transformOrigin: "bottom right",
-              // transition:
-              //   "opacity 420ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1)",
+              transition:
+                "opacity 420ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1)",
               filter: "drop-shadow(0 10px 18px rgba(0,0,0,0.28))",
               zIndex: 1,
             }}
