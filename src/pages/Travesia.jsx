@@ -39,7 +39,7 @@ export default function Travesia() {
               <p className="mt-6 text-sm font-bold uppercase tracking-[0.35em] text-lime-400">Álbum</p>
               <h1 className="mt-4 text-3xl font-black uppercase leading-none sm:text-4xl md:text-5xl">{travesia.titulo}</h1>
               <p className="mt-4 text-sm font-semibold uppercase tracking-[0.25em] text-zinc-400">{travesia.fecha}</p>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">Un recorrido para abrir foto por foto, con una entrada visual más fuerte y el mismo tono editorial que ya tienen las otras secciones del sitio.</p>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">Una selección liviana para recorrer la travesía. Los originales en alta calidad siguen disponibles en el archivo de Drive.</p>
               <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
                 <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-200 sm:text-sm sm:tracking-[0.18em]">{travesia.tipo}</div>
                 <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-200 sm:text-sm sm:tracking-[0.18em]">{travesia.fotos.length} fotos</div>
@@ -70,9 +70,9 @@ export default function Travesia() {
       {fotoActiva !== null ? (
         <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/90 p-3 sm:p-4" onClick={() => setFotoActiva(null)}>
           <button type="button" className="absolute right-3 top-3 z-10 rounded-full bg-white/10 px-3 py-2 text-xs font-semibold text-white transition hover:bg-white/20 sm:right-6 sm:top-6 sm:px-4 sm:text-sm" onClick={() => setFotoActiva(null)}>Cerrar</button>
-          <button type="button" className="absolute bottom-4 left-4 z-10 rounded-full bg-white/10 px-4 py-2 text-xl text-white transition hover:bg-white/20 sm:bottom-auto sm:left-4 sm:px-4 sm:py-3 sm:text-2xl md:left-8" onClick={(event) => { event.stopPropagation(); setFotoActiva((fotoActiva - 1 + travesia.fotos.length) % travesia.fotos.length) }}>‹</button>
+          <button type="button" aria-label="Foto anterior" className="absolute bottom-4 left-4 z-10 rounded-full bg-white/10 px-4 py-2 text-xl text-white transition hover:bg-white/20 sm:bottom-auto sm:left-4 sm:px-4 sm:py-3 sm:text-2xl md:left-8" onClick={(event) => { event.stopPropagation(); setFotoActiva((fotoActiva - 1 + travesia.fotos.length) % travesia.fotos.length) }}>‹</button>
           <img src={travesia.fotos[fotoActiva]} alt={`${travesia.titulo} ${fotoActiva + 1}`} className="max-h-[78svh] max-w-full rounded-xl object-contain sm:max-h-[90vh]" onClick={(event) => event.stopPropagation()} />
-          <button type="button" className="absolute bottom-4 right-4 z-10 rounded-full bg-white/10 px-4 py-2 text-xl text-white transition hover:bg-white/20 sm:bottom-auto sm:right-4 sm:px-4 sm:py-3 sm:text-2xl md:right-8" onClick={(event) => { event.stopPropagation(); setFotoActiva((fotoActiva + 1) % travesia.fotos.length) }}>›</button>
+          <button type="button" aria-label="Foto siguiente" className="absolute bottom-4 right-4 z-10 rounded-full bg-white/10 px-4 py-2 text-xl text-white transition hover:bg-white/20 sm:bottom-auto sm:right-4 sm:px-4 sm:py-3 sm:text-2xl md:right-8" onClick={(event) => { event.stopPropagation(); setFotoActiva((fotoActiva + 1) % travesia.fotos.length) }}>›</button>
         </div>
       ) : null}
     </div>

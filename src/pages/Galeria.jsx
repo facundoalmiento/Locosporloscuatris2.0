@@ -66,9 +66,10 @@ const metricasArchivo = [
   }
 ]
 
-const albumesPorTipo = Object.fromEntries(
-  travesias.map((travesia) => [travesia.tipo, travesia])
-)
+const albumesPorTipo = travesias.reduce((albumes, travesia) => {
+  if (!albumes[travesia.tipo]) albumes[travesia.tipo] = travesia
+  return albumes
+}, {})
 
 const fotosArchivo = [
   { src: albumesPorTipo.arena?.portada, alt: "Travesía de arena de Locos por los Cuatris", grande: true },
@@ -104,7 +105,7 @@ function ArchivoHistorico() {
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-200 sm:text-lg">
               Explorá más de 15 años de travesías.
               <br className="hidden sm:block" />
-              Buscate, descarga tus fotos y revivi cada momento.
+              Buscate, descargá tus fotos y reviví cada momento.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-3">

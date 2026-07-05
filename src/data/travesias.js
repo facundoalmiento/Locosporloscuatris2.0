@@ -1,39 +1,46 @@
 export const travesias = [
   {
-    id: "medanos-2026",
+    id: "san-cayetano-2025",
     tipo: "arena",
-    titulo: "Médanos 2026",
-    fecha: "Enero 2026",
-    portada: "/galeria/arenaultima.jpg",
-    fotos: [
-      "/galeria/medanos-2026/medanos-pinamar-01.jpg",
-      "/galeria/medanos-2026/medanos-pinamar-02.jpg",
-      "/galeria/medanos-2026/medanos-pinamar-03.jpg",
-      "/galeria/medanos-2026/medanos-pinamar-04.jpg"
-    ]
+    titulo: "San Cayetano",
+    fecha: "Noviembre 2025",
+    portada: "/galeria/san-cayetano-2025/01.webp",
+    fotos: Array.from(
+      { length: 10 },
+      (_, index) => `/galeria/san-cayetano-2025/${String(index + 1).padStart(2, "0")}.webp`
+    )
   },
   {
-    id: "barro-extremo",
+    id: "pinamar-primavera-2025",
+    tipo: "arena",
+    titulo: "Pinamar Primavera",
+    fecha: "Septiembre 2025",
+    portada: "/galeria/pinamar-primavera-2025/01.webp",
+    fotos: Array.from(
+      { length: 10 },
+      (_, index) => `/galeria/pinamar-primavera-2025/${String(index + 1).padStart(2, "0")}.webp`
+    )
+  },
+  {
+    id: "nocturna-3-2017",
     tipo: "barro",
-    titulo: "Barro Extremo",
-    fecha: "Marzo 2026",
-    portada: "/galeria/barroportada.jpg",
-    fotos: [
-      "/galeria/barrofuerte.jpg",
-      "/galeria/barrofuerte-02.jpg",
-      "/galeria/ruedabarro.jpg"
-    ]
+    titulo: "No le temas a la oscuridad 3",
+    fecha: "Noviembre 2017",
+    portada: "/galeria/nocturna-3-2017/01.webp",
+    fotos: Array.from(
+      { length: 10 },
+      (_, index) => `/galeria/nocturna-3-2017/${String(index + 1).padStart(2, "0")}.webp`
+    )
   },
   {
-    id: "solidaria-2026",
+    id: "bomberos-el-peligro-2024",
     tipo: "solidaria",
-    titulo: "Camino Costero Berisso",
-    fecha: "Abril 2026",
-    portada: "/galeria/solidariaportada.jpg",
-    fotos: [
-      "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-.jpg",
-      "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-.jpg",
-      "/galeria/Camino Costero Berisso/CaminoCosteroBerisso-.jpg"
-    ]
+    titulo: "Día del Niño — Bomberos El Peligro",
+    fecha: "24 de agosto de 2024",
+    portada: "/galeria/bomberos-el-peligro-2024/01.webp",
+    fotos: Array.from(
+      { length: 10 },
+      (_, index) => `/galeria/bomberos-el-peligro-2024/${String(index + 1).padStart(2, "0")}.webp`
+    )
   }
 ]
