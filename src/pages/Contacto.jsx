@@ -12,7 +12,7 @@ const metricas = [
 
 const canales = [
   { titulo: "WhatsApp", descripcion: "Coordiná la salida, consultá cupos o pedí info rápida.", dato: "+54 9 221 681 7816" },
-  { titulo: "Instagram", descripcion: "Seguinos para ver travesías, fotos y novedades del grupo.", dato: "@locosporloscuatris" },
+  { titulo: "Instagram", descripcion: "Seguinos para ver travesías, fotos y novedades del grupo.", dato: "@hernan.almiento" },
   { titulo: "Ubicación", descripcion: "Base operativa y punto de encuentro según cada salida.", dato: "Buenos Aires, Argentina" }
 ]
 
@@ -112,7 +112,7 @@ export default function Contacto() {
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a href={whatsappUrl} target="_blank" rel="noreferrer" className="rounded-2xl bg-lime-400 px-6 py-3 text-center font-bold text-black transition hover:bg-lime-300">Escribir por WhatsApp</a>
-              <a href="https://www.instagram.com/locosporloscuatris" target="_blank" rel="noreferrer" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300">Ver Instagram</a>
+              <a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer" className="rounded-2xl border border-white/20 px-6 py-3 text-center font-semibold text-white transition hover:border-lime-400 hover:text-lime-300">Ver Instagram</a>
             </div>
           </article>
         </section>

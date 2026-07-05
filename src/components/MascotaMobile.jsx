@@ -69,10 +69,7 @@ export default function MascotaMobile() {
         filter: "drop-shadow(0 -10px 24px rgba(0, 0, 0, 0.38))",
       }}
     >
-      <div
-        className="mascota-mobile-group relative w-full"
-        style={{ animation: "mascotaMobileIdle 5s ease-in-out infinite" }}
-      >
+      <div className="relative w-full">
         <div
           className="absolute"
           style={{
@@ -121,23 +118,12 @@ export default function MascotaMobile() {
       </div>
 
       <style>{`
-        @keyframes mascotaMobileIdle {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(1px) rotate(-0.2deg); }
-        }
-
         .dialogo-mobile-caret {
           animation: dialogoMobileCaret 0.7s steps(1) infinite;
         }
 
         @keyframes dialogoMobileCaret {
           50% { opacity: 0; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .mascota-mobile-group {
-            animation: none !important;
-          }
         }
       `}</style>
     </div>

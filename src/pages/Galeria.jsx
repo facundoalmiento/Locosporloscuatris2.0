@@ -41,7 +41,7 @@ const metricasArchivo = [
         <circle cx="12" cy="13.5" r="3.2" />
       </svg>
     ),
-    valor: "18.000+",
+    valor: "+18.000",
     etiqueta: "fotos"
   },
   {
@@ -51,7 +51,7 @@ const metricasArchivo = [
         <path d="m16 10 4-2.4v8.8L16 14" />
       </svg>
     ),
-    valor: "400+",
+    valor: "+400",
     etiqueta: "videos"
   },
   {
@@ -61,8 +61,8 @@ const metricasArchivo = [
         <path d="M8 3.5v4M16 3.5v4M4 10h16" />
       </svg>
     ),
-    valor: "Desde 2010",
-    etiqueta: "15+ años de historia"
+    valor: "Desde 2013",
+    etiqueta: "+14 años de historia"
   }
 ]
 

@@ -16,6 +16,9 @@ const Sponsors = lazy(() => import("./pages/Sponsors"))
 const Travesia = lazy(() => import("./pages/Travesia"))
 const Contacto = lazy(() => import("./pages/Contacto"))
 const NotFound = lazy(() => import("./pages/NotFound"))
+const MascotaDesktopApariciones = lazy(
+  () => import("./components/MascotaDesktopApariciones"),
+)
 const Tienda = siteConfig.mostrarTienda ? lazy(() => import("./pages/Tienda")) : null
 const MotionDiv = motion.div
 const TRANSITION_DURATION_MS = 560
@@ -24,6 +27,10 @@ export default function App() {
   const location = useLocation()
   const [isTransitioning, setIsTransitioning] = useState(false)
   const previousPathnameRef = useRef(location.pathname)
+  const mostrarMascotaDesktop =
+    location.pathname === "/travesias" ||
+    location.pathname === "/galeria" ||
+    location.pathname.startsWith("/galeria/")
 
   useEffect(() => {
     if (location.pathname === previousPathnameRef.current) return undefined
@@ -65,6 +72,10 @@ export default function App() {
           </div>
         }
       >
+        {mostrarMascotaDesktop ? (
+          <MascotaDesktopApariciones key={location.pathname} />
+        ) : null}
+
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route
