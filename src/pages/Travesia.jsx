@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 
 import { travesias } from "../data/travesias"
@@ -6,10 +6,12 @@ import { travesias } from "../data/travesias"
 export default function Travesia() {
   const { id } = useParams()
   const [fotoActiva, setFotoActiva] = useState(null)
+  const inicioDeslizamiento = useRef(null)
   const travesia = travesias.find((item) => item.id === id)
+  const visorAbierto = fotoActiva !== null
 
   useEffect(() => {
-    if (fotoActiva === null) return undefined
+    if (!visorAbierto) return undefined
 
     function handleKeyDown(event) {
       if (event.key === "Escape") setFotoActiva(null)
@@ -19,7 +21,56 @@ export default function Travesia() {
 
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [fotoActiva, travesia])
+  }, [visorAbierto, travesia])
+
+  useEffect(() => {
+    if (!visorAbierto) return undefined
+
+    const scrollY = window.scrollY
+    const estilosAnteriores = {
+      overflowHtml: document.documentElement.style.overflow,
+      overflowBody: document.body.style.overflow,
+      posicionBody: document.body.style.position,
+      anchoBody: document.body.style.width,
+      topBody: document.body.style.top
+    }
+
+    document.documentElement.style.overflow = "hidden"
+    document.body.style.overflow = "hidden"
+    document.body.style.position = "fixed"
+    document.body.style.width = "100%"
+    document.body.style.top = `-${scrollY}px`
+
+    return () => {
+      document.documentElement.style.overflow = estilosAnteriores.overflowHtml
+      document.body.style.overflow = estilosAnteriores.overflowBody
+      document.body.style.position = estilosAnteriores.posicionBody
+      document.body.style.width = estilosAnteriores.anchoBody
+      document.body.style.top = estilosAnteriores.topBody
+      window.scrollTo(0, scrollY)
+    }
+  }, [visorAbierto])
+
+  function iniciarDeslizamiento(event) {
+    inicioDeslizamiento.current = { x: event.clientX, y: event.clientY }
+  }
+
+  function terminarDeslizamiento(event) {
+    if (!inicioDeslizamiento.current) return
+
+    const diferenciaX = event.clientX - inicioDeslizamiento.current.x
+    const diferenciaY = event.clientY - inicioDeslizamiento.current.y
+    inicioDeslizamiento.current = null
+
+    if (Math.abs(diferenciaX) < 50 || Math.abs(diferenciaX) <= Math.abs(diferenciaY)) return
+
+    setFotoActiva((actual) => {
+      if (actual === null) return actual
+      return diferenciaX < 0
+        ? (actual + 1) % travesia.fotos.length
+        : (actual - 1 + travesia.fotos.length) % travesia.fotos.length
+    })
+  }
 
   if (!travesia) {
     return <div className="flex min-h-screen items-center justify-center bg-black text-white">Travesía no encontrada</div>
@@ -68,11 +119,18 @@ export default function Travesia() {
       </div>
 
       {fotoActiva !== null ? (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/90 p-3 sm:p-4" onClick={() => setFotoActiva(null)}>
+        <div
+          className="fixed inset-0 z-[1000] flex touch-none select-none items-center justify-center overscroll-none bg-black/90 p-3 sm:p-4"
+          onClick={() => setFotoActiva(null)}
+          onPointerDown={iniciarDeslizamiento}
+          onPointerUp={terminarDeslizamiento}
+          onPointerCancel={() => { inicioDeslizamiento.current = null }}
+        >
           <button type="button" className="absolute right-3 top-3 z-10 rounded-full bg-white/10 px-3 py-2 text-xs font-semibold text-white transition hover:bg-white/20 sm:right-6 sm:top-6 sm:px-4 sm:text-sm" onClick={() => setFotoActiva(null)}>Cerrar</button>
-          <button type="button" aria-label="Foto anterior" className="absolute bottom-4 left-4 z-10 rounded-full bg-white/10 px-4 py-2 text-xl text-white transition hover:bg-white/20 sm:bottom-auto sm:left-4 sm:px-4 sm:py-3 sm:text-2xl md:left-8" onClick={(event) => { event.stopPropagation(); setFotoActiva((fotoActiva - 1 + travesia.fotos.length) % travesia.fotos.length) }}>‹</button>
           <img src={travesia.fotos[fotoActiva]} alt={`${travesia.titulo} ${fotoActiva + 1}`} className="max-h-[78svh] max-w-full rounded-xl object-contain sm:max-h-[90vh]" onClick={(event) => event.stopPropagation()} />
-          <button type="button" aria-label="Foto siguiente" className="absolute bottom-4 right-4 z-10 rounded-full bg-white/10 px-4 py-2 text-xl text-white transition hover:bg-white/20 sm:bottom-auto sm:right-4 sm:px-4 sm:py-3 sm:text-2xl md:right-8" onClick={(event) => { event.stopPropagation(); setFotoActiva((fotoActiva + 1) % travesia.fotos.length) }}>›</button>
+          <p className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/65 sm:bottom-6 sm:text-xs">
+            Deslizá hacia los costados
+          </p>
         </div>
       ) : null}
     </div>
