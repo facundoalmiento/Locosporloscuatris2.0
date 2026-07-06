@@ -62,7 +62,7 @@ const metricasArchivo = [
       </svg>
     ),
     valor: "Desde 2013",
-    etiqueta: "+14 años de historia"
+    etiqueta: "+13 años de historia"
   }
 ]
 
@@ -103,7 +103,7 @@ function ArchivoHistorico() {
             <p className="text-sm font-black uppercase tracking-[0.38em] text-lime-400">Archivo historico</p>
             <h2 className="mt-5 text-[clamp(2.1rem,7vw,4rem)] font-black uppercase leading-[0.95] text-white">Revivi la aventura</h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-200 sm:text-lg">
-              Explorá más de 15 años de travesías.
+              Explorá más de 13 años de travesías.
               <br className="hidden sm:block" />
               Buscate, descargá tus fotos y reviví cada momento.
             </p>
