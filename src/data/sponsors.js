@@ -22,8 +22,8 @@ export const sponsors = [
   {
     id: "sponsor-03",
     nombre: "Desarrollador web",
-    categoria: "Equipamiento",
-    descripcion: "Aliado para ropa técnica, protección y presencia de marca.",
+    categoria: "Programación y diseño",
+    descripcion: "Aliado para la gestión y diseño de la página web.",
     logo: "/galeria/logofa.png",
     url: "https://facundoalmiento.vercel.app/",
     destacado: false,
