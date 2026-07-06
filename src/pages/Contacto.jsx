@@ -12,7 +12,7 @@ const metricas = [
 
 const canales = [
   { titulo: "WhatsApp", descripcion: "Coordiná la salida, consultá cupos o pedí info rápida.", dato: "+54 9 221 681 7816" },
-  { titulo: "Instagram", descripcion: "Seguinos para ver travesías, fotos y novedades del grupo.", dato: "@hernan.almiento" },
+  { titulo: "Instagram", descripcion: "Seguinos para ver travesías, fotos y novedades del grupo.", dato: "@locosporloscuatris!! Travesias", url: siteConfig.instagramUrl },
   { titulo: "Ubicación", descripcion: "Base operativa y punto de encuentro según cada salida.", dato: "Buenos Aires, Argentina" }
 ]
 
@@ -95,7 +95,20 @@ export default function Contacto() {
               {canales.map((canal) => (
                 <div key={canal.titulo} className="rounded-[1.25rem] border border-white/10 bg-black/35 p-5 sm:rounded-[1.5rem]">
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-lime-400">{canal.titulo}</p>
-                  <h3 className="mt-3 break-words text-lg font-black uppercase text-white sm:text-xl">{canal.dato}</h3>
+                  <h3 className="mt-3 break-words text-lg font-black uppercase text-white sm:text-xl">
+                    {canal.url ? (
+                      <a
+                        href={canal.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="transition hover:text-lime-300"
+                      >
+                        {canal.dato}
+                      </a>
+                    ) : (
+                      canal.dato
+                    )}
+                  </h3>
                   <p className="mt-3 text-sm leading-relaxed text-zinc-400">{canal.descripcion}</p>
                 </div>
               ))}
