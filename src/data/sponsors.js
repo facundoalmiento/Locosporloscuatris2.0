@@ -31,11 +31,11 @@ export const sponsors = [
   },
   {
     id: "sponsor-04",
-    nombre: "Pintureria Ogus",
+    nombre: "Crazy Motors Ostende",
     categoria: "Negocios",
-    descripcion: "Pinturería de cercanía con visión profesional.",
-    logo: "/galeria/PintureriasOgus.jpg",
-    url: "https://pintureriasogus.com.ar/",
+    descripcion: "Taller mecanico en Ostende de motos, cuatris y UTV.",
+    logo: "/galeria/Crazymotors.png",
+    url: "https://www.facebook.com/repuestoscrazymotos/?locale=es_LA",
     destacado: false,
     importante: false
   },
@@ -147,5 +147,15 @@ export const sponsors = [
     url: "http://www.radiomaspinamar.com.ar/",
     destacado: false,
     importante: false
+  },
+  {
+    id: "sponsor-16",
+    nombre: "GT 4x4 OFF ROAD",
+    categoria: "Comunidad",
+    descripcion: "Organizamos Travesías y Cursos De Manejo en Camionetas 4x4 Off Road - Experiencias De Aventura y Todoterreno",
+    logo: "/galeria/GT4x4OffRoad.png",
+    url: "https://www.instagram.com/gt.4x4.off.road?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    destacado: true,
+    importante: true
   },
 ]
