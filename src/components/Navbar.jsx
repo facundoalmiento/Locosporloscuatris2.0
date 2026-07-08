@@ -9,6 +9,7 @@ export default function Navbar() {
   const links = [
     { to: "/travesias", label: "Travesías" },
     ...(siteConfig.mostrarTienda ? [{ to: "/tienda", label: "Tienda" }] : []),
+    { to: "/sponsors", label: "Sponsors" },
     { to: "/galeria", label: "Galería" },
     ...(siteConfig.mostrarHistoria ? [{ to: "/historia", label: "Nuestra Historia" }] : []),
     { to: "/contacto", label: "Contacto" }
@@ -72,7 +73,7 @@ export default function Navbar() {
 
       <div
         className={`overflow-hidden transition-all duration-300 md:hidden ${
-          menuAbierto ? "max-h-80" : "max-h-0"
+          menuAbierto ? "max-h-96" : "max-h-0"
         }`}
       >
         <div className="flex max-h-[calc(100svh-4rem)] flex-col gap-4 overflow-y-auto border-t border-white/10 px-4 pb-6 pt-4 text-sm font-semibold uppercase tracking-wide">
