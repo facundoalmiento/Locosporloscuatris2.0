@@ -29,6 +29,7 @@ export default function App() {
   const previousPathnameRef = useRef(location.pathname)
   const mostrarMascotaDesktop =
     location.pathname === "/travesias" ||
+    location.pathname === "/sponsors" ||
     location.pathname === "/galeria" ||
     location.pathname.startsWith("/galeria/")
 
