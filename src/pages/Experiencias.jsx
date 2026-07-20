@@ -54,12 +54,12 @@ export default function Experiencias() {
           </section>
         </div>
 
-<section className="grid min-h-[120vh] items-center gap-8 py-16 md:grid-cols-2 xl:grid-cols-4">          {tiposConPortada.map((tipo) => (
+<section className="grid items-stretch gap-8 py-16 md:grid-cols-2 xl:grid-cols-4">          {tiposConPortada.map((tipo) => (
             <article key={tipo.id} className="group feature-card relative">
               <div className="absolute inset-0 bg-cover bg-center opacity-60 transition duration-700 group-hover:scale-110" style={{ backgroundImage: `url(${tipo.portada})` }} />
               <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/45 to-black/90" />
               <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${tipo.color}`} />
-              <div className="relative z-10 flex min-h-[28rem] flex-col justify-between p-5 sm:min-h-[clamp(38rem,70vh,52rem)] sm:p-8"><div>
+              <div className="relative z-10 flex min-h-[28rem] flex-col justify-between p-5 sm:min-h-[clamp(32rem,58vh,40rem)] sm:p-8 xl:min-h-[clamp(30rem,40vw,36rem)]"><div>
                   <div className="inline-flex max-w-full rounded-full border border-white/15 bg-white/8 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-zinc-100 sm:text-xs sm:tracking-[0.25em]">{tipo.destacado}</div>
                   <h2 className="mt-5 text-3xl font-black uppercase leading-none sm:text-4xl">{tipo.titulo}</h2>
                   <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-lime-300 sm:text-sm sm:tracking-[0.28em]">{tipo.subtitulo}</p>

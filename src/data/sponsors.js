@@ -25,7 +25,7 @@ export const sponsors = [
     categoria: "Programación y diseño",
     descripcion: "Aliado para la gestión y diseño de la página web.",
     logo: "/galeria/logofa.png",
-    url: "https://facundoalmiento.vercel.app/",
+    url: "",
     destacado: false,
     importante: false
   },

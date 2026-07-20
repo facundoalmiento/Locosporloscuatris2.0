@@ -146,8 +146,8 @@ export default function Home() {
         </Suspense>
       ) : null}
 
-      <div className="relative flex min-h-[100svh] w-full items-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] pt-20 text-white sm:pt-24 lg:pt-10">
-        <div className="mx-auto grid w-full max-w-[96rem] items-center gap-8 px-4 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(30rem,1fr)] lg:gap-7 lg:px-10 xl:grid-cols-[minmax(0,1.04fr)_minmax(36rem,0.96fr)] xl:px-14 2xl:px-20">
+      <div className="relative flex min-h-[100svh] w-full items-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] pt-20 text-white sm:pt-24 lg:min-h-[min(100svh,56rem)] lg:pt-10">
+        <div className="mx-auto grid w-full max-w-[96rem] items-center gap-8 px-4 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(30rem,1fr)] lg:gap-7 lg:px-10 xl:grid-cols-[minmax(0,1.04fr)_minmax(36rem,0.96fr)] xl:px-14 2xl:max-w-[112rem] 2xl:px-20">
           <div className="min-w-0">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-lime-400 sm:text-base sm:tracking-widest">
               Off Road Experience
@@ -170,7 +170,7 @@ export default function Home() {
 
           <div className="relative flex min-w-0 items-center justify-center lg:justify-start lg:-ml-6 xl:-ml-12">
             <div className="absolute h-[16rem] w-[16rem] rounded-full bg-[radial-gradient(circle,rgba(163,230,53,0.14)_0%,rgba(163,230,53,0.05)_42%,transparent_74%)] blur-2xl sm:h-[24rem] sm:w-[24rem]" />
-            <div className="relative w-full max-w-[35rem] overflow-hidden rounded-[1.35rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.012))] p-4 shadow-[0_24px_90px_rgba(0,0,0,0.32)] ring-1 ring-white/[0.06] sm:max-w-[37rem] sm:rounded-[2rem] sm:p-7 xl:max-w-[39rem] xl:p-8">
+            <div className="relative w-full max-w-[35rem] overflow-hidden rounded-[1.35rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.012))] p-4 shadow-[0_24px_90px_rgba(0,0,0,0.32)] ring-1 ring-white/[0.06] sm:max-w-[37rem] sm:rounded-[2rem] sm:p-7 xl:max-w-[39rem] xl:p-8 2xl:max-w-[44rem]">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_65%_20%,rgba(163,230,53,0.12),transparent_38%)]" />
 
               <div className="relative z-10">
