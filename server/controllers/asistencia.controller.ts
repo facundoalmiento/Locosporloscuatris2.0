@@ -1,6 +1,6 @@
 import { Response } from "express";
-import { prisma } from "../config/prisma";
-import { AuthRequest } from "../middlewares/auth.middleware";
+import { prisma } from "../config/prisma.js";
+import { AuthRequest } from "../middlewares/auth.middleware.js";
 import { travesias } from "../../src/data/travesias.js";
 
 export async function listMisAsistencias(req: AuthRequest, res: Response) {

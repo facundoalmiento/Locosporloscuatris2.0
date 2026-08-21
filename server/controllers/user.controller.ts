@@ -1,6 +1,6 @@
 import { Response } from "express";
-import { prisma } from "../config/prisma";
-import { AuthRequest } from "../middlewares/auth.middleware";
+import { prisma } from "../config/prisma.js";
+import { AuthRequest } from "../middlewares/auth.middleware.js";
 
 // Solo ADMIN: lista básica de usuarios, para elegir a quién asignarle una
 // travesía en el Pasaporte Off-Road. Nunca incluye password ni googleId.

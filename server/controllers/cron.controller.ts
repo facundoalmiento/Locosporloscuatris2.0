@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { prisma } from "../config/prisma";
-import { enviarRecordatorioMantenimiento } from "../services/email";
+import { prisma } from "../config/prisma.js";
+import { enviarRecordatorioMantenimiento } from "../services/email.js";
 import {
   TIPOS_MANTENIMIENTO,
   DIAS_AVISO_TRAVESIA,

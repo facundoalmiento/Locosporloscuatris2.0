@@ -1,5 +1,5 @@
 import "dotenv/config";
-import app from "./app";
+import app from "./app.js";
 
 // Solo para desarrollo local: levanta un servidor de verdad con app.listen().
 // En Vercel esto no se usa — ahí corre api/[...slug].ts en su lugar.

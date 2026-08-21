@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ejecutarRecordatoriosMantenimiento } from "../controllers/cron.controller";
+import { ejecutarRecordatoriosMantenimiento } from "../controllers/cron.controller.js";
 
 const router = Router();
 

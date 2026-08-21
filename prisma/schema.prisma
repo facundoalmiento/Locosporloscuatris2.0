@@ -2,8 +2,13 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider             = "prisma-client"
+  output               = "../generated/prisma"
+  // Sin esto, el código que genera Prisma usa imports sin extensión
+  // (ej. "./enums"), lo que rompe en el servidor real de Vercel (Node en
+  // modo ESM exige la extensión ".js" en cada import relativo). En local
+  // no se nota porque la herramienta de desarrollo lo resuelve sola.
+  importFileExtension  = "js"
 }
 
 datasource db {

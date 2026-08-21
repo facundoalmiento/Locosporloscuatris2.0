@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { OAuth2Client } from "google-auth-library";
-import { prisma } from "../config/prisma";
-import { enviarBienvenida } from "../services/email";
+import { prisma } from "../config/prisma.js";
+import { enviarBienvenida } from "../services/email.js";
 
 // Manda el mail de bienvenida sin bloquear la respuesta del login/registro:
 // si Resend está lento o falla, el usuario igual entra sin demora ni error.

@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { requireAuth } from "../middlewares/auth.middleware";
-import { createVehicle, listMyVehicles, deleteVehicle } from "../controllers/vehicle.controller";
+import { requireAuth } from "../middlewares/auth.middleware.js";
+import { createVehicle, listMyVehicles, deleteVehicle } from "../controllers/vehicle.controller.js";
 import {
   listMaintenanceLogs,
   createMaintenanceLog,
   deleteMaintenanceLog,
-} from "../controllers/maintenance.controller";
+} from "../controllers/maintenance.controller.js";
 
 const router = Router();
 

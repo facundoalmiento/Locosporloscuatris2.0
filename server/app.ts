@@ -1,15 +1,15 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import { prisma } from "./config/prisma";
-import authRoutes from "./routes/auth.routes";
-import vehicleRoutes from "./routes/vehicle.routes";
-import categoryRoutes from "./routes/category.routes";
-import productRoutes from "./routes/product.routes";
-import orderRoutes from "./routes/order.routes";
-import cronRoutes from "./routes/cron.routes";
-import asistenciaRoutes from "./routes/asistencia.routes";
-import userRoutes from "./routes/user.routes";
+import { prisma } from "./config/prisma.js";
+import authRoutes from "./routes/auth.routes.js";
+import vehicleRoutes from "./routes/vehicle.routes.js";
+import categoryRoutes from "./routes/category.routes.js";
+import productRoutes from "./routes/product.routes.js";
+import orderRoutes from "./routes/order.routes.js";
+import cronRoutes from "./routes/cron.routes.js";
+import asistenciaRoutes from "./routes/asistencia.routes.js";
+import userRoutes from "./routes/user.routes.js";
 
 // Este archivo NO llama a app.listen(): en Vercel, la función serverless
 // (api/[...slug].ts) es la que invoca a `app` por cada request. Para correrlo

@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { requireAuth, requireAdmin } from "../middlewares/auth.middleware";
+import { requireAuth, requireAdmin } from "../middlewares/auth.middleware.js";
 import {
   listMisAsistencias,
   listAllAsistencias,
   createAsistencia,
   deleteAsistencia,
-} from "../controllers/asistencia.controller";
+} from "../controllers/asistencia.controller.js";
 
 const router = Router();
 
