@@ -3,6 +3,8 @@ import { motion as Motion } from "framer-motion"
 import { Link } from "react-router-dom"
 
 import { travesias } from "../data/travesias"
+import { useAuth } from "../context/AuthContext"
+import AuthControls from "../components/AuthControls"
 
 const albumesPorCategoria = 2
 const archivoGoogleFotosUrl =
@@ -85,6 +87,7 @@ const fadeUp = {
 }
 
 function ArchivoHistorico() {
+  const { estaLogueado } = useAuth()
   const botonClasses = "group inline-flex w-full items-center justify-center gap-4 rounded-2xl bg-lime-400 px-7 py-4 text-sm font-black uppercase tracking-[0.08em] text-black shadow-[0_0_34px_rgba(132,204,22,0.28)] transition hover:bg-lime-300 hover:shadow-[0_0_46px_rgba(132,204,22,0.38)] sm:w-auto sm:text-base"
 
   return (
@@ -119,7 +122,15 @@ function ArchivoHistorico() {
             </div>
 
             <div className="mt-9">
-              {archivoGoogleFotosUrl ? (
+              {!estaLogueado ? (
+                <div className="rounded-2xl border border-lime-400/25 bg-black/30 p-5 sm:p-6">
+                  <p className="mb-4 max-w-sm text-sm leading-relaxed text-zinc-300">
+                    El archivo completo (+18.000 fotos) es solo para usuarios registrados. Iniciá sesión con Google
+                    para acceder.
+                  </p>
+                  <AuthControls />
+                </div>
+              ) : archivoGoogleFotosUrl ? (
                 <a href={archivoGoogleFotosUrl} target="_blank" rel="noreferrer" className={botonClasses}>
                   Abrir archivo en Drive
                   <span className="transition group-hover:translate-x-1">-&gt;</span>

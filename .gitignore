@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Backend (server/, api/) — nunca subir secretos ni el cliente generado
+.env
+/generated/prisma
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

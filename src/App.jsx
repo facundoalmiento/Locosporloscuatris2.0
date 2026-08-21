@@ -6,6 +6,7 @@ import LoadingWheel from "./components/LoadingWheel"
 import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
 import Seo from "./components/Seo"
+import CartDrawer from "./components/CartDrawer"
 import { siteConfig } from "./config/site"
 
 const Home = lazy(() => import("./pages/Home"))
@@ -15,6 +16,7 @@ const Historia = lazy(() => import("./pages/Historia"))
 const Sponsors = lazy(() => import("./pages/Sponsors"))
 const Travesia = lazy(() => import("./pages/Travesia"))
 const Contacto = lazy(() => import("./pages/Contacto"))
+const MiCuenta = lazy(() => import("./pages/MiCuenta"))
 const NotFound = lazy(() => import("./pages/NotFound"))
 const MascotaDesktopApariciones = lazy(
   () => import("./components/MascotaDesktopApariciones"),
@@ -59,16 +61,17 @@ export default function App() {
     <>
       <Seo />
       <Navbar />
+      {siteConfig.mostrarTienda ? <CartDrawer /> : null}
 
       {isTransitioning ? (
-        <div className="fixed inset-0 z-[1200] flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.22),transparent_24%),linear-gradient(180deg,rgba(4,4,4,0.98)_0%,rgba(10,10,10,0.96)_45%,rgba(17,24,39,0.98)_100%)] px-6 text-white backdrop-blur-sm">
+        <div className="fixed inset-0 z-[1200] flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] px-6 text-white">
           <LoadingWheel />
         </div>
       ) : null}
 
       <Suspense
         fallback={
-          <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.18),transparent_24%),linear-gradient(180deg,#040404_0%,#0a0a0a_50%,#111827_100%)] px-6 text-white">
+          <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top,rgba(132,204,22,0.16),transparent_26%),linear-gradient(180deg,#050505_0%,#0b0b0b_46%,#111827_100%)] px-6 text-white">
             <LoadingWheel />
           </div>
         }
@@ -149,6 +152,15 @@ export default function App() {
               element={
                 <PageWrapper>
                   <Contacto />
+                </PageWrapper>
+              }
+            />
+
+            <Route
+              path="/mi-cuenta"
+              element={
+                <PageWrapper>
+                  <MiCuenta />
                 </PageWrapper>
               }
             />

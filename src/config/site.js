@@ -5,6 +5,6 @@ export const siteConfig = {
   imagenSocial: "/galeria/portadareal.jpg",
   instagramUrl: "https://www.instagram.com/hernan.almiento/",
   mostrarHistoria: false,
-  mostrarTienda: false,
+  mostrarTienda: false, // se reactiva a mano cuando Facu quiera lanzar la tienda
   whatsappNumero: "5492216817816",
 }

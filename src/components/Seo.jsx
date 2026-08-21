@@ -34,6 +34,11 @@ const paginas = {
     titulo: "Locos por los Cuatris | Equipamiento off-road",
     descripcion: "Equipamiento y accesorios para cuatriciclos, ATV y UTV pensados para travesías off-road exigentes.",
   },
+  "/mi-cuenta": {
+    titulo: "Locos por los Cuatris | Mi cuenta",
+    descripcion: "Gestioná tus cuatriciclos y revisá tus pedidos en Locos por los Cuatris.",
+    indexable: false,
+  },
 }
 
 const normalizarRuta = (pathname) => pathname !== "/" ? pathname.replace(/\/+$/, "") : pathname

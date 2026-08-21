@@ -1,10 +1,22 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 import { siteConfig } from "../config/site"
+import { useCart } from "../context/CartContext"
+import { useAuth } from "../context/AuthContext"
+import { useRecordatorioMantenimiento } from "../hooks/useRecordatorioMantenimiento"
+import AuthControls from "./AuthControls"
 
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false)
+  const { totalItems, setAbierto } = useCart()
+  const { estaLogueado } = useAuth()
+  const aviso = useRecordatorioMantenimiento()
+  const location = useLocation()
+  const enTienda = location.pathname === "/tienda"
+  // En mobile el avatar (con su puntito) vive escondido dentro del menú
+  // hamburguesa, así que el aviso se marca sobre el propio botón de menú.
+  const notificacionSinVerMobile = Boolean(estaLogueado && aviso && !aviso.visto)
 
   const links = [
     { to: "/travesias", label: "Travesías" },
@@ -39,19 +51,43 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Link
-            to="/contacto#whatsapp"
-            className="hidden rounded-lg bg-lime-500 px-4 py-2 text-sm font-bold text-black transition hover:bg-lime-400 sm:inline-flex"
-            onClick={() => setMenuAbierto(false)}
-          >
-            Reservar
-          </Link>
+          {siteConfig.mostrarTienda ? (
+            <button
+              type="button"
+              onClick={() => setAbierto(true)}
+              aria-label="Ver carrito"
+              className="relative flex h-10 items-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-3 text-sm font-semibold"
+            >
+              <span className="text-lg">🛒</span>
+              <span className="hidden sm:inline">Ver carrito</span>
+              {totalItems > 0 ? (
+                <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-lime-400 px-1 text-xs font-bold text-black">
+                  {totalItems}
+                </span>
+              ) : null}
+            </button>
+          ) : null}
+
+          <AuthControls className="hidden sm:block" />
+
+          {!enTienda ? (
+            <Link
+              to="/contacto#whatsapp"
+              className="hidden rounded-lg bg-lime-500 px-4 py-2 text-sm font-bold text-black transition hover:bg-lime-400 sm:inline-flex"
+              onClick={() => setMenuAbierto(false)}
+            >
+              Reservar
+            </Link>
+          ) : null}
 
           <button
-            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md border border-white/10 bg-white/[0.03] md:hidden"
+            className="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md border border-white/10 bg-white/[0.03] md:hidden"
             onClick={() => setMenuAbierto(!menuAbierto)}
             aria-label="Abrir menú"
           >
+            {notificacionSinVerMobile ? (
+              <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full border-2 border-black bg-red-500" />
+            ) : null}
             <span
               className={`block h-0.5 w-6 bg-white transition-all duration-300 ${
                 menuAbierto ? "translate-y-2 rotate-45" : ""
@@ -73,17 +109,21 @@ export default function Navbar() {
 
       <div
         className={`overflow-hidden transition-all duration-300 md:hidden ${
-          menuAbierto ? "max-h-96" : "max-h-0"
+          menuAbierto ? "max-h-[calc(100svh-4rem)]" : "max-h-0"
         }`}
       >
         <div className="flex max-h-[calc(100svh-4rem)] flex-col gap-4 overflow-y-auto border-t border-white/10 px-4 pb-6 pt-4 text-sm font-semibold uppercase tracking-wide">
-          <Link
-            to="/contacto#whatsapp"
-            className="rounded-lg bg-lime-500 px-4 py-3 text-center font-bold text-black transition hover:bg-lime-400"
-            onClick={() => setMenuAbierto(false)}
-          >
-            Reservar
-          </Link>
+          <AuthControls variant="inline" />
+
+          {!enTienda ? (
+            <Link
+              to="/contacto#whatsapp"
+              className="rounded-lg bg-lime-500 px-4 py-3 text-center font-bold text-black transition hover:bg-lime-400"
+              onClick={() => setMenuAbierto(false)}
+            >
+              Reservar
+            </Link>
+          ) : null}
 
           {links.map((link) => (
             <Link

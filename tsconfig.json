@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "allowJs": true
+  },
+  "include": [
+    "server",
+    "api",
+    "generated",
+    "src/utils/mantenimiento.js",
+    "src/utils/pasaporte.js",
+    "src/data/eventos.js",
+    "src/data/travesias.js",
+    "src/config/site.js"
+  ]
+}

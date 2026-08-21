@@ -1,0 +1,128 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum MaintenanceType {
+  ACEITE  // Aceite y filtro
+  GENERAL // Mantenimiento general: correa, engrase, pastillas, batería, líquidos, etc.
+}
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  password  String?
+  googleId  String?   @unique
+  name      String
+  phone     String?
+  role      Role      @default(USER)
+  vehicles  Vehicle[]
+  orders    Order[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  // "Firma" del último aviso de mantenimiento que le mandamos por mail, para
+  // no mandarle el mismo recordatorio todos los días mientras no cambie nada.
+  lastReminderSignature String?
+
+  travesiasAsistidas TravesiaAsistencia[]
+}
+
+// Pasaporte Off-Road: registro de qué travesías (de src/data/travesias.js)
+// asistió cada usuario. Lo carga un ADMIN a mano, porque la inscripción a
+// las salidas es por WhatsApp, fuera del sitio — nadie se puede auto-otorgar
+// una asistencia.
+model TravesiaAsistencia {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  travesiaId String // id de la travesía en src/data/travesias.js (ej: "san-cayetano-2025")
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, travesiaId])
+  @@index([userId])
+}
+
+model Vehicle {
+  id              String            @id @default(cuid())
+  brand           String
+  model           String
+  engineCc        Int
+  userId          String
+  user            User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  maintenanceLogs MaintenanceLog[]
+
+  @@index([userId])
+}
+
+// Bitácora de mantenimiento: cada renglón es "le hice tal cosa al vehículo tal día".
+model MaintenanceLog {
+  id        String          @id @default(cuid())
+  vehicleId String
+  vehicle   Vehicle         @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+  type      MaintenanceType
+  date      DateTime
+  note      String?
+  createdAt DateTime        @default(now())
+
+  @@index([vehicleId])
+}
+
+model Category {
+  id       String    @id @default(cuid())
+  name     String    @unique
+  products Product[]
+}
+
+model Product {
+  id          String      @id @default(cuid())
+  name        String
+  description String?
+  price       Float
+  stock       Int
+  images      String[]    @default([])
+  categoryId  String
+  category    Category    @relation(fields: [categoryId], references: [id])
+  orderItems  OrderItem[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@index([categoryId])
+}
+
+model Order {
+  id          String      @id @default(cuid())
+  userId      String
+  user        User        @relation(fields: [userId], references: [id])
+  totalAmount Float
+  status      String      @default("PENDING") // PENDING, PAID, CANCELLED
+  items       OrderItem[]
+  createdAt   DateTime    @default(now())
+
+  @@index([userId])
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Float
+
+  @@index([orderId])
+  @@index([productId])
+}
