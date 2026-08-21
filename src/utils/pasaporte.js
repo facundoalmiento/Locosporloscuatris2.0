@@ -1,4 +1,4 @@
-import { travesias } from "../data/travesias"
+import { travesias } from "../data/travesias.js"
 
 // Niveles de insignia por terreno, de mayor a menor exigencia (el primero
 // que cumple es el nivel actual). Simple: no depende de más datos que la

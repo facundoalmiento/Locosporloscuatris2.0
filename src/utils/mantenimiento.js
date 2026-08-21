@@ -1,4 +1,4 @@
-import { eventos } from "../data/eventos"
+import { eventos } from "../data/eventos.js"
 
 // Tipos fijos de la bitácora de mantenimiento (compartido entre "Mi cuenta"
 // y la notificación junto al nombre del usuario). Simplificado a 2
