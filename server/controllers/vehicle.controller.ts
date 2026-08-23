@@ -9,8 +9,8 @@ export async function createVehicle(req: AuthRequest, res: Response) {
     return res.status(400).json({ error: "brand, model y engineCc son obligatorios" });
   }
 
-  // Las dos fechas son opcionales: si el usuario las sabe, arrancamos la
-  // bitácora ahí mismo (sin tener que ir a cargarla aparte). Si no las sabe,
+  // Las dos fechas son opcionales: si el usuario las sabe, arrancamos el
+  // registro ahí mismo (sin tener que ir a cargarlo aparte). Si no las sabe,
   // el vehículo se crea igual y queda como "nunca registrado".
   const logsIniciales: { type: "ACEITE" | "GENERAL"; date: Date }[] = [];
 
@@ -44,7 +44,7 @@ export async function createVehicle(req: AuthRequest, res: Response) {
 export async function listMyVehicles(req: AuthRequest, res: Response) {
   const vehicles = await prisma.vehicle.findMany({
     where: { userId: req.userId! },
-    // Traemos la bitácora de una vez para no pedirla vehículo por vehículo:
+    // Traemos el registro de una vez para no pedirla vehículo por vehículo:
     // con esto alcanza para mostrar "último cambio de aceite" en la lista.
     include: { maintenanceLogs: { orderBy: { date: "desc" } } },
     orderBy: { brand: "asc" },

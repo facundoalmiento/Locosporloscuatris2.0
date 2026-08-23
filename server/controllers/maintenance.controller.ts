@@ -5,7 +5,7 @@ import { AuthRequest } from "../middlewares/auth.middleware.js";
 const TIPOS_VALIDOS = ["ACEITE", "GENERAL"];
 
 // Confirma que el vehículo exista y sea del usuario logueado. Se usa antes de
-// leer o escribir su bitácora, así nadie ve ni toca el mantenimiento de un
+// leer o escribir su registro, así nadie ve ni toca el mantenimiento de un
 // cuatriciclo ajeno.
 async function getVehiculoPropio(vehicleId: string, userId: string) {
   const vehicle = await prisma.vehicle.findUnique({ where: { id: vehicleId } });

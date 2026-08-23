@@ -1,6 +1,6 @@
 import { eventos } from "../data/eventos.js"
 
-// Tipos fijos de la bitácora de mantenimiento (compartido entre "Mi cuenta"
+// Tipos fijos del registro de mantenimiento (compartido entre "Mi cuenta"
 // y la notificación junto al nombre del usuario). Simplificado a 2
 // categorías para que cargar un registro sea rápido: el aceite es el
 // mantenimiento más crítico y periódico, y todo lo demás (correa, engrase,

@@ -16,7 +16,7 @@ router.post("/", createVehicle);
 router.get("/", listMyVehicles);
 router.delete("/:id", deleteVehicle);
 
-// Bitácora de mantenimiento de un vehículo propio.
+// Registro de mantenimiento de un vehículo propio.
 router.get("/:vehicleId/maintenance", listMaintenanceLogs);
 router.post("/:vehicleId/maintenance", createMaintenanceLog);
 router.delete("/:vehicleId/maintenance/:logId", deleteMaintenanceLog);

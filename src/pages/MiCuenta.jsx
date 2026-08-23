@@ -239,7 +239,7 @@ function MisVehiculos({ token, vehiculoDestacado }) {
   )
 }
 
-// Bitácora de mantenimiento de UN vehículo: resumen del último de cada tipo,
+// Registro de mantenimiento de UN vehículo: resumen del último de cada tipo,
 // historial completo desplegable, y el form chico para cargar uno nuevo.
 function Bitacora({ token, vehiculo, onChange, abrirInicialmente = false }) {
   const [abierta, setAbierta] = useState(abrirInicialmente)
@@ -307,7 +307,7 @@ function Bitacora({ token, vehiculo, onChange, abrirInicialmente = false }) {
         onClick={() => setAbierta((v) => !v)}
         className="mt-3 text-xs font-bold uppercase tracking-wide text-lime-400 hover:text-lime-300"
       >
-        {abierta ? "Ocultar bitácora ▲" : `Ver bitácora (${logs.length}) ▼`}
+        {abierta ? "Ocultar registro de mantenimiento ▲" : `Ver registro de mantenimiento (${logs.length}) ▼`}
       </button>
 
       {abierta ? (

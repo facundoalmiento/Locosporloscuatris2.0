@@ -212,11 +212,11 @@ export async function enviarRecordatorioMantenimiento({
     </tr>
     ${chequeoHtml}
     ${gruposHtml}
-    ${botonHtml("Actualizar bitácora", LINK_CUENTA)}`;
+    ${botonHtml("Actualizar registro", LINK_CUENTA)}`;
 
   const html = renderShell({
     tituloPagina: tituloTravesia,
-    subtituloHeader: "Bitácora de mantenimiento",
+    subtituloHeader: "Registro de mantenimiento",
     bodyHtml,
     footerNota: "Nos vemos en la próxima travesía — cuidá la máquina.",
   });
@@ -255,7 +255,7 @@ export async function enviarBienvenida({ to, nombre }: { to: string; nombre: str
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fafafa;border:1px solid #e4e4e7;border-radius:12px;">
                 <tr>
                   <td style="padding:14px 18px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#18181b;">
-                    🏍️ <strong>Cargar tus cuatriciclos</strong> y llevar la bitácora de mantenimiento
+                    🏍️ <strong>Cargar tus cuatriciclos</strong> y llevar el registro de mantenimiento
                   </td>
                 </tr>
               </table>
