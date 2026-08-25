@@ -54,16 +54,12 @@ function AvisoMantenimiento({ aviso, marcando, onMarcarHecho, onNavegar }) {
   )
 }
 
-// Botón "Iniciar con Google" / estado logueado. Es 100% opcional: si nadie
-// lo toca, el sitio funciona exactamente igual que antes.
-//
-// variant="compact" (default): píldora con avatar + desplegable flotante,
-// pensada para el navbar de escritorio.
-// variant="inline": mismo contenido pero en flujo normal (sin position
-// absolute), pensada para vivir DENTRO del menú hamburguesa de mobile —
-// evita el problema de un desplegable flotante recortado por el
-// overflow-hidden del propio menú.
-export default function AuthControls({ className = "", variant = "compact" }) {
+// Botón "Iniciar con Google" / estado logueado: píldora con avatar (o el
+// botón de Google si no hay sesión) + desplegable flotante. Es 100%
+// opcional: si nadie lo toca, el sitio funciona exactamente igual que
+// antes. Siempre visible en el navbar (desktop y mobile) para no obligar a
+// abrir el menú hamburguesa solo para ver si hay que loguearse.
+export default function AuthControls({ className = "" }) {
   const { user, token, estaLogueado, loginConGoogle, logout } = useAuth()
   const [error, setError] = useState("")
   const [menuAbierto, setMenuAbierto] = useState(false)
@@ -87,33 +83,6 @@ export default function AuthControls({ className = "", variant = "compact" }) {
   }
 
   if (estaLogueado && user) {
-    if (variant === "inline") {
-      return (
-        <div className={`space-y-3 ${className}`}>
-          <div className="flex items-center gap-2">
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-lime-400 text-sm font-bold text-black">
-              {user.name?.[0]?.toUpperCase() ?? "?"}
-            </span>
-            <span className="truncate normal-case tracking-normal text-white">{user.name}</span>
-          </div>
-
-          {aviso ? (
-            <AvisoMantenimiento aviso={aviso} marcando={marcando} onMarcarHecho={marcarHecho} onNavegar={() => {}} />
-          ) : null}
-
-          <div className="flex gap-3">
-            <Link to="/mi-cuenta" className="transition hover:text-lime-400">
-              Mi cuenta
-            </Link>
-            <span className="text-white/20">·</span>
-            <button type="button" onClick={logout} className="transition hover:text-lime-400">
-              Cerrar sesión
-            </button>
-          </div>
-        </div>
-      )
-    }
-
     const notificacionSinVer = Boolean(aviso && !aviso.visto)
 
     return (
@@ -136,35 +105,43 @@ export default function AuthControls({ className = "", variant = "compact" }) {
         </button>
 
         {menuAbierto ? (
-          <div className="absolute right-0 top-12 z-50 w-80 max-w-[calc(100vw-2rem)] overflow-hidden rounded-lg border border-white/10 bg-zinc-950 shadow-xl">
-            {aviso ? (
-              <div className="border-b border-yellow-400/30 p-3">
-                <AvisoMantenimiento
-                  aviso={aviso}
-                  marcando={marcando}
-                  onMarcarHecho={marcarHecho}
-                  onNavegar={() => setMenuAbierto(false)}
-                />
-              </div>
-            ) : null}
-            <Link
-              to="/mi-cuenta"
+          <>
+            {/* Fondo desenfocado: separa visualmente el menú del resto de la página */}
+            <div
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
               onClick={() => setMenuAbierto(false)}
-              className="block px-4 py-3 text-left text-sm font-semibold text-white transition hover:bg-white/5"
-            >
-              Mi cuenta
-            </Link>
-            <button
-              type="button"
-              onClick={() => {
-                setMenuAbierto(false)
-                logout()
-              }}
-              className="w-full border-t border-white/10 px-4 py-3 text-left text-sm font-semibold text-white transition hover:bg-white/5"
-            >
-              Cerrar sesión
-            </button>
-          </div>
+              aria-hidden="true"
+            />
+            <div className="absolute right-0 top-12 z-50 w-80 max-w-[calc(100vw-2rem)] overflow-hidden rounded-lg border border-white/10 bg-zinc-950 shadow-xl">
+              {aviso ? (
+                <div className="border-b border-yellow-400/30 p-3">
+                  <AvisoMantenimiento
+                    aviso={aviso}
+                    marcando={marcando}
+                    onMarcarHecho={marcarHecho}
+                    onNavegar={() => setMenuAbierto(false)}
+                  />
+                </div>
+              ) : null}
+              <Link
+                to="/mi-cuenta"
+                onClick={() => setMenuAbierto(false)}
+                className="block px-4 py-3 text-left text-sm font-semibold text-white transition hover:bg-white/5"
+              >
+                Mi cuenta
+              </Link>
+              <button
+                type="button"
+                onClick={() => {
+                  setMenuAbierto(false)
+                  logout()
+                }}
+                className="w-full border-t border-white/10 px-4 py-3 text-left text-sm font-semibold text-white transition hover:bg-white/5"
+              >
+                Cerrar sesión
+              </button>
+            </div>
+          </>
         ) : null}
       </div>
     )

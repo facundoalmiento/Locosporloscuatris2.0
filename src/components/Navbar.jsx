@@ -3,20 +3,13 @@ import { Link, useLocation } from "react-router-dom"
 
 import { siteConfig } from "../config/site"
 import { useCart } from "../context/CartContext"
-import { useAuth } from "../context/AuthContext"
-import { useRecordatorioMantenimiento } from "../hooks/useRecordatorioMantenimiento"
 import AuthControls from "./AuthControls"
 
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false)
   const { totalItems, setAbierto } = useCart()
-  const { estaLogueado } = useAuth()
-  const aviso = useRecordatorioMantenimiento()
   const location = useLocation()
   const enTienda = location.pathname === "/tienda"
-  // En mobile el avatar (con su puntito) vive escondido dentro del menú
-  // hamburguesa, así que el aviso se marca sobre el propio botón de menú.
-  const notificacionSinVerMobile = Boolean(estaLogueado && aviso && !aviso.visto)
 
   const links = [
     { to: "/travesias", label: "Travesías" },
@@ -68,7 +61,7 @@ export default function Navbar() {
             </button>
           ) : null}
 
-          <AuthControls className="hidden sm:block" />
+          <AuthControls />
 
           {!enTienda ? (
             <Link
@@ -81,13 +74,10 @@ export default function Navbar() {
           ) : null}
 
           <button
-            className="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md border border-white/10 bg-white/[0.03] md:hidden"
+            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md border border-white/10 bg-white/[0.03] md:hidden"
             onClick={() => setMenuAbierto(!menuAbierto)}
             aria-label="Abrir menú"
           >
-            {notificacionSinVerMobile ? (
-              <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full border-2 border-black bg-red-500" />
-            ) : null}
             <span
               className={`block h-0.5 w-6 bg-white transition-all duration-300 ${
                 menuAbierto ? "translate-y-2 rotate-45" : ""
@@ -107,14 +97,20 @@ export default function Navbar() {
         </div>
       </div>
 
+      {menuAbierto ? (
+        <div
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+          onClick={() => setMenuAbierto(false)}
+          aria-hidden="true"
+        />
+      ) : null}
+
       <div
-        className={`overflow-hidden transition-all duration-300 md:hidden ${
+        className={`relative z-50 overflow-hidden transition-all duration-300 md:hidden ${
           menuAbierto ? "max-h-[calc(100svh-4rem)]" : "max-h-0"
         }`}
       >
-        <div className="flex max-h-[calc(100svh-4rem)] flex-col gap-4 overflow-y-auto border-t border-white/10 px-4 pb-6 pt-4 text-sm font-semibold uppercase tracking-wide">
-          <AuthControls variant="inline" />
-
+        <div className="flex max-h-[calc(100svh-4rem)] flex-col gap-4 overflow-y-auto border-t border-white/10 bg-black/95 px-4 pb-6 pt-4 text-sm font-semibold uppercase tracking-wide">
           {!enTienda ? (
             <Link
               to="/contacto#whatsapp"
