@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { createPortal } from "react-dom"
 import { Link, useLocation } from "react-router-dom"
 
 import { siteConfig } from "../config/site"
@@ -97,13 +98,20 @@ export default function Navbar() {
         </div>
       </div>
 
-      {menuAbierto ? (
-        <div
-          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
-          onClick={() => setMenuAbierto(false)}
-          aria-hidden="true"
-        />
-      ) : null}
+      {/* Fondo desenfocado: va por portal directo al <body> porque este mismo
+          <nav> ya tiene backdrop-blur-md, y eso "atrapa" a los elementos
+          fixed de adentro dentro de sus propios límites (la barra, no toda
+          la pantalla). */}
+      {menuAbierto
+        ? createPortal(
+            <div
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+              onClick={() => setMenuAbierto(false)}
+              aria-hidden="true"
+            />,
+            document.body
+          )
+        : null}
 
       <div
         className={`relative z-50 overflow-hidden transition-all duration-300 md:hidden ${

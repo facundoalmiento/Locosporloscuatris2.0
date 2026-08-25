@@ -1,5 +1,6 @@
 import { GoogleLogin } from "@react-oauth/google"
 import { useState } from "react"
+import { createPortal } from "react-dom"
 import { Link } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 import { useRecordatorioMantenimiento } from "../hooks/useRecordatorioMantenimiento"
@@ -106,12 +107,18 @@ export default function AuthControls({ className = "" }) {
 
         {menuAbierto ? (
           <>
-            {/* Fondo desenfocado: separa visualmente el menú del resto de la página */}
-            <div
-              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
-              onClick={() => setMenuAbierto(false)}
-              aria-hidden="true"
-            />
+            {/* Fondo desenfocado: va por portal directo al <body> porque el
+                navbar ya tiene su propio backdrop-blur, y eso "atrapa" a
+                cualquier elemento fixed de adentro dentro de sus propios
+                límites (achicándole el desenfoque a solo la barra). */}
+            {createPortal(
+              <div
+                className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+                onClick={() => setMenuAbierto(false)}
+                aria-hidden="true"
+              />,
+              document.body
+            )}
             <div className="absolute right-0 top-12 z-50 w-80 max-w-[calc(100vw-2rem)] overflow-hidden rounded-lg border border-white/10 bg-zinc-950 shadow-xl">
               {aviso ? (
                 <div className="border-b border-yellow-400/30 p-3">
