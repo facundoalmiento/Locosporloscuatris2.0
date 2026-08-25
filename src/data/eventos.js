@@ -14,8 +14,8 @@ export const eventos = [
   {
     id: "cordoba-san-luis-2026",
     titulo: "Cruce de Sierras - Pueblo escondido",
-    fecha: "8 al 11 de Octubre 2026",
-    fechaInicio: "2026-10-08",
+    fecha: "5 al 8 de Noviembre 2026",
+    fechaInicio: "2026-11-05",
     ubicacion: "Córdoba a San Luis.",
     cupos: "Disponibles",
     inscripcion: "abierta"
