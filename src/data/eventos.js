@@ -1,7 +1,16 @@
 export const eventos = [
+    {
+    id: "cordoba-san-luis-2026",
+    titulo: "Cruce de Sierras - Pueblo escondido",
+    fecha: "5 al 8 de Noviembre 2026",
+    fechaInicio: "2026-11-05",
+    ubicacion: "Córdoba a San Luis.",
+    cupos: "No disponibles",
+    inscripcion: "cerrada"
+  },
   {
-    id: "pinamar-2026",
-    titulo: "Médanos Pinamar",
+    id: "San-Cayetano-2026",
+    titulo: "Cierre de Año 2026",
     fecha: "18-19-20 de Diciembre 2026",
     // fechaInicio: fecha real (ISO) del primer día, para poder calcular
     // "cuántos días faltan" — no se muestra tal cual, es solo para cálculos.
@@ -11,13 +20,5 @@ export const eventos = [
     inscripcion: "abierta"
   },
 
-  {
-    id: "cordoba-san-luis-2026",
-    titulo: "Cruce de Sierras - Pueblo escondido",
-    fecha: "5 al 8 de Noviembre 2026",
-    fechaInicio: "2026-11-05",
-    ubicacion: "Córdoba a San Luis.",
-    cupos: "No disponibles",
-    inscripcion: "cerrada"
-  }
+
 ]
