@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar"
 import Seo from "./components/Seo"
 import CartDrawer from "./components/CartDrawer"
 import { siteConfig } from "./config/site"
+import { iniciarSeguimientoPwa } from "./utils/pwaAnalytics"
 
 const Home = lazy(() => import("./pages/Home"))
 const Experiencias = lazy(() => import("./pages/Experiencias"))
@@ -34,6 +35,10 @@ export default function App() {
     location.pathname === "/sponsors" ||
     location.pathname === "/galeria" ||
     location.pathname.startsWith("/galeria/")
+
+  useEffect(() => {
+    iniciarSeguimientoPwa()
+  }, [])
 
   useEffect(() => {
     if (location.pathname === previousPathnameRef.current) return undefined
