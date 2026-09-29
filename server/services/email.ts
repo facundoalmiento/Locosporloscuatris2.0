@@ -6,7 +6,7 @@ const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KE
 // Mientras no verifiques tu propio dominio en Resend, "onboarding@resend.dev"
 // es la dirección de prueba que Resend deja usar sin configuración extra.
 const FROM = process.env.EMAIL_FROM ?? "Locos por los Cuatris <onboarding@resend.dev>";
-const LINK_CUENTA = `${siteConfig.sitioUrl}/#/mi-cuenta`;
+const LINK_CUENTA = `${siteConfig.sitioUrl}/mi-cuenta`;
 const MASCOTA_URL = `${siteConfig.sitioUrl}/mascota-email.png`;
 
 // Escapa texto que viene de datos cargados por usuarios (nombre, marca,
