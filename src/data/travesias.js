@@ -1,28 +1,40 @@
 export const travesias = [
   {
-    id: "san-cayetano-2025",
-    tipo: "arena",
-    titulo: "San Cayetano",
-    fecha: "Noviembre 2025",
-    // fechaOrden: fecha real (ISO) para poder ordenar el Pasaporte Off-Road
-    // cronológicamente — no se muestra tal cual, es solo para ordenar.
-    fechaOrden: "2025-11-01",
-    portada: "/galeria/san-cayetano-2025/01.webp",
+    id: "cordoba-sanluis-2026",
+    tipo: "sierra",
+    titulo: "Cordoba - San Luis 2026",
+    fecha: "Mayo 2026",
+    fechaOrden: "2026-05-01",
+    portada: "/galeria/cordoba-sanluis-2026/01.webp",
     fotos: Array.from(
-      { length: 10 },
-      (_, index) => `/galeria/san-cayetano-2025/${String(index + 1).padStart(2, "0")}.webp`
+      { length: 11 },
+      (_, index) => `/galeria/cordoba-sanluis-2026/${String(index + 1).padStart(2, "0")}.webp`
     )
   },
   {
-    id: "pinamar-primavera-2025",
+    id: "pinamar-2026",
     tipo: "arena",
-    titulo: "Pinamar Primavera",
-    fecha: "Septiembre 2025",
-    fechaOrden: "2025-09-01",
-    portada: "/galeria/pinamar-primavera-2025/01.webp",
+    titulo: "Pinamar Agosto",
+    fecha: "Agosto 2026",
+    fechaOrden: "2026-08-01",
+    portada: "/galeria/pinamar-2026/01.webp",
+    fotos: Array.from(
+      { length: 7 },
+      (_, index) => `/galeria/pinamar-2026/${String(index + 1).padStart(2, "0")}.webp`
+    )
+  },
+  {
+    id: "san-cayetano-2026",
+    tipo: "arena",
+    titulo: "San Cayetano",
+    fecha: "Marzo 2026",
+    // fechaOrden: fecha real (ISO) para poder ordenar el Pasaporte Off-Road
+    // cronológicamente — no se muestra tal cual, es solo para ordenar.
+    fechaOrden: "2026-03-01",
+    portada: "/galeria/san-cayetano-2026/01.webp",
     fotos: Array.from(
       { length: 10 },
-      (_, index) => `/galeria/pinamar-primavera-2025/${String(index + 1).padStart(2, "0")}.webp`
+      (_, index) => `/galeria/san-cayetano-2026/${String(index + 1).padStart(2, "0")}.webp`
     )
   },
   {

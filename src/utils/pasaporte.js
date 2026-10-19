@@ -12,6 +12,7 @@ export const NIVELES_INSIGNIA = [
 const ETIQUETAS_TERRENO = {
   arena: "Arena",
   barro: "Barro",
+  sierra: "Sierra",
   solidaria: "Solidarias",
   nieve: "Nieve",
 }

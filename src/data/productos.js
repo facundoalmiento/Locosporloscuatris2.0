@@ -13,7 +13,6 @@ export const productos = [
     nombre: "Guantes Enduro",
     precio: "$35",
     descripcion: "Máximo agarre en barro y arena incluso con terreno pesado.",
-    imagen: "/galeria/barrofuerte-02.jpg",
     categoria: "guantes",
     badge: "Grip total"
   },

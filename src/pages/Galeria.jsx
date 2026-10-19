@@ -14,6 +14,7 @@ const filtros = [
   { id: "todas", label: "Todas" },
   { id: "arena", label: "Arena" },
   { id: "barro", label: "Barro" },
+  { id: "sierra", label: "Sierra" },
   { id: "solidaria", label: "Solidaria" }
 ]
 
@@ -31,7 +32,7 @@ const albumesActivos = obtenerUltimosPorCategoria(travesias)
 
 const metricas = [
   { valor: `${albumesActivos.length}`, etiqueta: "albumes activos" },
-  { valor: "3", etiqueta: "categorias activas" },
+  { valor: "4", etiqueta: "categorias activas" },
   { valor: `${albumesPorCategoria}`, etiqueta: "por categoria" }
 ]
 

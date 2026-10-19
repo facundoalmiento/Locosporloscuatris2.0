@@ -8,7 +8,6 @@ import mascotaTienda from "../assets/mascota-tienda.png"
 // usamos una imagen de referencia por categoría como respaldo temporal.
 const imagenPorCategoria = {
   cascos: "/galeria/pinamar-2025/enduro.jpg",
-  guantes: "/galeria/barrofuerte-02.jpg",
   aceites: "/galeria/aceite.png",
   protecciones: "/galeria/pinamar-2025/utv.jpg",
 }

@@ -97,6 +97,14 @@ const tiposTravesias = [
     to: "/galeria"
   },
   {
+    nombre: "Sierra",
+    etiqueta: "Montaña y caminos",
+    descripcion: "Travesías por sierras, valles y caminos de montaña en Córdoba, San Luis y otros paisajes del interior.",
+    imagen: "/galeria/nieve/nieve-06.jpg",
+    accion: "Ver sierra",
+    to: "/galeria"
+  },
+  {
     nombre: "Solidarias",
     etiqueta: "Grupo y comunidad",
     descripcion: "Salidas con propósito, colaboración y espíritu de equipo, conectando aventura con ayuda real en el camino.",
